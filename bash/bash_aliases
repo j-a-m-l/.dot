@@ -1,0 +1,4 @@
+alias v='vim'
+
+alias tumultu='VBoxManage startvm Tumultu -type vrdp'
+alias 192='ssh 192.168.56.2'
