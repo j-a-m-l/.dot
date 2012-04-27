@@ -1,0 +1,8 @@
+--type-add
+ruby=.builder,.rake
+--type-add
+css=.scss
+--type-set
+markdown=.markdown,.md,.mdown
+--type-add
+js=.coffee
