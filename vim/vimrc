@@ -1,0 +1,181 @@
+set nocompatible
+
+" TODO Split in several files; langs?, global, edit, commands/macros?
+
+" Para que actualice Vim al cambiar la configuración
+" autocmd! BufWritePost vimrc so ~/.vim/vimrc
+" autocmd! BufWritePost gvimrc so ~/.vim/gvimrc
+" autocmd BufWritePost *.vim so ~/.vim/maps.vim
+" autocmd BufWritePost *.vim so ~/.vim/plugins.vim
+
+" Pathogen.vim
+filetype off 
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+filetype plugin indent on
+
+" Don't auto-change directory to current file
+set noautochdir
+" Set to auto read when a file is changed from the outside
+set autoread
+
+" Show command info in the status line
+set showcmd
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" Enhace mode command line completion
+set wildmenu
+" Ignored files
+set wildignore+=*.jpg,*.jpeg,*.png,*.gif " Ignore images
+set wildignore+=*.pdf " Ignore PDF files
+set wildignore+=*.swp
+set wildignore+=*.svn,*.git
+
+set foldnestmax=3
+
+" Wrap text instead of being on one line
+set lbr
+
+" Prevent vim from adding an empty line at the end of file
+set noeol
+
+set autoindent
+" Copia el indentado
+set copyindent
+" figure out indent when ; is pressed TODO Funcionará bien en los for y comentarios?
+"set cinkeys+=;
+" Tomo como referencia shiftwidth en vez de tabstop
+set smarttab
+" Indentado automático de 4 espacios
+set shiftwidth=4
+" A tab is four spaces
+set tabstop=4
+set softtabstop=4
+" Show matching parenthesis
+set showmatch
+set smarttab
+
+" Para localizar fácilmente la línea
+set cursorline
+
+" Comienza la búsqueda desde el principio del archivo
+set wrapscan
+" Case insensitive search
+set ic
+" Si hay una mayúscula la búsqueda no es insensible
+set smartcase
+" Higlhight search
+set hls
+" Los caracteres '.', '*', '[' y ']' tienen un significado especial en las búsquedas
+set magic
+" Show search matches as you type
+set incsearch
+
+" ¿Qué hace? TODO
+"set laststatus=2
+
+" Para que muestre información de líneas, columnas y porcentaje en la línea de estado TODO rulerformat
+set ruler
+"set rulerformat=%15(%c%)
+
+" Report when N lines were changed
+set report=0
+
+" Turn line numbering. Turn it off with 'set nonu'
+set nu 
+" Relative line numbering. Version 7.3
+"set relativenumber
+" Start scrolling at this number of lines from the bottom
+set scrolloff=2
+
+" Split vertically to the right
+set splitright
+
+" To improve macros
+set lazyredraw
+
+" Command history size
+set history=600
+
+"set isk+=_,$,@,%,#,-,?,%,& " none of these should be word dividers, so make them not be TODO Joderá algo?
+
+" Modifica el comportamiento de TODO Comprobar comportamiento específico
+set backspace=start,indent,eol
+
+" Autocompletion
+set completeopt+=menuone,preview
+
+" Directories for swp files
+set backupdir=~/.vim.backup
+set directory=~/.vim.backup
+
+" Para el botón derecho
+set mousemodel=extend
+
+" Para que busque en otros sitios además de en el propio directorio
+set tags=~/.vim.private/Tags/php.tags
+
+" Local scripts/helpfiles FIXME pathogen
+"helptags $HOME/.vim/doc
+
+" Colores
+set t_Co=256
+
+if has("gui_running")
+	colo ysjs
+
+	set gfn=Monospace\ 10
+	"set gfn=Envy\ Code\ R\ 11
+	"set gfn=Droid\ Sans\ Mono\ 10
+	"set gfn=DejaVu\ Sans\ Mono\ 10
+
+	" Posición inicial en la pantalla
+	winpos 240 36
+	" Número de líneas y columnas por defecto pantalla
+	set lines=36
+	set columns=120
+	" Una ligera transparencia
+	"set transparency=5 FIXME No funciona
+
+	" Remove toolbar and menu bar
+	set guioptions-=m
+	set guioptions-=T
+else
+	colo elflord
+endif
+
+" MAPEOS
+source ~/.vim/maps.vim
+
+" PLUGINS
+source ~/.vim/plugins.vim
+
+" Unix date
+command! Date :r! date +"\%d-\%m-\%Y"
+command! DateTime :r! date +"\%a \%d-\%m-\%Y \%T"
+
+" Match always TODOs and FIXMEs TODO
+highlight TodosAndFixmes ctermbg=darkred guibg=darkred ctermfg=white guifg=#000 gui=bold
+syntax match TodosAndFixmes /TODO/
+syntax match TodosAndFixmes /FIXME/
+
+" Remember last location in file
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
+
+
+" nnoremap <C-K> :call HighlightNearCursor()<CR>
+" function HighlightNearCursor()
+"   if !exists("s:highlightcursor")
+"     match Todo /\k*\%#\k*/
+"     let s:highlightcursor=1
+"   else
+"     match None
+"     unlet s:highlightcursor
+"   endif
+" endfunction
+
+" Configuración adicional que puede depender del entorno
+source ~/.dot.private/vim/Config/vimrc.vim

@@ -1,0 +1,17 @@
+ia lenguage lenguaje
+ia Lenguage Lenguaje
+ia LEnguage Lenguaje
+ia palabar palabra
+ia Palabar Palabra
+ia PAlabar Palabra
+ia palbra palabra
+ia Palbra Palabra
+ia PAlbra Palabra
+ia erorr error
+ia Erorr Error
+ia ERorr Error
+ia probelma problema
+ia Probelma Problema
+ia PRobelma Problema
+ia dw de
+ia Dw De
