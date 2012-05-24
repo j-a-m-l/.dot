@@ -1,4 +1,4 @@
-" Configuración de plugins
+" PLUGINS
 
 " ECLIM
 " Para que use Exuberant Ctags

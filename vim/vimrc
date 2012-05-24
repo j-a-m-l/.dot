@@ -14,33 +14,28 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
 
-" Don't auto-change directory to current file
-set noautochdir
-" Set to auto read when a file is changed from the outside
-set autoread
 
-" Show command info in the status line
-set showcmd
+set noautochdir " Don't auto-change directory to current file
+set autoread " Set to auto read when a file is changed from the outside
+
+set showcmd " Show command info in the status line
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" Enhace mode command line completion
-set wildmenu
-" Ignored files
+set wildmenu " Enhace mode command line completion
+
 set wildignore+=*.jpg,*.jpeg,*.png,*.gif " Ignore images
 set wildignore+=*.pdf " Ignore PDF files
-set wildignore+=*.swp
-set wildignore+=*.svn,*.git
+set wildignore+=*.swp " Ignore temporary files
+set wildignore+=*.svn,*.git " Ignore VCS files
 
 set foldnestmax=3
 
-" Wrap text instead of being on one line
-set lbr
+set lbr " Wrap text instead of being on one line
 
-" Prevent vim from adding an empty line at the end of file
-set noeol
+set noeol " Prevent vim from adding an empty line at the end of file
 
 set autoindent
 " Copia el indentado
@@ -51,11 +46,9 @@ set copyindent
 set smarttab
 " Indentado automático de 4 espacios
 set shiftwidth=4
-" A tab is four spaces
-set tabstop=4
+set tabstop=4 " A tab is four spaces
 set softtabstop=4
-" Show matching parenthesis
-set showmatch
+set showmatch " Show matching parenthesis
 set smarttab
 
 " Para localizar fácilmente la línea
@@ -67,12 +60,10 @@ set wrapscan
 set ic
 " Si hay una mayúscula la búsqueda no es insensible
 set smartcase
-" Higlhight search
-set hls
+set hls " Higlhight search
 " Los caracteres '.', '*', '[' y ']' tienen un significado especial en las búsquedas
 set magic
-" Show search matches as you type
-set incsearch
+set incsearch " Show search matches as you type
 
 " ¿Qué hace? TODO
 "set laststatus=2
@@ -81,32 +72,24 @@ set incsearch
 set ruler
 "set rulerformat=%15(%c%)
 
-" Report when N lines were changed
-set report=0
+set report=0 " Report when N lines were changed
 
-" Turn line numbering. Turn it off with 'set nonu'
-set nu 
-" Relative line numbering. Version 7.3
-"set relativenumber
-" Start scrolling at this number of lines from the bottom
-set scrolloff=2
+set nu " Turn line numbering. Turn it off with 'set nonu'
+"set relativenumber " Relative line numbering. Version 7.3
+set scrolloff=2 " Start scrolling at this number of lines from the bottom
 
-" Split vertically to the right
-set splitright
+set splitright " Split vertically to the right
 
-" To improve macros
-set lazyredraw
+set lazyredraw " To improve macros
 
-" Command history size
-set history=600
+set history=600 " Command history size
 
 "set isk+=_,$,@,%,#,-,?,%,& " none of these should be word dividers, so make them not be TODO Joderá algo?
 
 " Modifica el comportamiento de TODO Comprobar comportamiento específico
 set backspace=start,indent,eol
 
-" Autocompletion
-set completeopt+=menuone,preview
+set completeopt+=menuone,preview " Autocompletion
 
 " Directories for swp files
 set backupdir=~/.vim.backup
@@ -132,22 +115,26 @@ if has("gui_running")
 	"set gfn=Droid\ Sans\ Mono\ 10
 	"set gfn=DejaVu\ Sans\ Mono\ 10
 
-	" Posición inicial en la pantalla
-	winpos 240 36
-	" Número de líneas y columnas por defecto pantalla
-	set lines=36
-	set columns=120
+	winpos 240 36 " Initial position on screen
+	set lines=36 " Lines
+	set columns=120 " Columns
 	" Una ligera transparencia
 	"set transparency=5 FIXME No funciona
 
-	" Remove toolbar and menu bar
-	set guioptions-=m
-	set guioptions-=T
+	set guioptions-=M " System menu is not sourced
+	set guioptions-=m " No menu
+	set guioptions-=T " No toolbar
+    set guioptions-=r " No scrollbar on the right
+    set guioptions-=R " No scrollbar on the right when split
+    set guioptions-=l " No scrollbar on the left
+	set guioptions-=l " No scrollbar on the left when split
+    set guioptions-=b " No scrollbar on the bottom
+    set guioptions=ci
 else
 	colo elflord
 endif
 
-" MAPEOS
+" MAPS
 source ~/.vim/maps.vim
 
 " PLUGINS

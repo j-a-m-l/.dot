@@ -1,49 +1,36 @@
-" Configuración de mapeos
+" MAPS
 
 let mapleader = "ç"
 
 " Nunca habrá 2 'ñ' seguidas o 2 'j'
 imap jj <ESC>
 
-" Y funciona como C y D, que se aprovecha más
+" Y like C and D, it's more useful
 nnoremap Y y$
 
-" Mapeos para pestañas
+" Tabs
 map ñn :tabnew<CR>
-map ñp :tabnew<CR>:Project<CR>
-map ñt :tabnew<CR>:CommandT<CR>
 map ñc :tabclose<CR>
 map ñh :tabprev<CR>
+map ñl :tabnext<CR>
 " map ñj
 " map ñk
-map ñl :tabnext<CR>
 
-" PDV (PHPDocumentator for Vim)
-imap <C-d> <ESC>:call PhpDocSingle()<CR>i
-nmap <C-d> :call PhpDocSingle()<CR>
-vmap <C-d> :call PhpDocRange()<CR>
-
-" Mapeo para Project
-map <silent> <Leader>p <Plug>ToggleProject
-
-" Mapeo para TagBar
-map <LEADER>g :TagbarToggle<CR>
-
-" Commands (FIXME terminal)
-cmap è <Left>
-cmap ê <Up>
-cmap ë <Down>
-cmap ì <Right>
-
-" Mapeos recomendados (Learning the vi and Vim Editors)
+" Recommend by Learning the vi and Vim Editors
 map e ea
+
+" Command mode
+cmap è <Left>
+cmap ì <Right>
+" Up is like Emacs
+" Down is like Emacs
+" End is like Emacs
 
 "
 " En pruebas...
 "
-
-" Le quita trabajo a la derecha (conflicto con hexadecimales, offers...)
-" imap ff <ESC>
+cmap ÷ <C-O>w
+cmap â <C-O>b
 
 " Guardado rápido TODO
 " <M-w> conincide con el S.O.
@@ -77,3 +64,15 @@ imap õ <C-O>u
 imap <C-Space> <C-x><C-o>
 
 map <Space> <C-e>f
+
+
+" PDV (PHPDocumentator for Vim)
+imap <C-d> <ESC>:call PhpDocSingle()<CR>i
+nmap <C-d> :call PhpDocSingle()<CR>
+vmap <C-d> :call PhpDocRange()<CR>
+
+" Mapeo para Project
+map <silent> <Leader>p <Plug>ToggleProject
+
+" Mapeo para TagBar
+map <LEADER>g :TagbarToggle<CR>
