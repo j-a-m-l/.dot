@@ -84,6 +84,8 @@ set lazyredraw " To improve macros
 
 set history=600 " Command history size
 
+set colorcolumn=80 " Mark column
+
 "set isk+=_,$,@,%,#,-,?,%,& " none of these should be word dividers, so make them not be TODO Joderá algo?
 
 " Modifica el comportamiento de TODO Comprobar comportamiento específico
@@ -139,6 +141,9 @@ source ~/.vim/maps.vim
 
 " PLUGINS
 source ~/.vim/plugins.vim
+
+" COMMANDS
+source ~/.vim/commands.vim
 
 " Unix date
 command! Date :r! date +"\%d-\%m-\%Y"
