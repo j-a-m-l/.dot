@@ -1,0 +1,4 @@
+# Toys
+def s; 'Example string' end
+def a; ['a', 'b', 'c', 'd'] end
+def h; [a: 'a', b: 'b', c: 'c', d: 'd'] end
