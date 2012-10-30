@@ -104,7 +104,7 @@ hi Underlined      guifg=#808080               gui=underline
 
 " El color (74C291) quedaba bien, pero era demasiado parecido al de JSLabel, por lo
 " que no se distinguía bien; éste otro, que es más pistachito, está dentro de las tonalidades verdes y azules, pero aún se parece demasiado TODO
-hi Comment         guifg=#8AC179
+hi Comment         guifg=#F9D0B8
 "79c179
 "8AC18A
 " }}}1
@@ -262,8 +262,8 @@ hi def link sassDefault                 cssImportant
 " Color que destaca mucho #F545D6
 hi sassVariable guifg=#F545D6
 hi def link sassFunction                Function
-hi def link sassMixing                  PreProc
-hi sassMixin  guifg=#44CB39 gui=bold
+hi sassMixin guifg=#C54546 gui=bold
+hi sassMixing guifg=#C54546                  
 hi def link sassExtend                  PreProc
 hi def link sassTodo                    Todo
 hi def link sassInclude                 Include
@@ -298,14 +298,14 @@ hi javaScriptBranch guifg=#458986
 " puedo dejar y si no me acostumbro, pues para otra cosa
 hi javaScriptLabel   guifg=#15A578
 hi javaScriptPrototype guifg=#14A5FF
-hi javaScriptComment guifg=#66C179
-hi javaScriptDocTags guifg=#8AC179 gui=bold
-hi javaScriptDocComment guifg=#8AC179
+hi javaScriptComment guifg=#F9D0B8 
+hi javaScriptDocTags guifg=#F6C179 gui=bold
+hi javaScriptDocComment guifg=#F6C179
 hi javaScriptRegexpString guifg=#5555CC
 hi javaScriptBoolean guifg=#0E592C              gui=bold
-hi javaScriptConditional guifg=#2C13CA gui=bold
-hi javaScriptRepeat guifg=#2C13CA gui=bold
-hi javaScriptCommentTodo guifg=#79D068 gui=bold
+hi javaScriptConditional guifg=#2C13DA gui=bold
+hi javaScriptRepeat guifg=#5C43FA gui=bold
+hi javaScriptCommentTodo guifg=#F6C179 gui=bold
 hi javaScriptNumber    guifg=#FA6900 
 " Cadenas con comillas dobles TODO Ligera diferenciación
 hi javaScriptStringD guifg=#528BF9
@@ -321,22 +321,23 @@ hi javaScriptBracket    guifg=#3B3A32
 hi javaScriptExpression        guifg=#FF0FF0 
 hi javaScriptDocParam guifg=#00FF00
 hi javaScriptSpecial   guifg=#F3500D 
-hi javaScriptStatement guifg=#FF0000
+" throw
+hi javaScriptStatement guifg=#FF00D0 gui=bold
 hi javaScriptIdentifier guifg=#A434FF
 " this, vars, arguments
 hi javaScriptReserved  guifg=#20D820 
 hi javaScriptMessage   guifg=#24DFA7 
-"hi javaScriptLineComment              guifg=#0000FF 
-"hi javaScriptCommentSkip              guifg=#0000FF 
+hi javaScriptLineComment              guifg=#F9D0B8
+hi javaScriptCommentSkip              guifg=#0000FF 
 hi javaScriptSpecialCharacter  guifg=#44F5d0 
-"hi javaScriptException        guifg=#0000FF 
-"hi javaScriptDeprecated               guifg=#0000FF 
+hi javaScriptException        guifg=#0000FF 
+hi javaScriptDeprecated               guifg=#0000FF 
 hi javaScriptType guifg=#215096 gui=bold
-hi javaScriptGlobalObjects guifg=#446699
+hi javaScriptGlobalObjects guifg=#4466F9
 " Nombre, parámetros y paréntesis
 hi javaScriptFuncName guifg=#FF106B 
 " Cambiar el color del contenido de una función
-"hi javaScriptFuncBlock guifg=#C04455
+" hi javaScriptFuncBlock guifg=#C04455
 hi javaScriptOpAssign guifg=#3BA5FF
 " location, event, document
 hi javaScriptMember guifg=#44AFAF gui=bold
@@ -538,11 +539,12 @@ hi erubyExpression guifg=#0489FC
 
 " Cucumber {{{2
 hi def link cucumberUnparsedComment   cucumberComment
-hi def link cucumberComment           Comment
+hi cucumberComment guifg=#94E095 gui=italic           
+" #445599 #449055 
 hi def link cucumberLanguage          SpecialComment
-hi cucumberFeature gui=bold
+hi cucumberFeature guifg=#000 gui=bold
 hi cucumberBackground guibg=#F45566
-hi cucumberScenario guifg=#64B966 gui=bold        
+hi cucumberScenario guifg=#54C956 gui=bold        
 hi cucumberScenarioOutline  guifg=#44F546 gui=bold
 hi def link cucumberExamples          Define
 hi def link cucumberPlaceholder       Constant
@@ -551,7 +553,7 @@ hi def link cucumberTags              Tag
 hi def link cucumberString            String
 hi cucumberGiven guifg=#F42546 gui=bold
 hi cucumberWhen guifg=#B42546 gui=bold
-hi cucumberThen guifg=#642546 gui=bold
+hi cucumberThen guifg=#742546 gui=bold
 " }}}2
 " }}}1
 
@@ -699,6 +701,42 @@ hi def link projectFlagsValues  String
 hi def link projectWhiteError   Error
 hi def link projectFlagsError   Error
 hi def link projectFilterError  Error
+" }}}1
+
+" Yacc {{{1
+hi def link yaccComment	Comment
+hi def link yaccCurly	Delimiter
+hi def link yaccCurlyError	Error
+hi def link yaccDefines	cDefine
+hi def link yaccParseParam	yaccParseOption
+hi def link yaccParseOption	cDefine
+hi yaccNonterminal guifg=#5678BB
+hi def link yaccDelim	Delimiter
+hi def link yaccKeyActn	Special
+hi def link yaccSectionSep	Todo
+hi def link yaccSep	Delimiter
+hi def link yaccString	String
+hi def link yaccStmt	Statement
+hi def link yaccType	Type
+" }}}1
+
+" Lex {{{1 TODO
+hi def link lexAbbrvComment	lexPatComment
+hi def link lexBrace	lexPat
+hi def link lexPatTagZone	lexPatTag
+hi def link lexSlashQuote	lexPat
+
+hi def link lexAbbrvRegExp	Macro
+hi def link lexAbbrv	SpecialChar
+hi lexCFunctions	guifg=#993344
+hi lexMorePat	guifg=#44BB55
+hi def link lexOptions	PreProc
+hi def link lexPatComment	Comment
+hi lexPat guifg=#4F7DD9
+hi lexPatString guifg=#882233	
+hi lexPatTag	guifg=#D72289
+hi lexSep	guifg=#4578C9
+hi def link lexStartState	Statement
 " }}}1
 
 
