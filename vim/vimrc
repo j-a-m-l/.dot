@@ -93,6 +93,8 @@ set backspace=start,indent,eol
 
 set completeopt+=menuone,preview " Autocompletion
 
+set spell
+
 " Directories for swp files
 set backupdir=~/.vim.backup
 set directory=~/.vim.backup
@@ -110,7 +112,7 @@ set tags=~/.vim.private/Tags/php.tags
 set t_Co=256
 
 if has("gui_running")
-	colo ysjs
+	colo noijd
 
 	set gfn=Monospace\ 10
 	"set gfn=Envy\ Code\ R\ 11
