@@ -2,3 +2,14 @@
 def s; 'Example string' end
 def a; ['a', 'b', 'c', 'd'] end
 def h; [a: 'a', b: 'b', c: 'c', d: 'd'] end
+
+# TODO autoinstall
+require 'irbtools'
+
+# modified from https://github.com/ConradIrwin/pry-debundle/pull/5
+# if defined?(Gem.post_reset_hooks)
+#   Gem.post_reset_hooks.reject!{ |hook| hook.source_location.first =~ %r{/bundler/} }
+#   Gem::Specification.reset
+#   load 'rubygems/custom_require.rb'
+#   alias gem require                                                              
+# end
