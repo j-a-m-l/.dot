@@ -1,6 +1,0 @@
-alias v='vim'
-#alias g='grep -i'
-alias sagi='sudo apt-get install'
-
-alias tumultu='VBoxManage startvm Tumultu -type vrdp'
-alias 192='ssh 192.168.56.2'
