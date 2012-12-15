@@ -12,7 +12,7 @@
                       starter-kit-lisp
                       starter-kit-bindings
                       magit
-                      org-mode
+                      org
                       starter-kit-ruby
                       starter-kit-js
                       coffee-mode)
