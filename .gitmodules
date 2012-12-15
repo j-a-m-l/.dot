@@ -1,0 +1,102 @@
+[submodule "vim/bundle/command-t"]
+	path = vim/bundle/command-t
+	url = git://git.wincent.com/command-t.git
+[submodule "vim/bundle/conque-term"]
+	path = vim/bundle/conque-term
+	url = https://github.com/rosenfeld/conque-term.git
+[submodule "vim/bundle/ack-vim"]
+	path = vim/bundle/ack-vim
+	url = https://github.com/mileszs/ack.vim.git
+[submodule "vim/bundle/vim-session"]
+	path = vim/bundle/vim-session
+	url = https://github.com/xolox/vim-session.git
+[submodule "vim/bundle/showmarks"]
+	path = vim/bundle/showmarks
+	url = https://github.com/garbas/vim-showmarks.git
+[submodule "vim/bundle/yankring"]
+	path = vim/bundle/yankring
+	url = https://github.com/vim-scripts/YankRing.vim.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "vim/bundle/vim-pasta"]
+	path = vim/bundle/vim-pasta
+	url = https://github.com/sickill/vim-pasta.git
+[submodule "vim/bundle/vim-eunuch"]
+	path = vim/bundle/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch
+[submodule "vim/bundle/vim-autocorrect"]
+	path = vim/bundle/vim-autocorrect
+	url = https://github.com/panozzaj/vim-autocorrect
+[submodule "vim/bundle/fugitive"]
+	path = vim/bundle/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim/bundle/vertical-f"]
+	path = vim/bundle/vertical-f
+	url = https://github.com/jitjub/Vertical-f
+[submodule "vim/bundle/vim-rails"]
+	path = vim/bundle/vim-rails
+	url = https://github.com/tpope/vim-rails
+[submodule "vim/bundle/delimitMate"]
+	path = vim/bundle/delimitMate
+	url = https://github.com/Raimondi/delimitMate
+[submodule "vim/bundle/vim-powerline"]
+	path = vim/bundle/vim-powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule "vim/bundle/ctrlp"]
+	path = vim/bundle/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule "vim/bundle/ragtag"]
+	path = vim/bundle/ragtag
+	url = https://github.com/tpope/vim-ragtag.git
+[submodule "quickfixsigns"]
+	path = vim/bundle/quickfixsigns
+	url = https://github.com/tomtom/quickfixsigns_vim
+[submodule "vim/bundle/zencoding"]
+	path = vim/bundle/zencoding
+	url = https://github.com/mattn/zencoding-vim
+[submodule "vim/bundle/CamelCaseMotion"]
+	path = vim/bundle/CamelCaseMotion
+	url = https://github.com/bkad/CamelCaseMotion
+[submodule "vim/bundle/endwise"]
+	path = vim/bundle/endwise
+	url = https://github.com/tpope/vim-endwise.git
+[submodule "vim/bundle/surround"]
+	path = vim/bundle/surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "vim/bundle/agtd"]
+	path = vim/bundle/agtd
+	url = git://github.com/fgarcia/agtd.git
+[submodule "vim/bundle/specky"]
+	path = vim/bundle/specky
+	url = https://github.com/vim-scripts/Specky
+[submodule "vim/bundle/handlebars"]
+	path = vim/bundle/handlebars
+	url = git://github.com/nono/vim-handlebars.git
+[submodule "vim/bundle/mustache"]
+	path = vim/bundle/mustache
+	url = https://github.com/juvenn/mustache.vim
+[submodule "vim/bundle/vim-markdown"]
+	path = vim/bundle/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown.git
+[submodule "vim/bundle/vim-cucumber"]
+	path = vim/bundle/vim-cucumber
+	url = https://github.com/tpope/vim-cucumber.git
+[submodule "vim/bundle/VimRemUp"]
+	path = vim/bundle/VimRemUp
+	url = git://github.com/jitjub/VimRemUp.git
+[submodule "vim/bundle/vim-qml"]
+	path = vim/bundle/vim-qml
+	url = https://github.com/peterhoeg/vim-qml
+[submodule "vim/bundle/abrr"]
+	path = vim/bundle/abrr
+	url = https://github.com/noid/abrr
+[submodule "vim/bundle/vim-coffee-script"]
+	path = vim/bundle/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script
+[submodule "vim/bundle/vim-jade"]
+	path = vim/bundle/vim-jade
+	url = https://github.com/digitaltoad/vim-jade
+[submodule "vim/bundle/vim-stylus"]
+	path = vim/bundle/vim-stylus
+	url = https://github.com/wavded/vim-stylus
