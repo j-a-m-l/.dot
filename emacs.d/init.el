@@ -13,7 +13,17 @@
 (setq org-log-done 'time)
 ;(setq org-default-notes-file "notes.org")
 
+;; Arduino-mode
+(add-to-list 'load-path "~/.emacs.d/vendor/arduino-mode")
+(setq auto-mode-alist (cons '("\\.\\(pde\\|ino\\)$" . arduino-mode) auto-mode-alist))
+(autoload 'arduino-mode "arduino-mode" "Arduino editing mode." t)
+
 ;; mail TODO
+
+;;(initial-buffer-choice "~/.dot.private/no.org")
+
+;; restores the last session on start
+(desktop-save-mode 1)
 
 
 (custom-set-variables
@@ -21,7 +31,6 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(initial-buffer-choice "~/.dot.private/no.org")
  '(org-agenda-files (quote ("~/.dot.private/no.org")))
  '(org-modules (quote (org-bbdb org-bibtex org-docview org-gnus org-info org-jsinfo org-habit org-irc org-mew org-mhe org-rmail org-vm org-wl org-w3m)))
  '(show-paren-mode t)
