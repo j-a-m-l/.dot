@@ -1,37 +1,53 @@
-# Prototype
-snippet proto
-	${1:class_name}.prototype.${2:method_name} = function(${3:first_argument}) {
-		${4:// body...}
-	};
-# Function
-snippet fun
-	function ${1:function_name} (${2:argument}) {
-		${3:// body...}
-	}
+# Anonymous Inline Function
+snippet inf
+	function(${1}) { ${2} }
 # Anonymous Function
 snippet f
-	function (${1}) {
+	function(${1}) {
+		${2}
+	}
+# Anonymous Function ;
+snippet f;
+	function(${1}) {
 		${3}
-	}${2:;}
-# Function in Object
-snippet f:
+	};
+# Immediate function
+snippet (f
+	(function(${1}) {
+		${3}
+	}(${2}));
+# Old-favour function
+snippet fun
+	function ${1:function_name}(${2:argument}) {
+		${3}
+	}
+# var = function
+snippet vf
 	/**
 	 * ${3} 
 	 */
-	${1}: function (${2}) {
+	var ${1} = function(${2}) {
 		${4}
-	},
-# Immediate function
-snippet (f
-	(function (${1}) {
-		${3:/* code */}
-	}(${2}));
+	};
 # var _ = function
 snippet _vf
 	/**
 	 * ${3} 
 	 */
-	var _${1} = function (${2}) {
+	var _${1} = function(${2}) {
+		${4}
+	};
+# Function in Object
+snippet :f
+	/**
+	 * ${3} 
+	 */
+	${1}: function(${2}) {
+		${4}
+	},
+# Prototype
+snippet proto
+	${1:class_name}.prototype.${2:method_name} = function(${3:first_argument}) {
 		${4}
 	};
 # if
@@ -138,7 +154,7 @@ snippet jsons
 	JSON.stringify(${1:object});
 # self-defining function
 snippet sdf
-	var ${1:function_name} = function (${2:argument}) {
+	var ${1:function_name} = function(${2:argument}) {
 		${3:// initial code ...}
 
 		$1 = function ($2) {
@@ -147,7 +163,7 @@ snippet sdf
 	}
 # singleton
 snippet sing
-	function ${1:Singleton} (${2:argument}) {
+	function ${1:Singleton}(${2:argument}) {
 		// the cached instance
 		var instance;
 
@@ -169,3 +185,9 @@ snippet sing
 
 		return instance;
 	}
+# Accessor descriptor
+snippet acc
+	${1:property}: { enumerable: ${2:true}, get: function() { return ${3:$1}; } },
+# Data descriptor
+snippet dd
+	${1:property}: { enumerable: ${2:true}, writable: ${3:true} },
