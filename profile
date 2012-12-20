@@ -20,8 +20,11 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+
+# Node path
 export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH
 
+# Qt SDK paths
 QTSDK_LOCATION=$HOME/QtSDK/Desktop/Qt/474/gcc/bin
 if [ -d "$QTSDK_LOCATION" ] ; then
     PATH="$QTSDK_LOCATION:$PATH"

@@ -1,0 +1,7 @@
+# Die Caps Lock!
+xmodmap -e "remove Lock = Caps_Lock"
+xmodmap -e "keysym Caps_Lock = Control_L"
+xmodmap -e "add Control = Control_L"
+
+# Optimal screen resolution
+xrandr -s 1680x1050
