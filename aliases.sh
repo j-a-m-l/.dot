@@ -14,3 +14,10 @@ alias sagi='sudo apt-get install'
 
 # Ruby
 alias rb='ruby'
+
+# I really need it...
+# gnome-open
+open() {
+	nohup xdg-open $1 > /dev/null 2>&1 &
+}
+alias o='open'
