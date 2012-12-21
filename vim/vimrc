@@ -139,7 +139,10 @@ else
 endif
 
 " MAPS
+" Vim + Vimperator
 source ~/.vim/maps.vim
+" Only Vim
+source ~/.vim/maps-vim.vim
 
 " PLUGINS
 source ~/.vim/plugins.vim
