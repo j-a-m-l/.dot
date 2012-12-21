@@ -59,10 +59,16 @@
 (setq org-log-done 'time)
 ;(setq org-default-notes-file "notes.org")
 
-;; arduino-mode
+;; arduino
 (add-to-list 'load-path (concat user-emacs-directory "/vendor/arduino-mode"))
 (setq auto-mode-alist (cons '("\\.\\(pde\\|ino\\)$" . arduino-mode) auto-mode-alist))
 (autoload 'arduino-mode "arduino-mode" "Arduino editing mode." t)
+
+;; markdown
+(autoload 'markdown-mode "markdown-mode.el"
+   "Major mode for editing Markdown files" t)
+(setq auto-mode-alist
+   (cons '("\\.md" . markdown-mode) auto-mode-alist))
 
 ;; mail TODO
 
