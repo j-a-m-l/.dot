@@ -40,6 +40,8 @@
                       handlebars-mode
                       ruby-end
                       yasnippet
+                      sws-mode
+                      jade-mode
                       zenburn-theme
                       solarized-theme)
   "A list of packages to ensure are installed at launch.")
@@ -54,7 +56,7 @@
 ;;(require 'color-theme)
 
 ;; org
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 ;; track when a task is finished
 (setq org-log-done 'time)
 ;(setq org-default-notes-file "notes.org")
@@ -68,7 +70,12 @@
 (autoload 'markdown-mode "markdown-mode.el"
    "Major mode for editing Markdown files" t)
 (setq auto-mode-alist
-   (cons '("\\.md" . markdown-mode) auto-mode-alist))
+   (cons '("\\.md$" . markdown-mode) auto-mode-alist))
+
+;; jade
+(require 'sws-mode)
+(require 'jade-mode)
+(setq auto-mode-alist (cons '("\\.jade$" . jade-mode) auto-mode-alist))
 
 ;; mail TODO
 
