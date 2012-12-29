@@ -18,3 +18,14 @@
 (require 'yasnippet)
 ;;(yas/initialize)
 (yas/load-directory (concat user-emacs-directory "elpa/yasnippet-0.8.0/snippets"))
+
+;; Erlang
+;(setq erlang-indent-level 2)
+(setq *erlang-indent-size* 2)
+;(setq indent-tabs-mode nil)
+(setq tab-width *erlang-indent-size*)
+(setq erlang-indent-level *erlang-indent-size*)
+
+;; Org
+;(setq org-default-notes-file "notes.org")
+
