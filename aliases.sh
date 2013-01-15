@@ -21,3 +21,6 @@ open() {
 	nohup xdg-open $1 > /dev/null 2>&1 &
 }
 alias o='open'
+
+alias Shutdown='sudo shutdown -h -P now'
+alias Reset='sudo shutdown -r now'
