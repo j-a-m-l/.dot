@@ -23,4 +23,6 @@ defaults = defaultConfig
 		, ((mod4Mask, xK_v), spawn "gvim")
 		, ((mod4Mask, xK_e), spawn "emacs")
 		, ((mod4Mask, xK_a), spawn "amarok")
+		, ((mod4Mask, xK_t), spawn "transmission-gtk")
+		, ((mod4Mask, xK_c), spawn "chromium-browser")
 		]
