@@ -1,15 +1,5 @@
 " MAPS
 
-let mapleader = "ç"
-
-" Tabs
-map ñn :tabnew<CR>
-map ñc :tabclose<CR>
-map ñh :tabprev<CR>
-map ñl :tabnext<CR>
-" map ñj
-" map ñk
-
 " Recommend by Learning the vi and Vim Editors
 map e ea
 
@@ -25,6 +15,16 @@ cmap ì <Right>
 "
 cmap ÷ <C-O>w
 cmap â <C-O>b
+
+" Next row with long lines
+nnoremap j gj
+nnoremap k gk
+
+" http://nvie.com/posts/how-i-boosted-my-vim/
+" Clear highlighted searches with //
+nmap <silent> // :nohlsearch<CR>
+" Save a file that requires root privileges
+cmap w!! w !sudo tee % >/dev/null
 
 " Guardado rápido TODO
 " <M-w> conincide con el S.O.

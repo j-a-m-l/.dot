@@ -143,6 +143,10 @@ endif
 source ~/.vim/maps.vim
 " Only Vim
 source ~/.vim/maps-vim.vim
+" Spanish layout
+" source ~/.vim/maps-es.vim
+" English layout
+source ~/.vim/maps-us.vim
 
 " PLUGINS
 source ~/.vim/plugins.vim
