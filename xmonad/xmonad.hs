@@ -16,7 +16,7 @@ defaults = defaultConfig
 
 	where
 
-	myWorkSpaces = ["1:launcher", "2:web", "3:code", "4:helper", "5:communication", "6:learn", "7:music", "8:networks"]
+	myWorkSpaces = ["1:launcher", "2:web", "3:code", "4:helper", "5:communication", "6:learn", "7:music", "8:networks", "9:org"]
 
 	myKeys (XConfig {modMask = modm}) = M.fromList $
 		[ ((mod4Mask, xK_f), spawn "firefox")
@@ -25,4 +25,7 @@ defaults = defaultConfig
 		, ((mod4Mask, xK_a), spawn "amarok")
 		, ((mod4Mask, xK_t), spawn "transmission-gtk")
 		, ((mod4Mask, xK_c), spawn "chromium-browser")
+		, ((mod4Mask, xK_k), spawn "anki")
+		, ((mod4Mask, xK_l), spawn "calibre")
+		, ((mod4Mask, xK_g), spawn "tuxguitar")
 		]
