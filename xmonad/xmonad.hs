@@ -25,7 +25,7 @@ defaults = defaultConfig
 		, ((mod4Mask, xK_a), spawn "amarok")
 		, ((mod4Mask, xK_t), spawn "transmission-gtk")
 		, ((mod4Mask, xK_c), spawn "chromium-browser")
-		, ((mod4Mask, xK_k), spawn "anki")
-		, ((mod4Mask, xK_l), spawn "calibre")
+		, ((mod4Mask, xK_i), spawn "anki")
+		, ((mod4Mask, xK_b), spawn "calibre")
 		, ((mod4Mask, xK_g), spawn "tuxguitar")
 		]
