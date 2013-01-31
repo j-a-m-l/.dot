@@ -106,3 +106,9 @@
 [submodule "vim/bundle/vim-haskell"]
 	path = vim/bundle/vim-haskell
 	url = git://github.com/wlangstroth/vim-haskell.git
+[submodule "vim/bundle/AsyncCommand"]
+	path = vim/bundle/AsyncCommand
+	url = https://github.com/pydave/AsyncCommand
+[submodule "vim/bundle/vim-pomodoro"]
+	path = vim/bundle/vim-pomodoro
+	url = git://github.com/mnick/vim-pomodoro.git
