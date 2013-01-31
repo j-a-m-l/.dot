@@ -11,9 +11,20 @@ alias gi='grep -i'
 
 # Apt
 alias sagi='sudo apt-get install'
+alias sagu='sudo apt-get update'
 
 # Ruby
 alias rb='ruby'
+
+# Git
+alias g='git'
+
+# Python
+alias py='python'
+alias ipy='ipython'
+
+# Vagrant
+alias vag='vagrant'
 
 # I really need it...
 # gnome-open
@@ -22,5 +33,6 @@ open() {
 }
 alias o='open'
 
+# Easy way
 alias Shutdown='sudo shutdown -h -P now'
 alias Reset='sudo shutdown -r now'
