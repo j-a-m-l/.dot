@@ -12,8 +12,13 @@ set nocompatible
 filetype off 
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
-filetype plugin indent on
 
+" Vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Turn on again
+filetype plugin indent on
 
 set noautochdir " Don't auto-change directory to current file
 set autoread " Set to auto read when a file is changed from the outside
@@ -103,7 +108,7 @@ set directory=~/.vim.backup
 set mousemodel=extend
 
 " Para que busque en otros sitios además de en el propio directorio
-set tags=~/.vim.private/Tags/php.tags
+" set tags=~/.vim.private/Tags/php.tags
 
 " Local scripts/helpfiles FIXME pathogen
 "helptags $HOME/.vim/doc
@@ -139,17 +144,14 @@ else
 endif
 
 " MAPS
-" Vim + Vimperator
-source ~/.vim/maps.vim
-" Only Vim
-source ~/.vim/maps-vim.vim
-" Spanish layout
-" source ~/.vim/maps-es.vim
-" English layout
-source ~/.vim/maps-us.vim
+source ~/.vim/maps.vim     " Vim + Vimperator
+source ~/.vim/maps-vim.vim " Only Vim
+"source ~/.vim/maps-es.vim " Spanish layout
+source ~/.vim/maps-us.vim  " English layout
 
 " PLUGINS
 source ~/.vim/plugins.vim
+source ~/.vim/vundle.vim
 
 " COMMANDS
 source ~/.vim/commands.vim

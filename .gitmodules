@@ -112,3 +112,6 @@
 [submodule "vim/bundle/vim-pomodoro"]
 	path = vim/bundle/vim-pomodoro
 	url = git://github.com/mnick/vim-pomodoro.git
+[submodule "vim/bundle/vundle"]
+	path = vim/bundle/vundle
+	url = https://github.com/gmarik/vundle.git
