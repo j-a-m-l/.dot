@@ -42,6 +42,11 @@
                       yasnippet
                       sws-mode
                       jade-mode
+
+                      key-chord
+                      undo-tree
+                      evil
+                      
                       zenburn-theme
                       solarized-theme)
   "A list of packages to ensure are installed at launch.")
@@ -57,9 +62,6 @@
 
 ;; org
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-;; track when a task is finished
-(setq org-log-done 'time)
-;(setq org-default-notes-file "notes.org")
 
 ;; arduino
 (add-to-list 'load-path (concat user-emacs-directory "/vendor/arduino-mode"))
@@ -89,6 +91,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(auto-indent-next-pair-timer-geo-mean (quote ((default 0.0005 0))))
  '(custom-safe-themes (quote ("d2622a2a2966905a5237b54f35996ca6fda2f79a9253d44793cfe31079e3c92b" "bf7ed640479049f1d74319ed004a9821072c1d9331bc1147e01d22748c18ebdf" "6ef73e8f358c1150767ac39a6cc3d922053b4bb1ccb67e98d10e9155349b31af" default)))
  '(org-agenda-files (quote ("~/.dot.private/no.org")))
  '(org-modules (quote (org-bbdb org-bibtex org-docview org-gnus org-info org-jsinfo org-habit org-irc org-mew org-mhe org-rmail org-vm org-wl org-w3m)))
