@@ -25,6 +25,7 @@ alias ipy='ipython'
 
 # Vagrant
 alias vag='vagrant'
+alias vago='vagrant up && vagrant ssh'
 
 # I really need it...
 # gnome-open
