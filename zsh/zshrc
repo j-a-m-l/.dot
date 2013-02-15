@@ -11,7 +11,13 @@ ZSH_THEME="setache"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source $HOME/.dot/aliases.sh
+if [ -f ~/.dot/shell/aliases.sh ]; then
+	. $HOME/.dot/shell/aliases.sh
+fi
+
+if [ -f ~/.dot/shell/commands.sh ]; then
+	. $HOME/.dot/shell/commands.sh
+fi
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"

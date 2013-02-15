@@ -87,8 +87,12 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # ~/.dot/bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.dot/aliases.sh ]; then
-    . ~/.dot/aliases.sh
+if [ -f ~/.dot/shell/aliases.sh ]; then
+    . ~/.dot/shell/aliases.sh
+fi
+
+if [ -f ~/.dot/shell/commands.sh ]; then
+	. $HOME/.dot/shell/commands.sh
 fi
 
 # enable programmable completion features (you don't need to enable
