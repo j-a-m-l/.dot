@@ -1,22 +1,22 @@
 # ls
+alias l='ls -CF'
 alias ll='ls -alF'
 alias la='ls -A'
-alias l='ls -CF'
 
 # Vim
 alias v='vim'
 
-# Grep
-alias gi='grep -i'
+# grep
+alias ge='grep -i'
 
-# Apt
+# apt
 alias sagi='sudo apt-get install'
 alias sagu='sudo apt-get update'
 
 # Ruby
 alias rb='ruby'
 
-# Git
+# git
 alias g='git'
 
 # Python
@@ -26,6 +26,7 @@ alias ipy='ipython'
 # Vagrant
 alias vag='vagrant'
 alias vago='vagrant up && vagrant ssh'
+alias vagend='vagrant suspend'
 
 # I really need it...
 # gnome-open
@@ -36,4 +37,7 @@ alias o='open'
 
 # Easy way
 alias Shutdown='sudo shutdown -h -P now'
-alias Reset='sudo shutdown -r now'
+alias Restart='sudo shutdown -r now'
+
+# Private alias (paths, etc.)
+. ~/.dot.private/shell/aliases.sh
