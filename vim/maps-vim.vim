@@ -3,70 +3,40 @@
 " Recommend by Learning the vi and Vim Editors
 map e ea
 
-" Command mode
+" Command mode movement
+" Alt + h
 cmap è <Left>
+" Alt + l
 cmap ì <Right>
+
+" Command mode movement (Emacs way)
+" Alt + b
+cnoremap â <C-Left>
+" Alt + f
+cnoremap æ <C-Right>
 " Up is like Emacs
 " Down is like Emacs
+cnoremap <C-A> <Home>
 " End is like Emacs
 
-"
-" En pruebas...
-"
-cmap ÷ <C-O>w
-cmap â <C-O>b
+" Remove word (back)
+" C-W
+
+" Avoid ESC key on command mode
+cmap jk <ESC>
 
 " Next row with long lines
 nnoremap j gj
 nnoremap k gk
 
-" http://nvie.com/posts/how-i-boosted-my-vim/
-" Clear highlighted searches with //
-nmap <silent> // :nohlsearch<CR>
-" Save a file that requires root privileges
-cmap w!! w !sudo tee % >/dev/null
+" Clear the search highlighting (yeahhhhh!!!)
+nnoremap <ESC> :nohlsearch<CR><ESC>
 
-" Guardado rápido TODO
-" <M-w> conincide con el S.O.
-" map <M-w> <ESC>:w<CR>
-
-imap ùù <C-O>yyi
-imap ää <C-O>ddi
-imap ðð <C-O>pi
-
-" FIXME van a la barra
-imap è <Left>
-imap ê <Down>
-imap ë <Up>
-imap ì <Right>
-
-imap ° <C-O>0
-imap ¤ <C-O>$
-
-imap ï <C-O>o
-imap Ï <C-O>O
-
-imap ÷ <C-O>w
-imap × <C-O>W
-imap â <C-O>b
-imap Â <C-O>B
-
-imap å <C-O>e
-
-imap õ <C-O>u
+"
+" En pruebas...
+"
 
 imap <C-Space> <C-x><C-o>
 
-map <Space> <C-e>f
-
-
-" PDV (PHPDocumentator for Vim)
-imap <C-d> <ESC>:call PhpDocSingle()<CR>i
-nmap <C-d> :call PhpDocSingle()<CR>
-vmap <C-d> :call PhpDocRange()<CR>
-
-" Mapeo para Project
-map <silent> <Leader>p <Plug>ToggleProject
-
-" Mapeo para TagBar
-map <LEADER>g :TagbarToggle<CR>
+" Save a file that requires root privileges
+cmap w!! w !sudo tee % >/dev/null

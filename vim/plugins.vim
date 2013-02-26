@@ -11,6 +11,7 @@ let g:tagbar_usearrows = 1
 let g:tagbar_autoshowtag = 1
 let g:tagbar_compact = 1
 let g:tagbar_autofocus = 0
+map <LEADER>g :TagbarToggle<CR>
 
 " Taglist-plus
 let Tlist_Auto_Open = 1
@@ -62,6 +63,7 @@ let g:SuperTabLongestHighlight = 1
 let g:proj_window_width = 30
 " Se incrementará ocasionalmente en
 let g:proj_window_increment = 10
+map <silent> <Leader>p <Plug>ToggleProject
 
 " Easytagas && ctags highlighting TODO Por ahora creo que es mejor a mano
 "let g:easytags_cmd = '/usr/bin/ctags-exuberant'
@@ -95,6 +97,7 @@ let g:vimwiki_camel_case = 0
 " EasyMotion
 let g:EasyMotion_leader_key = '<C-e>'
 let g:EasyMotion_grouping = 2
+map <Space> <C-e>f
 
 " command-t
 let g:CommandTMatchWindowReverse = 1
@@ -114,6 +117,16 @@ let g:yankring_enabled = 0
 
 " CtrlP
 let g:ctrlp_max_height = 20
+let g:ctrlp_dotfiles = 0
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.svn$\|node_modules$',
+  \ 'file': '\.so$',
+  \ }
+
+" PDV (PHPDocumentator for Vim)
+imap <C-d> <ESC>:call PhpDocSingle()<CR>i
+nmap <C-d> :call PhpDocSingle()<CR>
+vmap <C-d> :call PhpDocRange()<CR>
 
 "===========================================================================
 " dbext.vim callback function

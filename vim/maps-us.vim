@@ -1,7 +1,7 @@
 noremap <F12> q
 noremap q ;
-map ; :
+nmap ; :
 
 " Tabs
 map gn :tabnew<CR>
-map gc :tabclose<CR>
+map gx :tabclose<CR>
