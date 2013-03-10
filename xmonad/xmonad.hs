@@ -12,6 +12,7 @@ myManageHook = composeAll
                 [ resource  =? "gvim"             --> doShift "1:editor"
 				, resource  =? "chromium-browser" --> doShift "2:web"
 				, className =? "Firefox"          --> doShift "2:web"
+				, resource  =? "opera"            --> doShift "2:web"
 				, resource  =? "dolphin"          --> doShift "6:explorer"
 				, resource  =? "amarok"           --> doShift "7:music"
 				, resource  =? "transmission-gtk" --> doShift "8:network"
@@ -44,8 +45,8 @@ main = do
 		workSpacesKeys = [xK_quoteleft, xK_1, xK_2, xK_3, xK_4, xK_5, xK_6, xK_7, xK_8, xK_9, xK_0, xK_minus]
 
 		myKeys conf@(XConfig {modMask = modm}) = M.fromList $
-			[ ((modm .|. shiftMask, xK_c), return ())
 			-- Use Esc instead of Shift + c
+			[ ((modm .|. shiftMask, xK_c), return ())
 			, ((modm, xK_Escape), kill)
 			-- Move focus to other Xinerama screen.
 			, ((modm, xK_Tab), CWS.nextScreen)
@@ -53,6 +54,7 @@ main = do
 			, ((modm, xK_e), spawn "emacs")
 			, ((modm, xK_f), spawn "firefox")
 			, ((modm, xK_c), spawn "chromium-browser")
+			, ((modm, xK_o), spawn "opera")
 			, ((modm, xK_a), spawn "amarok")
 			, ((modm, xK_u), spawn "thunderbird")
 			, ((modm, xK_t), spawn "transmission-gtk")
