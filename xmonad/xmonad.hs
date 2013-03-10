@@ -17,6 +17,9 @@ myManageHook = composeAll
 				, resource  =? "transmission-gtk" --> doShift "8:network"
 				, className =? "Thunderbird"      --> doShift "9:communication"
 				, resource  =? "emacs"            --> doShift "0:org"
+				, resource  =? "tuxguitar"        --> doShift "-:limbo"
+				, resource  =? "calibre"          --> doShift "-:limbo"
+				, resource  =? "anki"             --> doShift "-:limbo"
                 ]
 
 main = do
