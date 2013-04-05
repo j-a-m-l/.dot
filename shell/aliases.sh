@@ -1,7 +1,8 @@
 # ls
-alias l='ls -CF'
+alias l='ls'
 alias ll='ls -alF'
 alias la='ls -A'
+alias lg='ls | grep -i'
 
 # Vim
 alias v='vim'
