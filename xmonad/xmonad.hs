@@ -13,6 +13,8 @@ myManageHook = composeAll
 				, resource  =? "chromium-browser" --> doShift "2:web"
 				, className =? "Firefox"          --> doShift "2:web"
 				, resource  =? "opera"            --> doShift "2:web"
+        , resource  =? "midori"           --> doShift "2:web"
+				, className =? "Gimp"             --> doShift "5:helper"
 				, resource  =? "dolphin"          --> doShift "6:explorer"
 				, resource  =? "amarok"           --> doShift "7:music"
 				, resource  =? "transmission-gtk" --> doShift "8:network"
@@ -50,11 +52,16 @@ main = do
 			, ((modm, xK_Escape), kill)
 			-- Move focus to other Xinerama screen.
 			, ((modm, xK_Tab), CWS.nextScreen)
+			-- Disable the old switching screen keys
+			, ((modm, xK_w), return ())
+			, ((modm, xK_r), return ())
+			-- Application shortcuts
 			, ((modm, xK_v), spawn "gvim -f")
 			, ((modm, xK_e), spawn "emacs")
 			, ((modm, xK_f), spawn "firefox")
 			, ((modm, xK_c), spawn "chromium-browser")
 			, ((modm, xK_o), spawn "opera")
+			, ((modm, xK_m), spawn "midori")
 			, ((modm, xK_a), spawn "amarok")
 			, ((modm, xK_u), spawn "thunderbird")
 			, ((modm, xK_t), spawn "transmission-gtk")
@@ -62,6 +69,8 @@ main = do
 			, ((modm, xK_g), spawn "tuxguitar")
 			, ((modm, xK_d), spawn "dolphin")
 			, ((modm, xK_i), spawn "anki")
+-- , ((modm		  , xK_Print   ), spawn "scrot -q 75 ${HOME}/screenshots/'%d-%m-%Y-%H-%M-%S.jpg'") -- ADDWM full print
+-- , ((myAltKey	  , xK_Print   ), spawn "sleep 1; scrot -s -q 75 ${HOME}/screenshots/'%d-%m-%Y-%H-%M-%S.jpg'") -- ADDWM only selected rectangle print
 			]
 			++
 			-- mod-n, Switch to workspace N
