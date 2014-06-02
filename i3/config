@@ -11,7 +11,7 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-# font pango:DejaVu Sans Mono 10
+font pango:DejaVu Sans Mono 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -56,7 +56,29 @@ workspace_auto_back_and_forth yes
 # Delay urgency hint reset on workspace change
 force_display_urgency_hint 500 ms
 
-# workspace '1:Web'
+set $ws1 '1:edit'
+set $ws2 '2:console'
+set $ws3 '3:web'
+set $ws4 '4:help'
+set $ws5 '5:read'
+set $ws6 '6:design'
+set $ws7 '7:media'
+set $ws8 '8:net'
+set $ws9 '9:explore'
+set $ws0 '0:communicate'
+
+# Sound volume buttons
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
+bindsym XF86AudioMute exec amixer -D pulse sset Master 0%
+
+# Brightness buttons
+# From http://i3wm.org/docs/user-contributed/lzap-config.html
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+
+# Lock touchpad button
+bindsym XF86Touch exec ./touchpad.sh
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -107,28 +129,34 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws0
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws0
+
+# TODO keys...
+bindsym $mod+Up move workspace to output up
+bindsym $mod+Right move workspace to output rigth
+bindsym $mod+Down move workspace to output down
+bindsym $mod+Left move workspace to output left
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -137,7 +165,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i^3? This will end your X session.' -b 'Yes' 'i3-msg exit'"
 # Shutdown
-bindsym $mod+Shift+p exec "i3-nagbar -t warning -m 'Quit?' -b 'Yes' 'sudo shutdown -h -P now'"
+bindsym $mod+Shift+p exec "i3-nagbar -t warning -m 'Quit?' -b 'Yes' 'sudo shutdown -P now'"
 
 # Resize window
 mode "size" {
@@ -162,10 +190,11 @@ bindsym $mod+s mode "size"
 # finds out, if available)
 bar {
 	#id TODO
-        status_command i3status
+	status_command i3status
 	mode hide
 	position bottom
 	workspace_buttons yes
 	binding_mode_indicator yes
+	font pango:DejaVu Sans Mono 12
 	# colors TODO
 }
