@@ -1,5 +1,12 @@
+# TODO source irbrc
+
+# TODO strange error with Guard and RSpec
+Pry.config.input = STDIN
+Pry.config.output = STDOUT
+binding.pry
+
 Pry.config.history.file = '~/.irb_history'
 
-Pry.config.editor = 'vim'
+Pry.config.editor = 'gvim'
 
 Pry.config.prompt = [ proc { "» " }, proc { "> " }]
