@@ -1,4 +1,0 @@
-# Optimal screen resolution TODO based on monitor
-xrandr -s 1680x1050
-
-~/.dot/xmonad/xmonadmap.sh
