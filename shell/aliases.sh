@@ -5,30 +5,29 @@ shell=`ps | grep $$ | awk '{ print $4 }'`
 # apt
 alias sagi='sudo apt-get install'
 alias sagu='sudo apt-get update'
-
-# Bundle
-alias be='bundle exec'
+alias sagr='sudo apt-get remove'
+alias sagp='sudo apt-get purge'
 
 # git
 alias g='git'
 
 # grep
-alias ge='grep -i'
-
-# Grunt
-alias grach='grunt && grunt watch'
+alias G='grep -i --color=auto'
 
 # ls
 alias l='ls'
 alias ll='ls -alF'
 alias la='ls -A'
-alias lg='ls -a | grep -i'
+alias lg='ls -a | grep -i --color=auto'
 
-# Open like a boss. I really need it...
+# Open files like a boss. I really need it...
 alias o='__open__'
 
 # Ruby
 alias rb='ruby'
+
+# gem
+alias gemi='gem install'
 
 # Rake
 # For avoiding that zsh tries to autocomplete something like "rake task[arg]"
@@ -36,6 +35,18 @@ if [ 'zsh' = $shell ]; then
   alias rake='noglob rake'
 fi
 alias rk='rake'
+
+# Node.js
+alias js='node'
+
+# npm
+alias npi='npm install'
+
+# Grunt
+alias gru='grunt'
+
+# Safely remove an USB disk
+alias safely_remove='sudo udisks --detach'
 
 # Shutting down the easy way
 alias Shutdown='sudo shutdown -h -P now'
@@ -50,6 +61,9 @@ alias tm='tmuxinator'
 # Python
 alias py='python'
 alias ipy='ipython'
+
+# pip
+alias pipi='pip install'
 
 # Vagrant
 alias vag='vagrant'
