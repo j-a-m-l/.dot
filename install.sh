@@ -68,9 +68,6 @@ link_to_dot 'i3'
 # Ack
 link_to_dot 'ack/ackrc'
 
-# Git
-link_to_dot_private 'git/gitconfig'
-
 # Vim
 link_to_dot 'vim'
 link_to_dot 'vim/vimrc'
@@ -99,11 +96,15 @@ link_to_dot 'python/pdbrc'
 # JS
 link_to_dot 'js/jshintrc'
 
-# TODO vimperator
+# Vimperator
+link_to_dot 'vimperatorrc'
 
 #
 # Private TODO
 #
+
+# Git
+link_to_dot_private 'git/gitconfig'
 
 # Tmux TODO
 # link_to_dot_private
