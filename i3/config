@@ -26,8 +26,7 @@ hide_edge_borders both
 new_window pixel 2
 
 # Hide window title
-#for_window [class='.*'] border pixel 0
-for_window [class=".*[tjf].+"] focus border pixel 8
+#for_window [class=".*"] border pixel 0
 
 # Window decoration colors (HEX 6 chars)
 # Border: Two lines at the top of the window
@@ -56,16 +55,40 @@ workspace_auto_back_and_forth no
 # Delay urgency hint reset on workspace change
 force_display_urgency_hint 500 ms
 
-set $ws1 '1:edit'
-set $ws2 '2:console'
-set $ws3 '3:web'
-set $ws4 '4:help'
-set $ws5 '5:read'
-set $ws6 '6:design'
-set $ws7 '7:media'
-set $ws8 '8:net'
-set $ws9 '9:explore'
-set $ws0 '0:communicate'
+set $ws1 "1:edit"
+set $ws2 "2:console"
+set $ws3 "3:web"
+set $ws4 "4:help"
+set $ws5 "5:read"
+set $ws6 "6:design"
+set $ws7 "7:media"
+set $ws8 "8:net"
+set $ws9 "9:explore"
+set $ws0 "0:communicate"
+
+# TODO customizable
+set $first_display DP1
+set $second_display eDP1
+
+# TODO customizable
+workspace $ws1 output $first_display
+workspace $ws2 output $second_display
+workspace $ws3 output $fist_display
+workspace $ws4 output $fist_display
+workspace $ws5 output $fist_display
+workspace $ws6 output $fist_display
+workspace $ws7 output $fist_display
+workspace $ws8 output $fist_display
+workspace $ws9 output $fist_display
+workspace $ws0 output $fist_display
+
+# TODO customizable
+assign [class="(?i)g?vim$"] $ws1
+assign [class="(?i)Terminal"] $ws2
+assign [class="Firefox"] $ws3
+assign [class="Vimperator"] $ws3
+assign [class="Chromium"] $ws3
+assign [class="Thunderbird"] $ws0
 
 # Sound volume buttons
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
