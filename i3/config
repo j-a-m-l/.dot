@@ -22,7 +22,7 @@ floating_modifier $mod
 # workspace_layout TODO
 
 # Hide edge borders
-# hide_edge_borders both
+hide_edge_borders both
 
 # Border style for new windows
 new_window pixel 4
