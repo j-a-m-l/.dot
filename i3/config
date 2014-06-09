@@ -223,3 +223,8 @@ bar {
 	font pango:DejaVu Sans Mono 12
 	# colors TODO
 }
+
+# Boot applications
+exec i3-sensible-terminal
+exec gvim
+exec thunderbird
