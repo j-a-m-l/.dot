@@ -1,12 +1,11 @@
-# TODO source irbrc
+# vim:ft=ruby
+# FIXME ^
 
-# TODO strange error with Guard and RSpec
-Pry.config.input = STDIN
-Pry.config.output = STDOUT
-binding.pry
-
-Pry.config.history.file = '~/.irb_history'
+# Pry.config.history.file = '~/.irb_history'
 
 Pry.config.editor = 'gvim'
+
+# TODO use a theme
+Pry.config.color = true
 
 Pry.config.prompt = [ proc { "» " }, proc { "> " }]

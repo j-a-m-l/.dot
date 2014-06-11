@@ -7,17 +7,10 @@ def hn; { a: { b: { c: { d: 'E' } } } } end
 
 def save_current_session path
   File.open path, 'w' do |f|
-    f << Readline::HISTORY.to_a.join "\n"
+    f << Readline::HISTORY.to_a.join("\n")
   end
 end
 
-# TODO autoinstall
-require 'irbtools'
-
-# modified from https://github.com/ConradIrwin/pry-debundle/pull/5
-# if defined?(Gem.post_reset_hooks)
-#   Gem.post_reset_hooks.reject!{ |hook| hook.source_location.first =~ %r{/bundler/} }
-#   Gem::Specification.reset
-#   load 'rubygems/custom_require.rb'
-#   alias gem require                                                              
-# end
+puts 'Pry...'
+require 'pry'
+pry
