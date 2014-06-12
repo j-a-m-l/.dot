@@ -23,6 +23,7 @@ cnoremap <C-A> <Home>
 " C-W
 
 " Avoid ESC key on command mode
+cmap kj <ESC>
 cmap jk <ESC>
 
 " Next row with long lines
@@ -40,3 +41,7 @@ imap <C-Space> <C-x><C-o>
 
 " Save a file that requires root privileges
 cmap w!! w !sudo tee % >/dev/null
+
+" Headers (markdown style)
+map h1md yypVr=o
+map h2md yypVr-o
