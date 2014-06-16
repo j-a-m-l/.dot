@@ -13,12 +13,16 @@ alias g='git'
 
 # grep
 alias G='grep -i --color=auto'
+alias gy='__grepify__'
 
 # ls
 alias l='ls'
 alias ll='ls -alF'
 alias la='ls -A'
 alias lg='ls -a | grep -i --color=auto'
+
+# use less (no pun intended)
+alias ly='__lessify__'
 
 # Open files like a boss. I really need it...
 alias o='__open__'
@@ -74,6 +78,13 @@ alias vend='vagrant suspend'
 # Vim
 alias v='vim'
 
+__grepify__() {
+	# Is mandatory to use () or a space for escaping negative values
+	${@:1:($#-1)} | grep -i --color=auto ${@: -1}
+}
+__lessify__() {
+	$@ | less
+}
 __open__() {
 	nohup xdg-open $1 > /dev/null 2>&1 &
 }
