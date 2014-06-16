@@ -68,7 +68,7 @@ set $ws8 "8:net"
 set $ws9 "9:explore"
 set $ws0 "0:communicate"
 
-# TODO customizable
+# TODO customizable TODO more displays
 set $first_display DP1
 set $second_display eDP1
 
@@ -173,7 +173,7 @@ bindsym $mod+Shift+0 move container to workspace $ws0
 bindsym $mod+Shift+a move workspace to output left
 bindsym $mod+Shift+s move workspace to output down
 bindsym $mod+Shift+d move workspace to output up
-bindsym $mod+Shift+f move workspace to output rigth
+bindsym $mod+Shift+f move workspace to output right
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
