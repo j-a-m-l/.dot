@@ -68,21 +68,22 @@ set $ws8 "8:net"
 set $ws9 "9:explore"
 set $ws0 "0:communicate"
 
-# TODO customizable TODO more displays
-set $first_display DP1
-set $second_display eDP1
+# TODO customizable
+set $twin_displays DP1
+set $old_display HDMI1
+set $laptop_display eDP1
 
 # TODO customizable
-workspace $ws1 output $first_display
-workspace $ws2 output $second_display
-workspace $ws3 output $fist_display
+workspace $ws1 output $twin_displays
+workspace $ws2 output $laptop_display
+workspace $ws3 output $twin_displays
 workspace $ws4 output $fist_display
-workspace $ws5 output $fist_display
+workspace $ws5 output $twin_displays
 workspace $ws6 output $fist_display
-workspace $ws7 output $fist_display
-workspace $ws8 output $fist_display
-workspace $ws9 output $fist_display
-workspace $ws0 output $fist_display
+workspace $ws7 output $old_display
+workspace $ws8 output $laptop_display
+workspace $ws9 output $old_display
+workspace $ws0 output $twin_displays
 
 # Sound volume buttons
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
@@ -214,6 +215,9 @@ bar {
 	binding_mode_indicator yes
 	font pango:DejaVu Sans Mono 12
 	# colors TODO
+
+	# Tray icons on primary output
+	tray_output primary
 }
 
 # TODO customizable
