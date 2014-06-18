@@ -42,6 +42,6 @@ imap <C-Space> <C-x><C-o>
 " Save a file that requires root privileges
 cmap w!! w !sudo tee % >/dev/null
 
-" Headers (markdown style)
-map h1md yypVr=o
-map h2md yypVr-o
+" Add headers (only Markdown files)
+autocmd FileType mkd noremap <buffer> h1 yypVr=o
+autocmd FileType mkd noremap <buffer> h2 yypVr-o
