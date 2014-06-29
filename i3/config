@@ -222,12 +222,11 @@ bar {
 
 # TODO customizable
 assign [class="(?i)g?vim$"] $ws1
-assign [class="(?i)Terminal"] $ws2
 assign [class="Firefox"] $ws3
 assign [class="Vimperator"] $ws3
 assign [class="Chromium"] $ws3
 assign [class="Clementine"] $ws7
-assign [class="Nautilus"] $ws9
+assign [class="Transmission"] $ws8
 assign [class="Thunderbird"] $ws0
 
 # Boot applications
