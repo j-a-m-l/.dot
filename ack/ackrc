@@ -1,8 +1,21 @@
+# Always color, even when piping
+--color
+
+# Use "less -r" as my pager
+--pager=less -r
+
+# Ruby
 --type-add
 ruby=.builder,.rake
+
+# CSS
 --type-add
-css=.scss
+css=.scss,.styl
+
+# Markdown
 --type-set
 markdown=.markdown,.md,.mdown
+
+# JavaScript
 --type-add
 js=.coffee
