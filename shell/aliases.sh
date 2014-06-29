@@ -24,6 +24,13 @@ alias lg='ls -a | grep -i --color=auto'
 # use less (no pun intended)
 alias ly='__lessify__'
 
+# man
+alias m='man'
+
+# Make
+alias mk='make'
+alias mki='make install'
+
 # Open files like a boss. I really need it...
 alias o='__open__'
 
