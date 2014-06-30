@@ -191,3 +191,26 @@ snippet acc
 # Data descriptor
 snippet dd
 	${1:property}: { enumerable: ${2:true}, writable: ${3:true} },
+# RequireJS define
+snippet def
+	define('${1:module}', [${2:dependencies}], function(${3:arguments}) {
+		return ${4:logic};
+	});
+# RequireJS sweetened define + strict
+snippet defs
+	define(function(require) {
+		'use strict';
+
+		return ${1:module};
+	});
+# RequireJS require
+snippet reqjs
+	require([${1:dependencies}], function(${2:arguments}) {
+		${3:logic};
+	});
+# Require
+snippet req
+	${1:module} = require('${2:$1}');
+# Strict
+snippet strict
+	'use strict';
