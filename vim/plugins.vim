@@ -6,7 +6,7 @@
 "let g:EclimLogLevel = 10
 
 " TagBar
-let g:tagbar_width = 36
+let g:tagbar_width = 32 " 32 plus 2 windows of 80
 let g:tagbar_usearrows = 1
 let g:tagbar_autoshowtag = 1
 let g:tagbar_compact = 1
@@ -33,12 +33,13 @@ let g:syntastic_mode_map = { 'mode': 'active',
    \ 'active_filetypes': ['ruby', 'php', 'javascript', 'html', 'css'],
    \ 'passive_filetypes': [] }
 let g:syntastic_javascript_checker = 'jshint'
+let g:syntastic_javascript_jshint_conf = $HOME . '/.dot/jshintrc'
 
 " NERDTree options
 let NERDChristmasTree=1
 let NERDTreeCaseSensitiveSort=0
 let NERDTreeChDirMode=2
-let NERDTreeWinSize=36
+let NERDTreeWinSize=32 " 32 plus 2 windows of 80
 let NERDTreeArrows=1
 let NERDTreeIgnore=['\.svn$', '\.git$', '\.pyc$']
 let NERDTreeBookmarksFile = $HOME . "/.dot.private/vim/Config/NERDTreeBookmarks"
