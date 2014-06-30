@@ -2,7 +2,7 @@
 "TagbarOpen
 "TlistOpen
 
-" Tabulación
+" Tabulation
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
