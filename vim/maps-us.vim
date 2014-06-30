@@ -1,6 +1,6 @@
-noremap <F12> q
-noremap q ;
-nmap ; :
+nnoremap ,; ,
+nnoremap , ;
+nnoremap ; :
 
 " Tabs
 map gn :tabnew<CR>
