@@ -43,5 +43,5 @@ imap <C-Space> <C-x><C-o>
 cmap w!! w !sudo tee % >/dev/null
 
 " Add headers (only Markdown files)
-autocmd FileType mkd noremap <buffer> h1 yypVr=o
-autocmd FileType mkd noremap <buffer> h2 yypVr-o
+autocmd FileType mkd noremap <buffer> h1 yypVr=
+autocmd FileType mkd noremap <buffer> h2 yypVr-
