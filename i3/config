@@ -77,11 +77,11 @@ set $laptop_display eDP1
 workspace $ws1 output $twin_displays
 workspace $ws2 output $laptop_display
 workspace $ws3 output $twin_displays
-workspace $ws4 output $fist_display
+workspace $ws4 output $twin_displays
 workspace $ws5 output $twin_displays
-workspace $ws6 output $fist_display
+workspace $ws6 output $twin_displays
 workspace $ws7 output $old_display
-workspace $ws8 output $laptop_display
+workspace $ws8 output $old_display
 workspace $ws9 output $old_display
 workspace $ws0 output $twin_displays
 
@@ -230,6 +230,4 @@ assign [class="Transmission"] $ws8
 assign [class="Thunderbird"] $ws0
 
 # Boot applications
-exec i3-sensible-terminal
-exec gvim
-exec thunderbird
+exec $HOME/.dot/i3/layouts.sh 'boot'
