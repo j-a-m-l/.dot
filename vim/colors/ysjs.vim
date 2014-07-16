@@ -1,105 +1,219 @@
-" JavaScript {{{1
-" Color por defecto
-hi javaScript  guifg=#000000 
-" new
-hi javaScriptOperator guifg=#4F8699
-hi javaScriptNull guifg=#111111 gui=bold
-hi javaScriptFunction  guifg=#FE4365 gui=bold 
-" return break continue switch case EL color es demasiado débil para su
-" función; o más claro y para comentarios, o negrita o algo así
-hi javaScriptBranch guifg=#458986
-" Property (property: value) TODO El color está bien, pero me parece a
-" veces que es más de valor que de etiqueta... uhmm, como es bonito, lo
-" puedo dejar y si no me acostumbro, pues para otra cosa
-hi javaScriptLabel   guifg=#15A578
-hi javaScriptPrototype guifg=#14A5FF
-hi javaScriptComment guifg=#F9D0B8 
-hi javaScriptDocTags guifg=#F6C179 gui=bold
-hi javaScriptDocComment guifg=#F6C179
-hi javaScriptRegexpString guifg=#5555CC
-hi javaScriptBoolean guifg=#0E592C              gui=bold
-hi javaScriptConditional guifg=#2C13DA gui=bold
-hi javaScriptRepeat guifg=#5C43FA gui=bold
-hi javaScriptCommentTodo guifg=#F6C179 gui=bold
-hi javaScriptNumber    guifg=#FA6900 
-" Cadenas con comillas dobles TODO Ligera diferenciación
-hi javaScriptStringD guifg=#528BF9
-" Cadenas con comillas simples
-hi javaScriptStringS guifg=#528BF9
-" Paréntesis
-hi javaScriptParens    guifg=#097788 
-" Llaves
-hi javaScriptBraces    guifg=#997788 
-" Corchetes TODO Sólo afecta al primer corchete
-hi javaScriptBracket    guifg=#3B3A32
+" Vim color file
+"
+" Author: Juan Antonio Martín Lucas <>
+" Version: 0.8.0
+" Last Change: 2013 Feb 23
+" URL: 
+" License: MIT
+" Notes: JavaScript oriented color theme
 
-hi javaScriptExpression        guifg=#FF0FF0 
-hi javaScriptDocParam guifg=#00FF00
-hi javaScriptSpecial   guifg=#F3500D 
-" throw
-hi javaScriptStatement guifg=#FF00D0 gui=bold
-hi javaScriptIdentifier guifg=#A434FF
-" this, vars, arguments
-hi javaScriptReserved  guifg=#20D820 
-hi javaScriptMessage   guifg=#24DFA7 
-hi javaScriptLineComment              guifg=#F9D0B8
-hi javaScriptCommentSkip              guifg=#0000FF 
-hi javaScriptSpecialCharacter  guifg=#44F5d0 
-hi javaScriptException        guifg=#0000FF 
-hi javaScriptDeprecated               guifg=#0000FF 
-hi javaScriptType guifg=#215096 gui=bold
-hi javaScriptGlobalObjects guifg=#4466F9
-" Nombre, parámetros y paréntesis
-hi javaScriptFuncName guifg=#FF106B 
-" Cambiar el color del contenido de una función
-" hi javaScriptFuncBlock guifg=#C04455
-hi javaScriptOpAssign guifg=#3BA5FF
-" location, event, document
-hi javaScriptMember guifg=#44AFAF gui=bold
-" window, self, parent, top
-hi javaScriptGlobal guifg=#04F0C0 gui=bold
+let g:colors_name = "ysjs"
 
-"hi javaScriptCvsTag
-"hi javaScriptDocSeeTag
-"hi javaScriptSource
-"hi javaScriptFutureKeys
-"hi javaScriptDomErrNo
-"hi javaScriptDomNodeConsts
-"hi javaScriptHtmlEvents
-"hi javaScriptParensErrB
-"hi javaScriptParensErrC
-"hi javaScriptParensErrA
-"hi javaScriptParensError
-
-"hi javascriptRailsClass               guifg=#0000FF 
-"hi javascriptRailsFunction            guifg=#0000FF 
-
-" Míos TODO Habría que perfeccionar antes la sintaxis... quizá una como la de Java funcione
-hi javaScriptThis guifg=#0082F8 gui=bold
-hi javaScriptConsole guifg=#D07455 gui=bold
-hi javaScriptProperty guifg=#447699
-"hi javaScriptMethod guifg=#F46699
-
-" jQuery {{{2 FIXME No se están viendo, aunque sí remarca 'jQuery', pero en
-" otro color
-hi jQuery          guifg=#D04455 gui=bold
-hi jCore           guifg=#44A455
-hi jAttributes     guifg=#44F455
-hi jTraversing     guifg=#444955
-hi jManipulation   guifg=#444455
-hi jCSS            guifg=#446455
-hi jEvents         guifg=#934D55
-hi jEffects        guifg=#440455
-hi jAjax           guifg=#904595
-hi jUtilities      guifg=#400000
-hi jId             guifg=#B4D455
-hi jClass          guifg=#4444C5
-hi jOperators      guifg=#E84755
-hi jBasicFilters   guifg=#4DA295
-hi jContentFilters guifg=#458455
-hi jVisibility     guifg=#444405
-hi jChildFilters   guifg=#449235
-hi jForms          guifg=#4404F5
-hi jFormFilters    guifg=#4494D5
-" }}}2
+" Colors 1{{{
+let s:colors = {
+    \    'black'            : '#000000',
+    \    'blackNull'        : '#111111',
+    \    'blueBranch'       : '#525BA9',
+    \    'blueCondition'    : '#1C13FA',
+    \    'blueOperator'     : '#458986',
+    \    'blueGlobalObject' : '#4466F9',
+    \    'blueParen'        : '#097788',
+    \    'bluePrototype'    : '#0495BF',
+    \    'blueStatement'    : '#222BA9',
+    \    'blueSpecial'      : '#A2CBF9',
+    \    'blueLabel'        : '#B2CBF9',
+    \    'blueString'       : '#528BF9',
+    \    'blueThis'         : '#0082F8',
+    \    'blueType'         : '#215096',
+    \    'brownBrace'       : '#997788',
+    \    'brownConsole'     : '#D07455',
+    \    'grayBool'         : '#444444',
+    \    'grayBracket'      : '#3B3A32',
+    \    'grayPunc'         : '#ABAAA2',
+    \    'greenKey'         : '#15A578',
+    \    'greenOperator'    : '#45B986',
+    \    'orangeComment'    : '#F9D0B8',
+    \    'orangeDoc'        : '#F6C179',
+    \    'orangeNoParam'    : '#C6A159',
+    \    'orangeNumber'     : '#FA6900',
+    \    'orangeParam'      : '#DF8129',
+    \    'pinkStatement'    : '#DD0060',
+    \    'purpleCondition'  : '#2C13DA',
+    \    'pinkException'    : '#F490D0',
+    \    'punkyException'   : '#F440D0',
+    \    'purpleGlobal'     : '#D44090',
+    \    'purpleLoop'       : '#5C43FA',
+    \    'purpleRegex'      : '#5555CC',
+    \    'purpleSpecial'    : '#9595CC',
+    \    'redError'         : '#FF2424',
+    \    'redFun'           : '#FF106B',
+    \    'redFunKeyword'    : '#FE4365',
+    \    'redReserved'      : '#BE1325',
+  	\    'X'                : '#00FF00',
+    \    'Y'                : '#FFFF00',
+    \    'Z'                : '#FF00FF',
+    \    }
 " }}}1
+
+fun! s:c(name, guifg, guibg, attr, ctermfg, ctermbg)
+  let l:cmd='hi '.a:name
+
+  if ! empty(a:guifg)
+    let l:cmd=l:cmd.' guifg='.s:colors[a:guifg]
+  endif
+  if ! empty(a:guibg)
+    let l:cmd=l:cmd.' guibg='.s:colors[a:guibg]
+  endif
+  if ! empty(a:attr)
+    let l:cmd.=' gui='.a:attr
+  endif
+  if ! empty(a:ctermfg)
+    let l:cmd.=' ctermfg='.s:colors[a:ctermfg]
+  endif
+  if ! empty(a:ctermbg)
+    let l:cmd.=' ctermbg='.s:colors[a:ctermbg]
+  endif
+
+  exec l:cmd
+endfun
+
+" Default highlighting 1{{{
+call s:c( 'javaScriptBoolean'          , 'grayBool'        , '' , 'bold' , '' , '')
+call s:c( 'javaScriptBraces'           , 'brownBrace'      , '' , ''     , '' , '')
+call s:c( 'javaScriptBranch'           , 'blueBranch'      , '' , 'bold' , '' , '')
+call s:c( 'javaScriptComment'          , 'orangeDoc'       , '' , ''     , '' , '')
+call s:c( 'javaScriptCommentTodo'      , 'orangeDoc'       , '' , 'bold' , '' , '')
+call s:c( 'javaScriptConditional'      , 'purpleCondition' , '' , 'bold' , '' , '')
+call s:c( 'javaScriptDeprecated'       , 'redReserved'     , '' , ''     , '' , '')
+call s:c( 'javaScriptException'        , 'pinkException'   , '' , 'bold' , '' , '')
+call s:c( 'javaScriptFunction'         , 'redFunKeyword'   , '' , 'bold' , '' , '')
+call s:c( 'javaScriptGlobal'           , 'purpleGlobal'    , '' , '' , '' , '')
+call s:c( 'javaScriptIdentifier'       , 'blueThis'        , '' , 'bold' , '' , '')
+call s:c( 'javaScriptLabel'            , 'blueBranch'      , '' , ''     , '' , '')
+call s:c( 'javaScriptLineComment'      , 'orangeComment'   , '' , ''     , '' , '')
+call s:c( 'javaScriptMember'           , 'purpleGlobal'    , '' , '' , '' , '')
+call s:c( 'javaScriptMessage'          , 'purpleGlobal'    , '' , '' , '' , '')
+call s:c( 'javaScriptNull'             , 'blackNull'       , '' , 'bold' , '' , '')
+call s:c( 'javaScriptNumber'           , 'orangeNumber'    , '' , ''     , '' , '')
+call s:c( 'javaScriptOperator'         , 'blueOperator'    , '' , ''     , '' , '')
+call s:c( 'javaScriptRegexpString'     , 'purpleRegex'     , '' , ''     , '' , '')
+call s:c( 'javaScriptRepeat'           , 'purpleLoop'      , '' , 'bold' , '' , '')
+call s:c( 'javaScriptReserved'         , 'redReserved'     , '' , ''     , '' , '')
+call s:c( 'javaScriptSpecial'          , 'blueSpecial'     , '' , ''     , '' , '')
+call s:c( 'javaScriptSpecialCharacter' , 'blueSpecial'     , '' , ''     , '' , '')
+call s:c( 'javaScriptStatement'        , 'blueStatement'   , '' , 'bold' , '' , '')
+call s:c( 'javaScriptStringD'          , 'blueString'      , '' , ''     , '' , '')
+call s:c( 'javaScriptStringS'          , 'blueString'      , '' , ''     , '' , '')
+call s:c( 'javaScriptType'             , 'blueType'        , '' , 'bold' , '' , '')
+
+" Don't highlight anything
+call s:c( 'javaScriptCharacter'        , 'Y'               , '' , 'bold' , '' , '')
+call s:c( 'javaScriptError'            , 'X'               , '' , 'bold' , '' , '')
+call s:c( 'javaScriptConstant'         , 'Y'               , '' , 'bold' , '' , '')
+call s:c( 'javaScriptDebug'            , 'Y'               , '' , 'bold' , '' , '')
+call s:c( 'javaScrParenError'          , 'Z'        , '' , 'bold' , '' , '')
+" }}}1
+
+" FIXME brackets
+" FIXME last paren
+" TODO AMD
+" TODO .
+
+" FIXME ? selector : como key: 'balabla'
+
+" DONE:
+" FIXME throw, try
+" TODO if != return
+" FIXME switch + case || Label != key
+" TODO new keyword
+" TODO in keyword
+" FIXME prototype
+" FIXME var keyword / this
+" TODO !
+" TODO , & ;
+" TODO :
+
+" vim-javascript 1{{{
+call s:c( 'javaScript'                  , 'black'            , '' , ''     , '' , '')
+call s:c( 'javaScriptEnvComment'        , 'blackNull'        , '' , 'bold' , '' , '')
+call s:c( 'javaScriptDocComment'        , 'orangeDoc'        , '' , ''     , '' , '')
+call s:c( 'javaScriptCvsTag'            , 'orangeDoc'        , '' , 'bold' , '' , '')
+call s:c( 'javaScriptDocTags'           , 'orangeDoc'        , '' , 'bold' , '' , '')
+call s:c( 'javaScriptDocSeeTag'         , 'orangeDoc'        , '' , 'bold' , '' , '')
+call s:c( 'javaScriptDocType'           , 'orangeNoParam'    , '' , ''     , '' , '')
+call s:c( 'javaScriptDocTypeNoParam'    , 'orangeNoParam'    , '' , ''     , '' , '')
+call s:c( 'javaScriptDocParam'          , 'orangeParam'      , '' , ''     , '' , '')
+call s:c( 'javaScriptTernaryIfOperator' , 'blueCondition'    , '' , 'bold' , '' , '') " TODO
+call s:c( 'javaScriptRegexpCharClass'   , 'purpleSpecial'    , '' , ''     , '' , '')
+call s:c( 'javaScriptPrototype'         , 'bluePrototype'    , '' , ''     , '' , '')
+call s:c( 'javaScriptParensError'       , 'Y'         , 'black' , ''     , '' , '')
+" ]
+call s:c( 'javaScriptParensErrA'        , 'redError'         , 'black' , 'bold'     , '' , '')
+" )
+call s:c( 'javaScriptParensErrB'        , 'redError'         , 'black' , 'bold'     , '' , '')
+" }
+call s:c( 'javaScriptParensErrC'        , 'redError'         , 'black' , 'bold'     , '' , '')
+call s:c( 'javaScriptThis'              , 'blueThis'         , '' , 'bold' , '' , '')
+call s:c( 'javaScriptFloat'             , 'orangeNumber'     , '' , ''     , '' , '')
+call s:c( 'javaScriptSource'            , 'Z'                , '' , ''     , '' , '')
+call s:c( 'javaScriptCommonJS'          , 'blueGlobalObject' , '' , ''     , '' , '')
+call s:c( 'javaScriptGlobalObjects'     , 'blueGlobalObject' , '' , ''     , '' , '')
+call s:c( 'javaScriptExceptions'        , 'punkyException'   , '' , 'bold' , '' , '') " TODO
+call s:c( 'javaScriptDomErrNo'          , 'X'                , '' , ''     , '' , '')
+call s:c( 'javaScriptDomNodeConsts'     , 'Y'                , '' , ''     , '' , '')
+call s:c( 'javaScriptDomElemAttrs'      , 'Z'                , '' , ''     , '' , '')
+call s:c( 'javaScriptDomElemFuncs'      , 'X'                , '' , ''     , '' , '')
+call s:c( 'javaScriptHtmlEvents'        , 'Y'                , '' , ''     , '' , '')
+call s:c( 'javaScriptHtmlElemAttrs'     , 'Z'                , '' , ''     , '' , '')
+call s:c( 'javaScriptHtmlElemFuncs'     , 'Y'                , '' , ''     , '' , '')
+call s:c( 'javaScriptCssStyles'         , 'Y'                , '' , ''     , '' , '')
+call s:c( 'javaScriptFuncName'          , 'redFun'           , '' , ''     , '' , '')
+call s:c( 'javaScriptOpAssign'          , 'blueOperator'     , '' , ''     , '' , '')
+call s:c( 'javaScriptBracket'           , 'grayBracket'      , '' , ''     , '' , '')
+call s:c( 'javaScriptParen'             , 'blueParen'        , '' , ''     , '' , '')
+call s:c( 'javaScriptBlock'             , 'brownBrace'       , '' , ''     , '' , '')
+call s:c( 'javaScriptObjectKey'         , 'greenKey'         , '' , ''     , '' , '')
+call s:c( 'javaScriptNew'               , 'blueThis'         , '' , 'bold' , '' , '')
+" Override default TODO
+call s:c( 'javaScriptIdentifier'        , 'blueType'        , '' , 'bold'  , '' , '')
+call s:c( 'javaScriptExclamation'       ,'black','','bold','','') " TODO
+call s:c( 'javaScriptDot'         ,'redFun'       , '' , ''      , '' , '') " TODO
+call s:c( 'javaScriptComma'         ,'grayPunc'       , '' , ''      , '' , '')
+call s:c( 'javaScriptSemiColon'         ,'grayPunc'       , '' , ''      , '' , '')
+call s:c( 'javaScriptColon'         ,'grayPunc'       , '' , ''      , '' , '') " TODO
+call s:c( 'javaScriptConsole'         ,'brownConsole'       , '' , ''      , '' , '') " TODO
+" }}}1
+
+" vim-javascript-syntax 1{{{
+call s:c( 'javaScriptOpSymbols','blueOperator','','','','')
+call s:c( 'javaScriptLogicSymbols','greenOperator','','','','')
+call s:c( 'javaScriptParens','blueParen','','','','')
+call s:c( 'javaScriptFuncKeyword','redFunKeyword','','bold','','')
+
+" Ajax Highlighting
+call s:c( 'javaScriptBrowserObjects','purpleGlobal','','','','')
+
+call s:c( 'javaScriptDOMObjects','Y','','','','')
+call s:c( 'javaScriptDOMMethods','X','','','','')
+call s:c( 'javaScriptDOMProperties','X','','','','')
+
+call s:c( 'javaScriptAjaxObjects','Y','','','','')
+call s:c( 'javaScriptAjaxMethods','Z','','','','')
+call s:c( 'javaScriptAjaxProperties','Z','','','','')
+
+call s:c( 'javaScriptFuncDef','redFun','','','','')
+call s:c( 'javaScriptFuncArg','redFun','','','','')
+call s:c( 'javaScriptFuncComma','redFun','','','','')
+
+call s:c( 'javaScriptHtmlElemProperties','Y','','','','')
+
+call s:c( 'javaScriptEventListenerKeywords','Y','','','','')
+
+call s:c( 'javaScriptPropietaryObjects','X','','','','')
+call s:c( 'javaScriptPropietaryMethods','X','','','','')
+" }}}1
+
+" Míos
+" hi javaScriptArguments guifg=#0082F8 gui=bold
+" hi javaScriptProperty guifg=#447699
+"hi javaScriptMethod guifg=#F46699

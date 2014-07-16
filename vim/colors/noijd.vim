@@ -2,7 +2,7 @@
 "
 " Author: Juan Antonio Martín Lucas 
 "
-" Note: JavaScript, HTML, CSS, Ruby, PHP, Vim, SASS, Cucumber, Sh
+" Language: JavaScript, HTML, CSS, Ruby, PHP, Vim, SASS, Cucumber, Sh, Erlang
 " Plugins: NERDTree, Project
 "
 let g:colors_name="noijd"
@@ -286,11 +286,44 @@ hi sassClass guifg=#FC4545 gui=bold
 " JavaScript theme
 source ~/.vim/colors/ysjs.vim
 
+" TODO vim-jquery??
+" jQuery {{{2 FIXME No se están viendo, aunque sí remarca 'jQuery', pero en
+" otro color
+hi jQuery          guifg=#D04455 gui=bold
+hi jCore           guifg=#44A455
+hi jAttributes     guifg=#44F455
+hi jTraversing     guifg=#444955
+hi jManipulation   guifg=#444455
+hi jCSS            guifg=#446455
+hi jEvents         guifg=#934D55
+hi jEffects        guifg=#440455
+hi jAjax           guifg=#904595
+hi jUtilities      guifg=#400000
+hi jId             guifg=#B4D455
+hi jClass          guifg=#4444C5
+hi jOperators      guifg=#E84755
+hi jBasicFilters   guifg=#4DA295
+hi jContentFilters guifg=#458455
+hi jVisibility     guifg=#444405
+hi jChildFilters   guifg=#449235
+hi jForms          guifg=#4404F5
+hi jFormFilters    guifg=#4494D5
+" }}}2
+
 " CoffeeScript theme
 source ~/.vim/colors/coffee_rush.vim
 
 " Ruby theme
 source ~/.vim/colors/ruby_is_blushing.vim
+
+" Cucumber theme
+source ~/.vim/colors/cucumber.vim
+
+" Python theme
+source ~/.vim/colors/python.vim
+
+" Erlang theme
+source ~/.vim/colors/erlang.vim
 
 " FIXME Hasta no cambiar el fondo según el lenguaje
 " TODO El color de la ventana de proyecto debería ser diferente
@@ -305,26 +338,6 @@ source ~/.vim/colors/ruby_is_blushing.vim
 "hi NonText         guifg=#BCBCBC guibg=#BBBBBB
 "hi FoldColumn      guifg=#465457 guibg=#FF0DDD
 "hi Folded          guifg=#465457 guibg=#999999
-
-" Cucumber {{{2
-hi def link cucumberUnparsedComment   cucumberComment
-hi cucumberComment guifg=#94E095 gui=italic           
-" #445599 #449055 
-hi def link cucumberLanguage          SpecialComment
-hi cucumberFeature guifg=#000 gui=bold
-hi cucumberBackground guibg=#F45566
-hi cucumberScenario guifg=#54C956 gui=bold        
-hi cucumberScenarioOutline  guifg=#44F546 gui=bold
-hi def link cucumberExamples          Define
-hi def link cucumberPlaceholder       Constant
-hi def link cucumberDelimiter         Delimiter
-hi def link cucumberTags              Tag
-hi def link cucumberString            String
-hi cucumberGiven guifg=#F42546 gui=bold
-hi cucumberWhen guifg=#B42546 gui=bold
-hi cucumberThen guifg=#742546 gui=bold
-" }}}2
-" }}}1
 
 " PHP {{{1
 "#E9DB66 #C66302 
