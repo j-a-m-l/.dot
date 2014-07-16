@@ -22,3 +22,6 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'
 "     unlet s:highlightcursor
 "   endif
 " endfunction
+
+" Run current file
+command R !./%
