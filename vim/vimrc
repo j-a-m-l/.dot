@@ -20,6 +20,8 @@ call vundle#rc()
 " Turn on again
 filetype plugin indent on
 
+set shell=/bin/zsh
+
 set noautochdir " Don't auto-change directory to current file
 set autoread " Set to auto read when a file is changed from the outside
 
@@ -38,9 +40,11 @@ set wildignore+=*.svn,*.git " Ignore VCS files
 
 set foldnestmax=3
 
-set lbr " Wrap text instead of being on one line
-
 set noeol " Prevent vim from adding an empty line at the end of file
+
+set nomodeline
+
+set lbr " Wrap text instead of being on one line
 
 set autoindent
 " Copia el indentado
@@ -113,16 +117,19 @@ set mousemodel=extend
 " Local scripts/helpfiles FIXME pathogen
 "helptags $HOME/.vim/doc
 
-" Colores
+" Colours
 set t_Co=256
+
+" Always enable syntax highlight
+syn on
 
 if has("gui_running")
 	colo noijd
 
-	set gfn=Monospace\ 10
-	"set gfn=Envy\ Code\ R\ 11
-	"set gfn=Droid\ Sans\ Mono\ 10
-	"set gfn=DejaVu\ Sans\ Mono\ 10
+	" set gfn=Monospace\ 10
+	" set gfn=Envy\ Code\ R\ 11
+	" set gfn=Droid\ Sans\ Mono\ 10
+	set gfn=DejaVu\ Sans\ Mono\ 10
 
 	winpos 240 36 " Initial position on screen
 	set lines=36 " Lines
@@ -156,5 +163,5 @@ source ~/.vim/vundle.vim
 " COMMANDS
 source ~/.vim/commands.vim
 
-" Configuración adicional que puede depender del entorno
+" Configuración adicional que puede depender del entorno TODO
 source ~/.dot.private/vim/Config/vimrc.vim
