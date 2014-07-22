@@ -185,18 +185,20 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i
 # Shutdown
 bindsym $mod+Shift+p exec "i3-nagbar -t warning -m 'Quit?' -b 'Yes' 'sudo shutdown -P now'"
 
+set $size 1
+
 # Resize window
 mode "resize" {
 
-	# TODO resize layout instead of window, like xmonad
-    bindsym h resize grow width 10 px or 10 ppt
-    bindsym k resize grow height 10 px or 10 ppt
-    bindsym j resize grow height 10 px or 10 ppt
-    bindsym l resize grow width 10 px or 10 ppt
-    bindsym Shift+h resize shrink width 10 px or 10 ppt
-    bindsym Shift+k resize shrink height 10 px or 10 ppt
-    bindsym Shift+j resize shrink height 10 px or 10 ppt
-    bindsym Shift+l resize shrink width 10 px or 10 ppt
+	  # TODO resize layout instead of window, like xmonad
+    bindsym h resize grow width $size px or $size ppt
+    bindsym k resize grow height $size px or $size ppt
+    bindsym j resize grow height $size px or $size ppt
+    bindsym l resize grow width $size px or $size ppt
+    bindsym Shift+h resize shrink width $size px or $size ppt
+    bindsym Shift+k resize shrink height $size px or $size ppt
+    bindsym Shift+j resize shrink height $size px or $size ppt
+    bindsym Shift+l resize shrink width $size px or $size ppt
 
     # Back to normal
     bindsym r mode "default"
