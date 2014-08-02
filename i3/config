@@ -84,6 +84,7 @@ workspace $ws7 output $old_display
 workspace $ws8 output $old_display
 workspace $ws9 output $old_display
 workspace $ws0 output $twin_displays
+workspace $ws6 output $laptop_display
 
 # Sound volume buttons
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
@@ -230,6 +231,7 @@ assign [class="Chromium"] $ws3
 assign [class="Clementine"] $ws7
 assign [class="Transmission"] $ws8
 assign [class="Thunderbird"] $ws0
+assign [class="Xournal"] $ws6
 
 # Boot applications
 exec $HOME/.dot/i3/layouts.sh 'boot'
