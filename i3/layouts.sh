@@ -20,12 +20,21 @@ run_it () {
 	xmessage "Error running $@" &
 }
 
+# Loads terminals on the edition workspace
+console_layout () {
+	i3-msg workspace $ws2
+	i3-msg split v
+	run_it 'i3-sensible-terminal'
+	run_it 'i3-sensible-terminal'
+	run_it 'i3-sensible-terminal'
+	run_it 'i3-sensible-terminal'
+	i3-msg layout tabbed
+}
+
 # Loads the editor and a terminal on the edition workspace
 edit_layout () {
 	i3-msg workspace $ws1
-	i3-msg split v
 	run_it 'gvim'
-	run_it 'i3-sensible-terminal'
 }
 
 # Loads the email client on the communication workspace
@@ -37,8 +46,10 @@ email_layout () {
 boot_layout () {
 	email_layout
 	sleep 1
-	edit_layout
+	console_layout
 	sleep 1
+	# edit_layout
+	# sleep 1
 
 	# Focus on communication workspace
 	i3-msg workspace $ws0
@@ -49,6 +60,8 @@ if [ "$1" = 'boot' ]; then
 	boot_layout
 elif [ "$1" = 'email' ]; then
 	email_layout
+elif [ "$1" = 'console' ]; then
+	console_layout
 elif [ "$1" = 'edit' ]; then
 	edit_layout
 else

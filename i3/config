@@ -229,6 +229,7 @@ assign [class="Firefox"] $ws3
 assign [class="Vimperator"] $ws3
 assign [class="Chromium"] $ws3
 assign [class="Clementine"] $ws7
+assign [class="Amarok"] $ws7
 assign [class="Transmission"] $ws8
 assign [class="Thunderbird"] $ws0
 assign [class="Xournal"] $ws6
