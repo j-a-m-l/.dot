@@ -7,6 +7,7 @@ alias sagi='sudo apt-get install'
 alias sagu='sudo apt-get update'
 alias sagr='sudo apt-get remove'
 alias sagp='sudo apt-get purge'
+alias sacs='sudo apt-cache search'
 
 # git
 alias g='git'
@@ -47,6 +48,10 @@ if [ 'zsh' = $shell ]; then
 fi
 alias rk='rake'
 
+# Rails
+alias migrate='rake db:migrate && rake db:migrate RAILS_ENV=test'
+alias migration='rails generate migration'
+
 # Node.js
 alias js='node'
 
@@ -55,6 +60,7 @@ alias npi='npm install'
 
 # Grunt
 alias gru='grunt'
+alias grus='grunt serve'
 
 # Safely remove an USB disk
 alias safely_remove='sudo udisks --detach'
