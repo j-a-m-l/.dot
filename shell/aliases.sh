@@ -9,6 +9,10 @@ alias sagr='sudo apt-get remove'
 alias sagp='sudo apt-get purge'
 alias sacs='sudo apt-cache search'
 
+# bower
+alias bowi='bower install'
+alias bowie='bower install --save'
+
 # git
 alias g='git'
 
@@ -41,6 +45,9 @@ alias rb='ruby'
 # gem
 alias gemi='gem install'
 
+# Rails
+alias ra='rails'
+
 # Rake
 # For avoiding that zsh tries to autocomplete something like "rake task[arg]"
 if [ 'zsh' = $shell ]; then
@@ -61,6 +68,9 @@ alias npi='npm install'
 # Grunt
 alias gru='grunt'
 alias grus='grunt serve'
+
+alias insist='__insist__'
+alias retry='__insist__ !!'
 
 # Safely remove an USB disk
 alias safely_remove='sudo udisks --detach'
@@ -94,6 +104,9 @@ alias v='vim'
 __grepify__() {
 	# Is mandatory to use () or a space for escaping negative values
 	${@:1:($#-1)} | grep -i --color=auto ${@: -1}
+}
+__insist__() {
+  until $@; do :; done
 }
 __lessify__() {
 	$@ | less
