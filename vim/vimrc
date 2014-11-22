@@ -17,9 +17,6 @@ call pathogen#helptags()
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" Turn on again
-filetype plugin indent on
-
 set shell=/bin/zsh
 
 set noautochdir " Don't auto-change directory to current file
@@ -165,3 +162,6 @@ source ~/.vim/commands.vim
 
 " Configuración adicional que puede depender del entorno TODO
 source ~/.dot.private/vim/Config/vimrc.vim
+
+" Turn on again
+filetype plugin indent on
