@@ -64,10 +64,15 @@ alias js='node'
 
 # npm
 alias npi='npm install'
+alias npis='npm install --save'
+alias npid='npm install --save-dev'
 
 # Grunt
 alias gru='grunt'
 alias grus='grunt serve'
+
+# Gulp
+alias gu='gulp'
 
 alias insist='__insist__'
 alias retry='__insist__ !!'
