@@ -16,24 +16,24 @@ let s:colors = {
     \    'brownEscape'                : '#DF6666',
     \    'brownString'                : '#BF9999',
     \    'grayInterpolation'                : '#9F8888',
-    \    'greenKeyword'           : '#445D15',
     \    'brownLongString'                : '#9D4444',
     \    'purpleX' : '#663366',
-\    'blueConstant'                : '#00ccd0',
+\    'blueAssign'                : '#009999',
+\    'blueConstant'                : '#149515',
+\    'Object'                : '#14AD04',
+\    'greenKeyword'           : '#247D45',
 \    'Dot'                : '#BB9090',
 \    'X'                : '#00FF00',
 \    'Y'                : '#FFFF00',
 \    'Z'                : '#FF00FF',
 \    'Bracket'                : '#CD6789',
 \    'Repeat'                : '#4D2729',
-\    'Object'                : '#14BD04',
 \    'pinkComment'                : '#F0CCCC',
 \    'pinkTodo'                : '#F09C9C',
 \    'Heredoc'                : '#F0BCBC',
 \    'conditional'           : '#440000',
 \    'Var'                : '#B07777',
-\    'Assign'                : '#77BB22',
-\    'Global'                : '#FF0000',
+\    'Global'                : '#AA0000',
 \    'Comma'                : '#CC9090',
 \    'Statement'                : '#FF4030',
 \    'Operator'                : '#FB9090',
@@ -78,7 +78,7 @@ call s:c( 'coffeeBoolean', 'brownBool', '', 'bold', '', '')
 call s:c( 'coffeeBracket', 'Bracket', '', '', '', '')
 call s:c( 'coffeeComment', 'pinkComment', '', 'italic', '', '')
 call s:c( 'coffeeConditional', 'conditional', '', 'bold', '', '')
-call s:c( 'coffeeConstant', 'blueConstant', '', '', '', '')
+call s:c( 'coffeeConstant', 'blueConstant', '', 'bold', '', '')
 call s:c( 'coffeeCurly', 'brownCurly', '', '', '', '')
 call s:c( 'coffeeDotAccess', 'Dot', '', '', '', '')
 call s:c( 'coffeeEmbedDelim', 'Embed', '', '', '', '')
@@ -86,7 +86,8 @@ call s:c( 'coffeeEscape', 'brownEscape', '', 'bold', '', '')
 call s:c( 'coffeeException', 'Exception', '', 'bold', '', '')
 call s:c( 'coffeeExtendedOp', 'Extended', '', '', '', '')
 call s:c( 'coffeeFloat', 'Float', '', '', '', '')
-call s:c( 'coffeeGlobal', 'Global', '', '', '', '')
+" Also for null
+call s:c( 'coffeeGlobal', 'Global', '', 'bold', '', '')
 call s:c( 'coffeeHeredoc', 'brownLongString', '', '', '', '')
 call s:c( 'coffeeHeregex', 'Y', '', '', '', '')
 call s:c( 'coffeeHeregexComment', 'Heredoc', '', '', '', '')
@@ -95,7 +96,7 @@ call s:c( 'coffeeKeyword', 'greenKeyword', '', 'bold', '', '')
 call s:c( 'coffeeNumber', 'Number', '', '', '', '')
 call s:c( 'coffeeRegex', 'purpleX', '', '', '', '')
 call s:c( 'coffeeObject', 'Object', '', 'bold', '', '')
-call s:c( 'coffeeObjAssign', 'Assign', '', 'bold', '', '')
+call s:c( 'coffeeObjAssign', 'blueAssign', '', '', '', '')
 call s:c( 'coffeeOperator', 'Operator', '', 'bold', '', '')
 call s:c( 'coffeeProtoAccess', 'Proto', '', '', '', '')
 call s:c( 'coffeeParen', 'Paren', '', 'bold', '', '')
