@@ -37,3 +37,6 @@ snippet case
 snippet rec
 	-record(${1:record}, {
 	    ${2:field}=${3:value}}).${4}
+
+snippet fmt
+	io:format("${2:$1}:~p~n", [${1}]),${3}
