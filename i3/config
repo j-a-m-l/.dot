@@ -62,7 +62,7 @@ set $ws2 "2:console"
 set $ws3 "3:web"
 set $ws4 "4:help"
 set $ws5 "5:read"
-set $ws6 "6:design"
+set $ws6 "6:visual"
 set $ws7 "7:media"
 set $ws8 "8:net"
 set $ws9 "9:explore"
@@ -76,7 +76,7 @@ set $laptop_display eDP1
 # TODO customizable
 workspace $ws1 output $twin_displays
 workspace $ws2 output $laptop_display
-workspace $ws3 output $twin_displays
+workspace $ws3 output $old_display
 workspace $ws4 output $twin_displays
 workspace $ws5 output $twin_displays
 workspace $ws6 output $twin_displays
@@ -191,7 +191,8 @@ set $size 1
 # Resize window
 mode "resize" {
 
-	  # TODO resize layout instead of window, like xmonad
+	# TODO resize layout instead of window, like xmonad
+	# floating and tilling sizes
     bindsym h resize grow width $size px or $size ppt
     bindsym k resize grow height $size px or $size ppt
     bindsym j resize grow height $size px or $size ppt
@@ -216,23 +217,24 @@ bar {
 	position bottom
 	workspace_buttons yes
 	binding_mode_indicator yes
-	font pango:DejaVu Sans Mono 12
+	font pango:DejaVu Sans Mono 11
 	# colors TODO
 
 	# Tray icons on primary output
 	tray_output primary
 }
 
-# TODO customizable
+# TODO more customizable
 assign [class="(?i)g?vim$"] $ws1
 assign [class="Firefox"] $ws3
 assign [class="Vimperator"] $ws3
 assign [class="Chromium"] $ws3
-assign [class="Clementine"] $ws7
-assign [class="Amarok"] $ws7
-assign [class="Transmission"] $ws8
-assign [class="Thunderbird"] $ws0
 assign [class="Xournal"] $ws6
+assign [class="Amarok"] $ws7
+assign [class="Clementine"] $ws7
+assign [class="Transmission"] $ws8
+assign [class="Nautilus"] $ws9
+assign [class="Thunderbird"] $ws0
 
 # Boot applications
 exec $HOME/.dot/i3/layouts.sh 'boot'
