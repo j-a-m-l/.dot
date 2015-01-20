@@ -1,0 +1,10 @@
+%% Load user_default module
+Home = os:getenv("HOME"),
+Path = string:concat(Home, "/.dot/erlang/user_default"),
+{module, user_default} = code:load_abs(Path),
+
+%% Number of previous commands to keep in the history.
+shell:history(1000),
+
+%% Number of previous results to keep in the history.
+shell:results(1000).
