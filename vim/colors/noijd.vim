@@ -325,6 +325,9 @@ source ~/.vim/colors/python.vim
 " Erlang theme
 source ~/.vim/colors/erlang.vim
 
+" Haskell theme
+source ~/.vim/colors/haskell.vim
+
 " FIXME Hasta no cambiar el fondo según el lenguaje
 " TODO El color de la ventana de proyecto debería ser diferente
 "hi VertSplit       guifg=#808080 guibg=#DDDDDD gui=bold
