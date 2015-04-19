@@ -2,6 +2,8 @@ Config { font = "xft:Bitstream Vera Sans Mono:size=9:bold:antialias=true"
        , bgColor = "#000000"
        , fgColor = "grey"
        , position = Bottom
+       , hideOnStart = True
+       , allDesktops = True
        , commands = [ Run StdinReader
            , Run MultiCpu ["-t", "CPU: <autototal>%", "-L", "3", "-H", "50", "--normal", "green", "--high", "red"] 10
            , Run Memory ["-t", "Mem: <usedratio>%"] 10
