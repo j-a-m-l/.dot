@@ -1,5 +1,3 @@
--- vim: set ft=haskell:
-
 Config { font = "xft:Bitstream Vera Sans Mono:size=9:bold:antialias=true"
        , bgColor = "#000000"
        , fgColor = "grey"
