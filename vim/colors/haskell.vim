@@ -19,26 +19,13 @@ let s:colors = {
 \    'F'                : '#F0F000',
 \    'G'                : '#00F080',
 \    'X'                : '#00FF00',
-\    'record'                : '#0095B0',
-\    'spawn'                : '#0080A0',
-\    'bif'                : '#005080',
-\    'atomic'                : '#C080D0',
-\    'integer'                : '#F0B020',
-\    'list'                : '#F7B7C7',
-\    'macro'                : '#F080C0',
-\    'tuple'                : '#877080',
-\    'operator'                : '#F04B00',
-\    'modifier'                : '#305C11',
-\    'binary'                : '#F05C91',
-\    'bitType'                : '#3040F0',
-\    'darkerComment'                : '#888888',
-\    'darkerString'                : '#999999',
-\    'greyString'                : '#AAAAAA',
-\    'var'                : '#F08080',
-\    'whiteComment'                : '#BBBBBB',
-\    'redFunction'                : '#FF0F00',
 \
+\    'comment'                : '#BBBBBB',
+\    'function'                : '#7700DD',
 \    'import'                : '#FF0F00',
+\    'string'                : '#9999FF',
+\    'statement'                : '#220066',
+\    'structure'                : '#550099',
 \    }
 " }}}1
 " FIME
@@ -71,24 +58,25 @@ call s:c( 'hsModule', 'A', '', 'bold', '', '')
 call s:c( 'hsImport', 'import', '', 'bold', '', '')
 call s:c( 'hsImportMod', 'import', '', 'bold', '', '')
 call s:c( 'hsInfix', 'A', '', '', '', '')
-call s:c( 'hsStructure', 'A', '', '', '', '')
-call s:c( 'hsStatement', 'A', '', '', '', '')
+call s:c( 'hsStructure', 'structure', '', 'bold', '', '')
+call s:c( 'hsStatement', 'statement', '', 'bold', '', '')
 call s:c( 'hsConditional', 'A', '', '', '', '')
 call s:c( 'hsSpecialChar', 'A', '', '', '', '')
-call s:c( 'hsTypedef', 'A', '', '', '', '')
+call s:c( 'hsTypedef', 'D', '', '', '', '')
 call s:c( 'hsVarSym', 'A', '', '', '', '')
-call s:c( 'hsConSym', 'A', '', '', '', '')
-call s:c( 'hsOperator', 'A', '', 'bold', '', '')
+call s:c( 'hsConSym', 'F', '', '', '', '')
+call s:c( 'hsOperator', 'X', '', 'bold', '', '')
 call s:c( 'hsSpecialCharError', 'C', '', 'italic', '', '')
-call s:c( 'hsString', 'A', '', '', '', '')
+call s:c( 'hsString', 'string', '', 'italic', '', '')
 call s:c( 'hsCharacter', 'A', '', '', '', '')
 call s:c( 'hsNumber', 'A', '', '', '', '')
 call s:c( 'hsFloat', 'A', '', '', '', '')
 call s:c( 'hsConditional', 'A', '', '', '', '')
-call s:c( 'hsLiterateComment', 'A', '', '', '', '')
-call s:c( 'hsBlockComment', 'A', '', '', '', '')
-call s:c( 'hsLineComment', 'A', '', '', '', '')
-call s:c( 'hsComment', 'D', '', '', '', '')
+" TODO comment color variations
+call s:c( 'hsLiterateComment', 'comment', '', '', '', '')
+call s:c( 'hsBlockComment', 'comment', '', '', '', '')
+call s:c( 'hsLineComment', 'comment', '', '', '', '')
+call s:c( 'hsComment', 'comment', '', '', '', '')
 call s:c( 'hsPragma', 'B', '', '', '', '')
 call s:c( 'hsBoolean', 'A', '', '', '', '')
 
@@ -121,8 +109,12 @@ if exists("hs_highlight_delimiters")
 	call s:c( 'hsDelimiter', 'B', '', '', '', '')
 endif
 
+"
 " vim-haskell
-call s:c( 'hs_hlFunctionName', 'B', '', '', '', '')
+"
+" TODO test theme without this plugin
+
+call s:c( 'hs_hlFunctionName', 'function', '', 'bold', '', '')
 call s:c( 'hs_HighliteInfixFunctionName', 'B', '', '', '', '')
 call s:c( 'hs_HlInfixOp', 'B', '', '', '', '')
 call s:c( 'hs_OpFunctionName', 'B', '', '', '', '')
@@ -132,23 +124,26 @@ call s:c( 'hsExportModuleLabel', 'B', '', '', '', '')
 call s:c( 'hsModuleWhereLabel', 'B', '', '', '', '')
 call s:c( 'hsModuleName', 'B', '', '', '', '')
 
+" TODO import color variants
 call s:c( 'hsImportIllegal', 'B', '', '', '', '')
-call s:c( 'hsAsLabel', 'B', '', '', '', '')
-call s:c( 'hsHidingLabel', 'B', '', '', '', '')
-call s:c( 'hsImportLabel', 'B', '', '', '', '')
-call s:c( 'hsImportMod', 'B', '', '', '', '')
+call s:c( 'hsAsLabel', 'import', '', 'bold', '', '')
+call s:c( 'hsHidingLabel', 'import', '', 'bold', '', '')
+call s:c( 'hsImportLabel', 'import', '', 'bold', '', '')
+call s:c( 'hsImportMod', 'import', '', 'bold', '', '')
 call s:c( 'hsPackageString', 'B', '', '', '', '')
 
-call s:c( 'hsModuleCommentA', 'B', '', '', '', '')
-call s:c( 'hsModuleCommentB', 'B', '', '', '', '')
-call s:c( 'hsCommentTodo', 'B', '', '', '', '')
+call s:c( 'hsModuleCommentA', 'comment', '', '', '', '')
+call s:c( 'hsModuleCommentB', 'comment', '', '', '', '')
+call s:c( 'hsCommentTodo', 'comment', '', 'bold', '', '')
 
 if exists("hs_highlight_types")
-call s:c(i'Link', 'B', '', '', '', '')
-call s:c(i'Link', 'B', '', '', '', '')
+	call s:c('hsDelimTypeExport', 'B', '', '', '', '')
+	call s:c('hsType', 'B', '', '', '', '')
 endif
 
 call s:c( 'hs_TypeOp', 'B', '', '', '', '')
+
+" TODO
 
 call s:c( 'hsFFIString', 'B', '', '', '', '')
 call s:c( 'hsFFIForeign', 'B', '', '', '', '')
