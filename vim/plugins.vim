@@ -125,9 +125,9 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 " PDV (PHPDocumentator for Vim)
-imap <C-d> <ESC>:call PhpDocSingle()<CR>i
-nmap <C-d> :call PhpDocSingle()<CR>
-vmap <C-d> :call PhpDocRange()<CR>
+imap <Leader>d <ESC>:call PhpDocSingle()<CR>i
+nmap <Leader>d :call PhpDocSingle()<CR>
+vmap <Leader>d :call PhpDocRange()<CR>
 
 "===========================================================================
 " dbext.vim callback function
@@ -236,3 +236,6 @@ endif
 "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+
+source ~/.vim/config/plugins/vim-session.vim
