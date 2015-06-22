@@ -79,6 +79,7 @@ alias js='node'
 alias npi='npm install'
 alias npis='npm install --save'
 alias npid='npm install --save-dev'
+alias npt='npm test'
 
 # Grunt
 alias gru='grunt'
