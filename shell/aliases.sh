@@ -13,12 +13,23 @@ alias sacs='sudo apt-cache search'
 alias bowi='bower install'
 alias bowie='bower install --save'
 
+# Bundle
+alias bundin='bundle install'
+alias bundex='bundle exec'
+
+# Cabal
+alias cabi='cabal install'
+
 # git
 alias g='git'
 
 # grep
 alias G='grep -i --color=auto'
 alias gy='__grepify__'
+
+# Ionic
+alias ion='ionic'
+alias ions='ionic serve'
 
 # ls
 alias l='ls'
@@ -47,6 +58,9 @@ alias gemi='gem install'
 
 # Rails
 alias ra='rails'
+alias migrate='rake db:migrate && rake db:migrate RAILS_ENV=test'
+alias migratest='rake db:migrate RAILS_ENV=test'
+alias migration='rails generate migration'
 
 # Rake
 # For avoiding that zsh tries to autocomplete something like "rake task[arg]"
@@ -55,9 +69,8 @@ if [ 'zsh' = $shell ]; then
 fi
 alias rk='rake'
 
-# Rails
-alias migrate='rake db:migrate && rake db:migrate RAILS_ENV=test'
-alias migration='rails generate migration'
+# Guard
+alias gua='guard'
 
 # Node.js
 alias js='node'
@@ -73,14 +86,18 @@ alias grus='grunt serve'
 
 # Gulp
 alias gu='gulp'
+alias gus='gulp serve'
 
 alias insist='__insist__'
 alias retry='__insist__ !!'
 
+# netstat
+alias open_ports='netstat -nap'
+
 # Safely remove an USB disk
 alias safely_remove='sudo udisks --detach'
 
-# Shutting down the easy way
+# Shutting down the short way
 alias Shutdown='sudo shutdown -h -P now'
 alias Restart='sudo shutdown -r now'
 
@@ -106,12 +123,20 @@ alias vend='vagrant suspend'
 # Vim
 alias v='vim'
 
+# Yesod
+alias yede='yesod devel'
+
 __grepify__() {
 	# Is mandatory to use () or a space for escaping negative values
 	${@:1:($#-1)} | grep -i --color=auto ${@: -1}
 }
 __insist__() {
-  until $@; do :; done
+  echo "\n » Trying '$@' (first time)\n"
+  i=1
+  until $@; do
+    i=`expr $i + 1`
+    echo "\n » Trying '$@' ($i times)\n"
+  done
 }
 __lessify__() {
 	$@ | less
