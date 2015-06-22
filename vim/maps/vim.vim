@@ -43,7 +43,7 @@ imap <C-Space> <C-x><C-o>
 cmap w!! w !sudo tee % >/dev/null
 
 " Paste from clipboard
-nnoremap <C-V> :set paste<CR>:.!xclip -o<CR>:set nopaste<CR>
+nnoremap <C-V> :set paste<CR>o<CR><ESC>:.!xclip -o<CR>kJ:set nopaste<CR>
 
 "
 " Markdown
