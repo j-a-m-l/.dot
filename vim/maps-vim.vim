@@ -33,6 +33,10 @@ nnoremap k gk
 " Clear the search highlighting (yeahhhhh!!!)
 nnoremap <ESC> :nohlsearch<CR><ESC>
 
+" TODO One unique command as prefix for inserting data
+" Add the current time HH:MM
+map <C-d>t :Time<CR>
+
 "
 " En pruebas...
 "
@@ -43,5 +47,5 @@ imap <C-Space> <C-x><C-o>
 cmap w!! w !sudo tee % >/dev/null
 
 " Add headers (only Markdown files)
-autocmd FileType mkd noremap <buffer> h1 yypVr=
-autocmd FileType mkd noremap <buffer> h2 yypVr-
+autocmd FileType mkd noremap <buffer> <Leader>h1 yypVr=
+autocmd FileType mkd noremap <buffer> <Leader>h2 yypVr-
