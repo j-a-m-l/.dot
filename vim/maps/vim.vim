@@ -37,15 +37,18 @@ nnoremap <ESC> :nohlsearch<CR><ESC>
 " Add the current time HH:MM
 map <C-d>t :Time<CR>
 
-"
-" En pruebas...
-"
-
 imap <C-Space> <C-x><C-o>
 
 " Save a file that requires root privileges
 cmap w!! w !sudo tee % >/dev/null
 
-" Add headers (only Markdown files)
+" Paste from clipboard
+nnoremap <C-V> :set paste<CR>:.!xclip -o<CR>:set nopaste<CR>
+
+"
+" Markdown
+"
+
+" Add headers
 autocmd FileType mkd noremap <buffer> <Leader>h1 yypVr=
 autocmd FileType mkd noremap <buffer> <Leader>h2 yypVr-

@@ -127,6 +127,7 @@ if has("gui_running")
 	" set gfn=Envy\ Code\ R\ 11
 	" set gfn=Droid\ Sans\ Mono\ 10
 	set gfn=DejaVu\ Sans\ Mono\ 10
+    " set gfn=DejaVu\ Sans\ Mono\ 12
 
 	winpos 240 36 " Initial position on screen
 	set lines=36 " Lines
@@ -148,10 +149,10 @@ else
 endif
 
 " MAPS
-source ~/.vim/maps.vim     " Vim + Vimperator
-source ~/.vim/maps-vim.vim " Only Vim
-"source ~/.vim/maps-es.vim " Spanish layout
-source ~/.vim/maps-us.vim  " English layout
+source ~/.vim/maps/vi-like.vim     " GVim, Vim, Vimperator...
+source ~/.vim/maps/vim.vim " Only GVim and Vim
+"source ~/.vim/maps/es.vim " Spanish layout
+source ~/.vim/maps/us.vim  " English layout
 
 " PLUGINS
 source ~/.vim/plugins.vim
