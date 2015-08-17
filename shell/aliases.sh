@@ -12,10 +12,12 @@ alias sacs='sudo apt-cache search'
 # bower
 alias bowi='bower install'
 alias bowie='bower install --save'
+alias bowup='bower update'
 
 # Bundle
 alias bundin='bundle install'
-alias bundex='bundle exec'
+alias bex='bundle exec'
+alias bexr='bundle exec ruby'
 
 # Cabal
 alias cabi='cabal install'
