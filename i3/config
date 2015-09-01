@@ -18,6 +18,8 @@ font pango:DejaVu Sans Mono 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+focus_follows_mouse yes
+
 # Default layout mode for new containers
 # workspace_layout TODO
 
@@ -77,14 +79,13 @@ set $laptop_display eDP1
 workspace $ws1 output $twin_displays
 workspace $ws2 output $laptop_display
 workspace $ws3 output $old_display
-workspace $ws4 output $twin_displays
+workspace $ws4 output $laptop_display
 workspace $ws5 output $twin_displays
 workspace $ws6 output $twin_displays
 workspace $ws7 output $old_display
 workspace $ws8 output $old_display
 workspace $ws9 output $old_display
 workspace $ws0 output $twin_displays
-workspace $ws6 output $laptop_display
 
 # Sound volume buttons
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
@@ -95,13 +96,13 @@ bindsym XF86AudioMute exec amixer -D pulse sset Master 0%
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
-# Lock touchpad button
-bindsym XF86Touch exec ./touchpad.sh
+# Lock touchpad
+bindsym XF86Touch exec ~/.i3/touchpad.sh
 
-# start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# Start a terminal
+bindsym $mod+Return exec ~/.i3/shell.sh
 
-# kill focused window
+# Kill focused window
 bindsym $mod+Escape kill
 
 # Start dmenu (a program launcher)
@@ -212,7 +213,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
 	#id TODO
-	status_command i3status
+	status_command i3status --config ~/.i3/i3status.conf
 	mode hide
 	position bottom
 	workspace_buttons yes
@@ -229,11 +230,15 @@ assign [class="(?i)g?vim$"] $ws1
 assign [class="Firefox"] $ws3
 assign [class="Vimperator"] $ws3
 assign [class="Chromium"] $ws3
+assign [class="Evince"] $ws5
+assign [class="Calibre"] $ws5
+assign [class="Anki"] $ws6
 assign [class="Xournal"] $ws6
 assign [class="Amarok"] $ws7
 assign [class="Clementine"] $ws7
 assign [class="Transmission"] $ws8
 assign [class="Nautilus"] $ws9
+assign [class="Kmail"] $ws0
 assign [class="Thunderbird"] $ws0
 
 # Boot applications
