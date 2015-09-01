@@ -9,3 +9,8 @@ Pry.config.editor = 'gvim'
 Pry.config.color = true
 
 Pry.config.prompt = [ proc { "» " }, proc { "> " }]
+
+require_relative 'helpers'
+# require 'pp'
+require 'awesome_print'
+AwesomePrint.pry!
