@@ -23,14 +23,15 @@ alias bexr='bundle exec ruby'
 alias cabi='cabal install'
 
 # Docker
-alias do='docker'
+alias dok='docker'
 alias doi='docker images'
 alias dop='docker ps'
 alias dopa='docker ps -a'
+alias doa='docker attach'
 alias dor='docker run'
 alias dori='docker run -it'
 alias dob='docker build'
-alias docup='docker-compose up'
+alias do_c='docker-compose'
 
 # git
 alias g='git'
@@ -105,7 +106,8 @@ alias insist='__insist__'
 alias retry='__insist__ !!'
 
 # netstat
-alias open_ports='netstat -nap'
+alias open_ports1='netstat -nap'
+alias open_ports2='sudo netstat -ntlp'
 
 # Safely remove an USB disk
 alias safely_remove='sudo udisks --detach'
