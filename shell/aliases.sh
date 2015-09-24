@@ -22,6 +22,16 @@ alias bexr='bundle exec ruby'
 # Cabal
 alias cabi='cabal install'
 
+# Docker
+alias do='docker'
+alias doi='docker images'
+alias dop='docker ps'
+alias dopa='docker ps -a'
+alias dor='docker run'
+alias dori='docker run -it'
+alias dob='docker build'
+alias docup='docker-compose up'
+
 # git
 alias g='git'
 
