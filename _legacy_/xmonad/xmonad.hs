@@ -1,3 +1,6 @@
+
+-- Currently this configuration has some problems!
+
 import qualified Data.Map as M
 
 -- XMonad
