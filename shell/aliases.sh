@@ -109,6 +109,9 @@ alias retry='__insist__ !!'
 alias open_ports1='netstat -nap'
 alias open_ports2='sudo netstat -ntlp'
 
+# Ping
+alias pingo='__ping_192__'
+
 # Safely remove an USB disk
 alias safely_remove='sudo udisks --detach'
 
@@ -158,6 +161,9 @@ __lessify__() {
 }
 __open__() {
 	nohup xdg-open $1 > /dev/null 2>&1 &
+}
+__ping_192__() {
+	ping "192.168.$1"
 }
 __vagopen__() {
 	vagrant up $1 && vagrant ssh $1
