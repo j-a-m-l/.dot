@@ -1,13 +1,9 @@
 #!/bin/sh
 
-shell=`ps | grep $$ | awk '{ print $4 }'`
+source aliases/minimal.sh
+source aliases/ubuntu.sh
 
-# apt
-alias sagi='sudo apt-get install'
-alias sagu='sudo apt-get update'
-alias sagr='sudo apt-get remove'
-alias sagp='sudo apt-get purge'
-alias sacs='sudo apt-cache search'
+shell=`ps | grep $$ | awk '{ print $4 }'`
 
 # bower
 alias bowi='bower install'
@@ -36,25 +32,9 @@ alias do_c='docker-compose'
 # git
 alias g='git'
 
-# grep
-alias G='grep -i --color=auto'
-alias gy='__grepify__'
-
 # Ionic
 alias ion='ionic'
 alias ions='ionic serve'
-
-# ls
-alias l='ls'
-alias ll='ls -alF'
-alias la='ls -A'
-alias lg='ls -a | grep -i --color=auto'
-
-# use less (no pun intended)
-alias ly='__lessify__'
-
-# man
-alias m='man'
 
 # Make
 alias mk='make'
@@ -102,9 +82,6 @@ alias grus='grunt serve'
 alias gu='gulp'
 alias gus='gulp serve'
 
-alias insist='__insist__'
-alias retry='__insist__ !!'
-
 # netstat
 alias open_ports1='netstat -nap'
 alias open_ports2='sudo netstat -ntlp'
@@ -138,27 +115,9 @@ alias vags='vagrant ssh'
 alias vago='__vagopen__'
 alias vend='vagrant suspend'
 
-# Vim
-alias v='vim'
-
 # Yesod
 alias yede='yesod devel'
 
-__grepify__() {
-	# Is mandatory to use () or a space for escaping negative values
-	${@:1:($#-1)} | grep -i --color=auto ${@: -1}
-}
-__insist__() {
-  echo "\n » Trying '$@' (first time)\n"
-  i=1
-  until $@; do
-    i=`expr $i + 1`
-    echo "\n » Trying '$@' ($i times)\n"
-  done
-}
-__lessify__() {
-	$@ | less
-}
 __open__() {
 	nohup xdg-open $1 > /dev/null 2>&1 &
 }
