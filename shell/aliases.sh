@@ -1,7 +1,7 @@
 #!/bin/sh
 
-source aliases/minimal.sh
-source aliases/ubuntu.sh
+source_it "$HOME/.dot/shell/aliases/minimal.sh"
+source_it "$HOME/.dot/shell/aliases/ubuntu.sh"
 
 shell=`ps | grep $$ | awk '{ print $4 }'`
 
