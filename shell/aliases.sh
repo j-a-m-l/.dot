@@ -1,8 +1,5 @@
 #!/bin/sh
 
-source_it "$HOME/.dot/shell/aliases/minimal.sh"
-source_it "$HOME/.dot/shell/aliases/ubuntu.sh"
-
 shell=`ps | grep $$ | awk '{ print $4 }'`
 
 # bower
@@ -127,3 +124,6 @@ __ping_192__() {
 __vagopen__() {
 	vagrant up $1 && vagrant ssh $1
 }
+
+source_it "$HOME/.dot/shell/aliases/ubuntu.sh"
+source_it "$HOME/.dot/shell/aliases/minimal.sh"
