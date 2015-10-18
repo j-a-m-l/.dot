@@ -36,6 +36,9 @@ alias do_c='docker-compose'
 alias do_cu='docker-compose up'
 alias do_cs='docker-compose stop'
 
+# Foreman
+alias fore='foreman start'
+
 # git
 alias g='git'
 
