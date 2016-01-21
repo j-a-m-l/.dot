@@ -30,11 +30,17 @@ alias dop_clean='docker rm `docker ps -q -f status=exited`'
 alias dop_stop_all='docker stop `docker ps -aq`'
 alias dop_purge='docker rm `docker ps -q`'
 alias dop_purge_all='docker rm `docker ps -aq`'
+# TODO doi_local
+# TODO doi_local_latest
+# TODO doi_local_non_latest
 
 # Docker Compose
 alias do_c='docker-compose'
 alias do_cu='docker-compose up'
 alias do_cs='docker-compose stop'
+
+# Dokku
+alias dokku='bash $HOME/.dokku/contrib/dokku_client.sh'
 
 # Foreman
 alias fore='foreman start'
