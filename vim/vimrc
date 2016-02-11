@@ -120,33 +120,8 @@ set t_Co=256
 " Always enable syntax highlight
 syn on
 
-if has("gui_running")
-	colo noijd
-
-	" set gfn=Monospace\ 10
-	" set gfn=Envy\ Code\ R\ 11
-	" set gfn=Droid\ Sans\ Mono\ 10
-	set gfn=DejaVu\ Sans\ Mono\ 10
-    " set gfn=DejaVu\ Sans\ Mono\ 12
-
-	winpos 240 36 " Initial position on screen
-	set lines=36 " Lines
-	set columns=120 " Columns
-	" Una ligera transparencia
-	"set transparency=5 FIXME No funciona
-
-	set guioptions-=M " System menu is not sourced
-	set guioptions-=m " No menu
-	set guioptions-=T " No toolbar
-    set guioptions-=r " No scrollbar on the right
-    set guioptions-=R " No scrollbar on the right when split
-    set guioptions-=l " No scrollbar on the left
-	set guioptions-=l " No scrollbar on the left when split
-    set guioptions-=b " No scrollbar on the bottom
-    set guioptions=ci
-else
-	colo elflord
-endif
+" Default theme
+colo elflord
 
 " MAPS
 source ~/.vim/maps/vi-like.vim     " GVim, Vim, Vimperator...
