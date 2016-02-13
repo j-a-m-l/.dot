@@ -1,15 +1,17 @@
 neocomplete
 ===========
-[![Stories in Ready](http://badge.waffle.io/Shougo/neocomplete.vim.png)](http://waffle.io/Shougo/neocomplete.vim)  
 
-neocomplete is the abbreviation of "neo-completion with cache". It
-provides keyword completion system by maintaining a cache of keywords in the
-current buffer. neocomplete can be customized easily and has many more
-features than Vim's built-in completion.
+neocomplete is the abbreviation of "neo-completion with cache". It provides
+keyword completion system by maintaining a cache of keywords in the current
+buffer. neocomplete can be customized easily and has many more features than
+Vim's built-in completion.
+
+Note: If you use neovim, you should use deoplete instead.
+https://github.com/Shougo/deoplete.nvim
 
 ## Installation
 
-**Note:** neocomplete requires Vim 7.3.885+ with Lua enabled. 
+**Note:** neocomplete requires Vim 7.3.885+ with Lua enabled.
 See [requirements](#requirements) if you aren't sure whether you have this.
 
 1. Extract the files and put them in your Vim directory
@@ -29,7 +31,7 @@ If `:echo has("lua")` returns `1`, then you're done; otherwise, see below.
 * [Vim 32bit alternative](http://tuxproject.de/projects/vim/)
 * [Another alternative](http://wyw.dcweb.cn/#download)
 
-**Note:** the Vim build may not include the Lua DLL. In that case, 
+**Note:** the Vim build may not include the Lua DLL. In that case,
 [download Lua](http://lua-users.org/wiki/LuaBinaries) and put the `lua52.dll`
 file in the same directory as `gvim.exe`.
 
@@ -39,7 +41,8 @@ file in the same directory as `gvim.exe`.
 
 Or, you can install MacVim with homebrew:
 
-    brew install macvim --with-cscope --with-lua --HEAD
+    brew install macvim --with-cscope --with-lua
+    brew linkapps macvim
 
 To install Vim (as opposed to MacVim) with homebrew:
 
@@ -47,7 +50,7 @@ To install Vim (as opposed to MacVim) with homebrew:
 
 ### Vim for Linux:
 
-#### Debian (or Ubuntu) 
+#### Debian (or Ubuntu)
 
 Make sure you have any of these packages:
 * vim-nox
@@ -57,10 +60,10 @@ Make sure you have any of these packages:
 
 Which package depends on your graphical environment (except vim-nox which is for vim with no GUI).
 
-#### Fedora 
+#### Fedora
 
 The latest version of vim includes lua.
-As of 2014-04-16 you need to (download the rpm)[http://koji.fedoraproject.org/koji/packageinfo?packageID=216].
+As of 2014-04-16 you need to [download the rpm](http://koji.fedoraproject.org/koji/packageinfo?packageID=216).
 
 #### Misc
 
@@ -80,7 +83,7 @@ When everything is prepared, execute these commands.
     cd /usr/src
     tar jxf vim-7.4.tar.bz2
     tar xvfz lua-5.1.5.tar.gz
-    cd /vim74/
+    cd vim74/
     ./configure --enable-luainterp --enable-gui=no \
     --without-x --enable-multibyte --prefix=/usr
     make && make install
@@ -89,10 +92,10 @@ To check if everything was successfull enter the following `vim --version`. You 
 
 ## Snippets
 
-The Snippets feature of neocomplete was split into a 
+The Snippets feature of neocomplete was split into a
 [separate plugin](https://github.com/Shougo/neosnippet).
 
-A migration guide for existing users of neocomplcache is available: 
+A migration guide for existing users of neocomplcache is available:
 [Migration guide](https://github.com/Shougo/neocomplete.vim/wiki/neocomplete-migration-guide)
 
 
@@ -152,29 +155,17 @@ inoremap <expr><C-l>     neocomplete#complete_common_string()
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
   " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-" For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
-"inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
-"inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
-" Or set this.
-"let g:neocomplete#enable_cursor_hold_i = 1
-" Or set this.
-"let g:neocomplete#enable_insert_char_pre = 1
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
 " AutoComplPop like behavior.
 "let g:neocomplete#enable_auto_select = 1

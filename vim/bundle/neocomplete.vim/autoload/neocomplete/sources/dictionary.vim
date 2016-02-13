@@ -37,7 +37,7 @@ if !exists('s:dictionary_cache')
   let s:async_dictionary_list = {}
 endif
 
-function! neocomplete#sources#dictionary#define() "{{{
+function! neocomplete#sources#dictionary#define() abort "{{{
   return s:source
 endfunction"}}}
 
@@ -49,9 +49,11 @@ let s:source = {
       \ 'hooks' : {},
       \}
 
-function! s:source.hooks.on_init(context) "{{{
-  " Set make cache event.
-  autocmd neocomplete FileType * call s:make_cache(&l:filetype)
+function! s:source.hooks.on_init(context) abort "{{{
+  augroup neocomplete "{{{
+    autocmd FileType * call s:make_cache(&l:filetype)
+    autocmd VimLeavePre * call neocomplete#helper#clean('dictionary_cache')
+  augroup END"}}}
 
   " Create cache directory.
   call neocomplete#cache#make_directory('dictionary_cache')
@@ -60,15 +62,14 @@ function! s:source.hooks.on_init(context) "{{{
   call s:make_cache(&l:filetype)
 endfunction"}}}
 
-function! s:source.hooks.on_final(context) "{{{
+function! s:source.hooks.on_final(context) abort "{{{
   silent! delcommand NeoCompleteDictionaryMakeCache
 endfunction"}}}
 
-function! s:source.gather_candidates(context) "{{{
+function! s:source.gather_candidates(context) abort "{{{
   let list = []
 
-  for ft in neocomplete#get_source_filetypes(
-        \ neocomplete#get_context_filetype())
+  for ft in a:context.filetypes
     if !has_key(s:dictionary_cache, ft)
       call s:make_cache(ft)
     endif
@@ -82,14 +83,14 @@ function! s:source.gather_candidates(context) "{{{
   return list
 endfunction"}}}
 
-function! s:make_cache(filetype) "{{{
+function! s:make_cache(filetype) abort "{{{
   if !has_key(s:dictionary_cache, a:filetype)
         \ && !has_key(s:async_dictionary_list, a:filetype)
     call neocomplete#sources#dictionary#remake_cache(a:filetype)
   endif
 endfunction"}}}
 
-function! neocomplete#sources#dictionary#remake_cache(filetype) "{{{
+function! neocomplete#sources#dictionary#remake_cache(filetype) abort "{{{
   if !neocomplete#is_enabled()
     call neocomplete#initialize()
   endif
@@ -99,15 +100,12 @@ function! neocomplete#sources#dictionary#remake_cache(filetype) "{{{
     let filetype = neocomplete#get_context_filetype(1)
   endif
 
-  let dictionaries =
-        \ neocomplete#sources#dictionary#get_dictionaries(filetype)
-
   if !has_key(s:async_dictionary_list, filetype)
     let s:async_dictionary_list[filetype] = []
   endif
 
   let pattern = neocomplete#get_keyword_pattern(filetype, s:source.name)
-  for dictionary in split(dictionaries, ',')
+  for dictionary in neocomplete#sources#dictionary#get_dictionaries(filetype)
     let dictionary = neocomplete#util#substitute_path_separator(
           \ fnamemodify(dictionary, ':p'))
     if filereadable(dictionary)
@@ -121,7 +119,7 @@ function! neocomplete#sources#dictionary#remake_cache(filetype) "{{{
   endfor
 endfunction"}}}
 
-function! neocomplete#sources#dictionary#get_dictionaries(filetype) "{{{
+function! neocomplete#sources#dictionary#get_dictionaries(filetype) abort "{{{
   let filetype = a:filetype
   if filetype == ''
     let filetype = neocomplete#get_context_filetype(1)
@@ -136,14 +134,15 @@ function! neocomplete#sources#dictionary#get_dictionaries(filetype) "{{{
           \ g:neocomplete#sources#dictionary#dictionaries['_']
   endif
 
-  if dictionaries == ''
-    if filetype == &filetype &&
-          \ &l:dictionary != '' && &l:dictionary !=# &g:dictionary
+  if dictionaries == '' && &l:dictionary != ''
+    if ((filetype ==# 'nothing' && &filetype == '')
+          \ || filetype ==# &filetype)
+          \ && &l:dictionary !=# &g:dictionary
       let dictionaries = &l:dictionary
     endif
   endif
 
-  return dictionaries
+  return split(dictionaries, ',')
 endfunction"}}}
 
 let &cpo = s:save_cpo
