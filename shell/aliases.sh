@@ -1,44 +1,5 @@
 #!/bin/sh
 
-shell=`ps | grep $$ | awk '{ print $4 }'`
-
-# bower
-alias bowi='bower install'
-alias bowie='bower install --save'
-alias bowup='bower update'
-
-# Bundle
-alias bundin='bundle install'
-alias bex='bundle exec'
-alias bexr='bundle exec ruby'
-
-# Cabal
-alias cabi='cabal install'
-
-# Docker
-alias dok='docker'
-alias doi='docker images'
-alias dop='docker ps'
-alias dopa='docker ps -a'
-alias doa='docker attach'
-alias dor='docker run'
-alias dori='docker run -it'
-alias dob='docker build'
-alias doi_clean='docker rmi `docker images -q -f dangling=true`'
-alias doi_purge='docker rmi `docker images -q`'
-alias dop_clean='docker rm `docker ps -q -f status=exited`'
-alias dop_stop_all='docker stop `docker ps -aq`'
-alias dop_purge='docker rm `docker ps -q`'
-alias dop_purge_all='docker rm `docker ps -aq`'
-# TODO doi_local
-# TODO doi_local_latest
-# TODO doi_local_non_latest
-
-# Docker Compose
-alias do_c='docker-compose'
-alias do_cu='docker-compose up'
-alias do_cs='docker-compose stop'
-
 # Dokku
 alias dokku='bash $HOME/.dokku/contrib/dokku_client.sh'
 
@@ -48,55 +9,12 @@ alias fore='foreman start'
 # git
 alias g='git'
 
-# Ionic
-alias ion='ionic'
-alias ions='ionic serve'
-
 # Make
 alias mk='make'
 alias mki='make install'
 
 # Open files like a boss. I really need it...
 alias o='__open__'
-
-# Ruby
-alias rb='ruby'
-
-# gem
-alias gemi='gem install'
-
-# Rails
-alias ra='rails'
-alias migrate='rake db:migrate && rake db:migrate RAILS_ENV=test'
-alias migratest='rake db:migrate RAILS_ENV=test'
-alias migration='rails generate migration'
-
-# Rake
-# For avoiding that zsh tries to autocomplete something like "rake task[arg]"
-if [ 'zsh' = $shell ]; then
-  alias rake='noglob rake'
-fi
-alias rk='rake'
-
-# Guard
-alias gua='guard'
-
-# Node.js
-alias js='node'
-
-# npm
-alias npi='npm install'
-alias npis='npm install --save'
-alias npid='npm install --save-dev'
-alias npt='npm test'
-
-# Grunt
-alias gru='grunt'
-alias grus='grunt serve'
-
-# Gulp
-alias gu='gulp'
-alias gus='gulp serve'
 
 # netstat
 alias open_ports1='netstat -nap'
@@ -118,21 +36,11 @@ alias simple_server='python -m SimpleHTTPServer'
 # Tmuxinator
 alias tm='tmuxinator'
 
-# Python
-alias py='python'
-alias ipy='ipython'
-
-# pip
-alias pipi='pip install'
-
 # Vagrant
 alias vag='vagrant'
 alias vags='vagrant ssh'
 alias vago='__vagopen__'
 alias vend='vagrant suspend'
-
-# Yesod
-alias yede='yesod devel'
 
 __open__() {
 	nohup xdg-open $1 > /dev/null 2>&1 &
@@ -144,5 +52,12 @@ __vagopen__() {
 	vagrant up $1 && vagrant ssh $1
 }
 
-source_it "$HOME/.dot/shell/aliases/ubuntu.sh"
-source_it "$HOME/.dot/shell/aliases/minimal.sh"
+ALIASES_PATH="$HOME/.dot/shell/aliases"
+source_it "$ALIASES_PATH/minimal.sh"
+source_it "$ALIASES_PATH/aliases/ubuntu.sh"
+source_it "$ALIASES_PATH/docker.sh"
+source_it "$ALIASES_PATH/ruby.sh"
+source_it "$ALIASES_PATH/javascript.sh"
+source_it "$ALIASES_PATH/rust.sh"
+source_it "$ALIASES_PATH/python.sh"
+source_it "$ALIASES_PATH/haskell.sh"

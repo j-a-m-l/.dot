@@ -1,4 +1,4 @@
-# grep
+# grep use -p (is a pipe)
 alias G='grep -i --color=auto'
 alias gy='__grepify__'
 
