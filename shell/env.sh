@@ -12,6 +12,18 @@ export PATH=$PATH:$HOME/.rvm/bin
 export NVM_DIR=$HOME/.nvm
 source_it $NVM_DIR/nvm.sh
 
+autoload -U add-zsh-hook
+load-nvmrc() {
+  if [[ -f .nvmrc && -r .nvmrc ]]; then
+    nvm use
+  elif [[ $(nvm version) != $(nvm version default)  ]]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
 # Add Node.js path, from NVM FIXME
 # export PATH=$PATH:$NVM_BIN
 
