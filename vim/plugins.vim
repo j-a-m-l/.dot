@@ -28,12 +28,7 @@ let Tlist_GainFocus_On_ToggleOpen = 0
 " Los nombres suelen ser muy largos...
 "let Tlist_Display_Prototype = 1
 
-" Syntastic
-let g:syntastic_mode_map = { 'mode': 'active',
-   \ 'active_filetypes': ['ruby', 'php', 'javascript', 'html', 'css'],
-   \ 'passive_filetypes': [] }
-let g:syntastic_javascript_checker = 'jshint'
-let g:syntastic_javascript_jshint_conf = $HOME . '/.dot/jshintrc'
+source ~/.vim/config/plugins/syntastic.vim
 
 " NERDTree options
 let NERDChristmasTree=1
