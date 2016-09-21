@@ -3,6 +3,6 @@ set sessionoptions-=help
 
 let g:session_directory = '~/.dot.private/vim/sessions'
 " Load default instead of prompting
-let g:session_autoload = 'yes'
+let g:session_autoload = 'no'
 " Don't prompt
 let g:session_autosave = 'no'

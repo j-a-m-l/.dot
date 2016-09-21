@@ -1,5 +1,8 @@
 " PLUGINS
 
+source ~/.vim/config/plugins/ultisnips.vim
+source ~/.vim/config/plugins/supertab.vim
+
 " ECLIM
 " Para que use Exuberant Ctags
 "let g:EclimTaglistEnabled = 0
@@ -42,17 +45,6 @@ let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=0
 let NERDTreeQuitOnOpen=0
 map <Leader>n :NERDTree<CR>
-
-" Supertab settings
-" Para que utilice el contexto al decidir qué tipo de autocompletado usar
-let g:SuperTabDefaultCompletionType = "context"
-" 
-let g:SuperTabDefaultCompletionTypeDiscovery = [
-\ "&omnifunc:<C-X><C-O>",
-\ "&completefunc:<C-X><C-U>",
-\ ]
-let g:SuperTabLongestHighlight = 1
-" Para SQL debería usar C-X C-O para consultar con la bb.dd. TODO
 
 " Project
 " Ancho de la ventana
@@ -119,10 +111,10 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.so$',
   \ }
 
-" PDV (PHPDocumentator for Vim)
-imap <Leader>d <ESC>:call PhpDocSingle()<CR>i
-nmap <Leader>d :call PhpDocSingle()<CR>
-vmap <Leader>d :call PhpDocRange()<CR>
+" PDV (PHPDocumentator for Vim) TODO change this maps
+" imap <Leader>d <ESC>:call PhpDocSingle()<CR>i
+" nmap <Leader>d :call PhpDocSingle()<CR>
+" vmap <Leader>d :call PhpDocRange()<CR>
 
 "===========================================================================
 " dbext.vim callback function
@@ -232,5 +224,17 @@ endif
 "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
+
+"
+" rust.vim TODO until 7.4:248
+"
+" let g:rustfmt_autosave = 1
+
+"
+" vim-racer
+"
+set hidden
+let g:racer_cmd = $HOME."/.cargo/bin/racer"
+let $RUST_SRC_PATH = $HOME."/.rust/rustc-1.6.0/src"
 
 source ~/.vim/config/plugins/vim-session.vim
