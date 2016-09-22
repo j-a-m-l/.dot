@@ -1,7 +1,8 @@
 " PLUGINS
 
-source ~/.vim/config/plugins/ultisnips.vim
+source ~/.vim/config/plugins/CamelCaseMotion.vim
 source ~/.vim/config/plugins/supertab.vim
+source ~/.vim/config/plugins/ultisnips.vim
 
 " ECLIM
 " Para que use Exuberant Ctags
