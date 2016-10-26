@@ -1,13 +1,27 @@
 # TODO only Ember
 
-snippet ecp "Ember.computed()"
-Ember.computed('${1}', ${2} function() {
-  ${4}
-})${3:,}
+# TODO smart context
+snippet ecf "Ember.computed (function)"
+Ember.computed('${1}', ${2}function() {
+	${3}
+})${4:,}
+endsnippet
+
+# TODO smart context
+snippet eco "Ember.computed (object)"
+Ember.computed('${1}', {
+  get(_key) {
+		${2}
+  },
+	set(_key, value) {
+		${3}
+	  return value
+	},
+})${4:,}
 endsnippet
 
 snippet eob "Ember.observer()"
-Ember.observer('${1}', ${2} function() {
-	${4}
-})${3:,}
+Ember.observer('${1}', ${2}function() {
+	${3}
+})${4:,}
 endsnippet
