@@ -1,4 +1,8 @@
-# TODO only Ember
+# TODO split Ember and Mocha
+
+#
+# Ember
+#
 
 # TODO smart context
 snippet ecf "Ember.computed (function)"
@@ -24,4 +28,26 @@ snippet eob "Ember.observer()"
 Ember.observer('${1}', ${2}function() {
 	${3}
 })${4:,}
+endsnippet
+
+#
+# Mocha
+#
+
+snippet mdesc "Mocha describe"
+describe('${1}', ()=> {
+	${2}
+})
+endsnippet
+
+snippet mctx "Mocha context"
+context('${1}', ()=> {
+	${2}
+})
+endsnippet
+
+snippet mit "Mocha it"
+it('${1}', ()=> {
+	${2}
+})
 endsnippet
