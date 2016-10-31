@@ -9,14 +9,17 @@ alias bowup='bower update'
 
 # Ember.js
 alias em='ember'
+alias emi='ember install'
 alias emg='ember generate'
 alias ems='ember server'
 alias emt='ember test'
+alias emts='ember test --server'
 
 # npm
 alias npi='npm install'
 alias npis='npm install --save'
 alias npid='npm install --save-dev'
+alias nprs='npm run-script'
 alias npt='npm test'
 
 # Grunt
