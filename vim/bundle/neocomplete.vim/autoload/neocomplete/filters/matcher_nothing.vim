@@ -1,6 +1,6 @@
 "=============================================================================
-" FILE: context_filetype.vim
-" AUTHOR: Shougo Matsushita <Shougo.Matsu@gmail.com>
+" FILE: matcher_nothing.vim
+" AUTHOR:  Shougo Matsushita <Shougo.Matsu@gmail.com>
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -26,39 +26,17 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
-" context_filetype.vim installation check.
-if !exists('s:exists_context_filetype')
-  silent! call context_filetype#version()
-  let s:exists_context_filetype = exists('*context_filetype#version')
-endif
-
-function! neocomplete#context_filetype#set() abort "{{{
-  let neocomplete = neocomplete#get_current_neocomplete()
-  let context_filetype =
-        \ s:exists_context_filetype ?
-        \ context_filetype#get_filetype() : &filetype
-  if context_filetype == ''
-    let context_filetype = 'nothing'
-  endif
-  let neocomplete.context_filetype = context_filetype
-  let neocomplete.context_filetypes = s:exists_context_filetype ?
-        \  context_filetype#get_filetypes(context_filetype) :
-        \  [context_filetype] + split(context_filetype, '\.')
-
-  return neocomplete.context_filetype
+function! neocomplete#filters#matcher_nothing#define() abort "{{{
+  return s:matcher
 endfunction"}}}
-function! neocomplete#context_filetype#get(filetype) abort "{{{
-  let context_filetype =
-        \ s:exists_context_filetype ?
-        \ context_filetype#get_filetype(a:filetype) : a:filetype
-  if context_filetype == ''
-    let context_filetype = 'nothing'
-  endif
 
-  return context_filetype
-endfunction"}}}
-function! neocomplete#context_filetype#filetypes() abort "{{{
-  return copy(neocomplete#get_current_neocomplete().context_filetypes)
+let s:matcher = {
+      \ 'name' : 'matcher_nothing',
+      \ 'description' : 'input nothing matcher',
+      \}
+
+function! s:matcher.filter(context) abort "{{{
+  return a:context.candidates
 endfunction"}}}
 
 let &cpo = s:save_cpo

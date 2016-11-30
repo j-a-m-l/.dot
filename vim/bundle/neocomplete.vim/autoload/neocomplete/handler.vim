@@ -84,21 +84,6 @@ function! neocomplete#handler#_on_complete_done() abort "{{{
     let frequencies[complete_str] += 20
   endif
 endfunction"}}}
-function! neocomplete#handler#_change_update_time() abort "{{{
-  if &updatetime > g:neocomplete#cursor_hold_i_time
-    " Change updatetime.
-    let neocomplete = neocomplete#get_current_neocomplete()
-    let neocomplete.update_time_save = &updatetime
-    let &updatetime = g:neocomplete#cursor_hold_i_time
-  endif
-endfunction"}}}
-function! neocomplete#handler#_restore_update_time() abort "{{{
-  let neocomplete = neocomplete#get_current_neocomplete()
-  if &updatetime < neocomplete.update_time_save
-    " Restore updatetime.
-    let &updatetime = neocomplete.update_time_save
-  endif
-endfunction"}}}
 function! neocomplete#handler#_on_insert_char_pre() abort "{{{
   let neocomplete = neocomplete#get_current_neocomplete()
   let neocomplete.skip_next_complete = 0
@@ -132,15 +117,38 @@ function! neocomplete#handler#_on_text_changed() abort "{{{
   endif
 endfunction"}}}
 
+function! s:complete_delay(timer) abort "{{{
+  let event = s:timer.event
+  unlet! s:timer
+  return s:do_auto_complete(event)
+endfunction"}}}
+
 function! neocomplete#handler#_do_auto_complete(event) abort "{{{
+  if s:check_in_do_auto_complete(a:event)
+    return
+  endif
+
+  if g:neocomplete#auto_complete_delay > 0 && has('timers')
+        \ && (!has('gui_macvim') || has('patch-8.0.95'))
+    if exists('s:timer')
+      call timer_stop(s:timer.id)
+    endif
+    if a:event !=# 'Manual'
+      let s:timer = { 'event': a:event }
+      let s:timer.id = timer_start(
+            \ g:neocomplete#auto_complete_delay,
+            \ function('s:complete_delay'))
+      return
+    endif
+  endif
+
+  return s:do_auto_complete(a:event)
+endfunction"}}}
+
+function! s:do_auto_complete(event) abort "{{{
   let neocomplete = neocomplete#get_current_neocomplete()
 
-  if (g:neocomplete#enable_cursor_hold_i
-        \ && empty(neocomplete.candidates)
-        \ && a:event ==# 'CursorMovedI')
-        \ || s:check_in_do_auto_complete()
-        \ || (a:event ==# 'InsertEnter'
-        \     && neocomplete.old_cur_text != '')
+  if s:check_in_do_auto_complete(a:event)
     return
   endif
 
@@ -170,8 +178,8 @@ function! neocomplete#handler#_do_auto_complete(event) abort "{{{
 
     " Check multibyte input or eskk or spaces.
     if cur_text =~ '^\s*$'
-          \ || neocomplete#is_eskk_enabled()
-          \ || neocomplete#is_multibyte_input(cur_text)
+          \ || (!neocomplete#is_eskk_enabled()
+          \     && neocomplete#is_multibyte_input(cur_text))
       call neocomplete#print_debug('Skipped.')
       return
     endif
@@ -199,8 +207,9 @@ function! neocomplete#handler#_do_auto_complete(event) abort "{{{
   endtry
 endfunction"}}}
 
-function! s:check_in_do_auto_complete() abort "{{{
+function! s:check_in_do_auto_complete(event) abort "{{{
   if neocomplete#is_locked()
+        \ || (a:event !=# 'InsertEnter' && mode() !=# 'i')
     return 1
   endif
 
@@ -208,13 +217,32 @@ function! s:check_in_do_auto_complete() abort "{{{
   if &l:completefunc != '' && &l:buftype =~ 'nofile'
     return 1
   endif
+
+  let neocomplete = neocomplete#get_current_neocomplete()
+  " Detect foldmethod.
+  if (&l:foldmethod ==# 'expr' || &l:foldmethod ==# 'syntax')
+        \ && !neocomplete.detected_foldmethod
+        \ && a:event !=# 'InsertEnter'
+        \ && line('.') > 1000
+    let neocomplete.detected_foldmethod = 1
+    call neocomplete#print_error(
+          \ printf('foldmethod = "%s" is detected.', &foldmethod))
+    redir => foldmethod
+      verbose setlocal foldmethod?
+    redir END
+    for msg in split(substitute(foldmethod, '\t', '', 'g'), "\n")
+      call neocomplete#print_error(msg)
+    endfor
+    call neocomplete#print_error(
+          \ 'You should disable it or install FastFold plugin.')
+  endif
 endfunction"}}}
 function! s:is_skip_auto_complete(cur_text) abort "{{{
   let neocomplete = neocomplete#get_current_neocomplete()
 
   if (g:neocomplete#lock_iminsert && &l:iminsert)
         \ || (&l:formatoptions =~# '[tca]' && &l:textwidth > 0
-        \     && strwidth(a:cur_text) >= &l:textwidth)
+        \     && strdisplaywidth(a:cur_text) >= &l:textwidth)
     let neocomplete.skip_next_complete = 0
     return 1
   endif

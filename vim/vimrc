@@ -1,3 +1,5 @@
+" FIXME :2R when opening vim
+
 set nocompatible
 
 " TODO Split in several files; langs?, global, edit, commands/macros?
@@ -8,14 +10,11 @@ set nocompatible
 " autocmd BufWritePost *.vim so ~/.vim/maps.vim
 " autocmd BufWritePost *.vim so ~/.vim/plugins.vim
 
-" Pathogen.vim
-filetype off 
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-
 " Vundle
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
+source ~/.vim/vundle.vim
+call vundle#end()
 
 set shell=/bin/zsh
 
@@ -129,15 +128,14 @@ source ~/.vim/maps/vim.vim " Only GVim and Vim
 "source ~/.vim/maps/es.vim " Spanish layout
 source ~/.vim/maps/us.vim  " English layout
 
-" PLUGINS
+" PLUGINS (configuration)
 source ~/.vim/plugins.vim
-source ~/.vim/vundle.vim
 
 " COMMANDS
 source ~/.vim/commands.vim
 
-" Configuración adicional que puede depender del entorno TODO
-source ~/.dot.private/vim/Config/vimrc.vim
+" Private configuration
+source ~/.dot.private/vim/vimrc.vim
 
 " Turn on again
 filetype plugin indent on

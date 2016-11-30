@@ -45,6 +45,7 @@ let s:source = {
       \ 'rank' : 5,
       \ 'min_pattern_length' : 0,
       \ 'hooks' : {},
+      \ 'is_volatile' : 1,
       \}
 
 function! s:source.hooks.on_init(context) abort "{{{
@@ -54,7 +55,8 @@ function! s:source.hooks.on_init(context) abort "{{{
           \ line('.')-10, line('.')+10)
     autocmd InsertEnter,InsertLeave *
           \ call neocomplete#sources#member#make_cache_current_line()
-    autocmd FileType * call neocomplete#sources#member#remake_cache(&l:filetype)
+    autocmd FileType *
+          \ call neocomplete#sources#member#remake_cache(&l:filetype)
   augroup END"}}}
 
   " Initialize member prefix patterns. "{{{

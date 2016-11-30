@@ -29,15 +29,19 @@ set cpo&vim
 function! neocomplete#helper#get_cur_text(...) abort "{{{
   let neocomplete = neocomplete#get_current_neocomplete()
   let is_skip_char = get(a:000, 0, 0)
+  let mode = mode()
+  if neocomplete.event ==# 'InsertEnter'
+    let mode = 'i'
+  endif
 
   let cur_text =
-        \ ((neocomplete.event ==# 'InsertEnter' || mode() ==# 'i') ?
+        \ (mode ==# 'i' ?
         \   (col('.')-1) : col('.')) >= len(getline('.')) ?
         \      getline('.') :
         \      matchstr(getline('.'),
-        \         '^.*\%' . (mode() ==# 'i' && !is_skip_char ?
+        \         '^.*\%' . (mode ==# 'i' && !is_skip_char ?
         \                    col('.') : col('.') - 1)
-        \         . 'c' . (mode() ==# 'i' ? '' : '.'))
+        \         . 'c' . (mode ==# 'i' ? '' : '.'))
 
   if cur_text =~ '^.\{-}\ze\S\+$'
     let complete_str = matchstr(cur_text, '\S\+$')
@@ -57,20 +61,6 @@ function! neocomplete#helper#get_cur_text(...) abort "{{{
 endfunction"}}}
 
 function! neocomplete#helper#get_force_omni_complete_pos(cur_text) abort "{{{
-  " Check eskk complete length.
-  if neocomplete#is_eskk_enabled()
-        \ && exists('g:eskk#start_completion_length')
-    if !neocomplete#is_eskk_convertion(a:cur_text)
-          \ || !neocomplete#is_multibyte_input(a:cur_text)
-      return -1
-    endif
-
-    let complete_pos = call(&l:omnifunc, [1, ''])
-    let complete_str = a:cur_text[complete_pos :]
-    return (neocomplete#util#mb_strlen(complete_str) >=
-          \ g:eskk#start_completion_length) ? complete_pos : -1
-  endif
-
   let filetype = neocomplete#get_context_filetype()
   let omnifunc = &l:omnifunc
 
