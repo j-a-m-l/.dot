@@ -2,6 +2,7 @@
 curl https://sh.rustup.rs -sSf | sh
 
 rustup component add rustfmt-preview
+rustup component add clippy
 
 cargo install cargo-watch
 
