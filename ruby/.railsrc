@@ -1,0 +1,3 @@
+--skip-turbolinks
+--skip-test-unit
+--skip-javascript

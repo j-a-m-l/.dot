@@ -10,7 +10,7 @@ namespace :chef do
       :'cookbook-path' => '.',
       format: 'md',
       license: 'mit',
-      copyright: 'Juan Antonio Martín Lucas',
+      copyright: 'Juan A. Martín',
       email: 'TODO',
     })
     name = "#{args.name}-cookbook"

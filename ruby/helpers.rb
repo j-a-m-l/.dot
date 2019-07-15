@@ -11,4 +11,4 @@ def save_current_session path
   end
 end
 
-def q; quit end
+def q; exit end
