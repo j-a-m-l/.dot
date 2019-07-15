@@ -3,19 +3,20 @@ options(editor = "vim")
 # Set tab width:
 options(tab.width = 2)
 
-# FIXME relative to $DOT_HOME
+dotHome = Sys.getenv('DOT_HOME')
+
 loadDotR <- function () {
-  source("~/dot/r/interest.R")
-  source("~/dot/r/taxes.R")
-  source("~/dot/r/trading.R")
+  source(paste0(dotHome, '/r/interest.R'))
+  source(paste0(dotHome, '/r/taxes.R'))
+  source(paste0(dotHome, '/r/trading.R'))
 }
 
 reloadRprofile <- function () {
-  source("~/.Rprofile")
+  source('~/.Rprofile')
   loadDotR()
 }
 
-q <- function (save="no", ...) {
+q <- function (save='no', ...) {
   quit(save=save, ...)
 }
 
