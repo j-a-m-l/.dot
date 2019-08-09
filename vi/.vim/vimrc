@@ -1,0 +1,77 @@
+" FIXME :2R when opening vim
+
+let g:vi_config_path = $DOT_HOME . '/vi/'
+
+filetype off
+
+" TODO Split in several files; langs?, global, edit, commands/macros?
+
+" Para que actualice Vim al cambiar la configuración
+" autocmd! BufWritePost vimrc so ~/.vim/vimrc
+" autocmd! BufWritePost gvimrc so ~/.vim/gvimrc
+" autocmd BufWritePost *.vim so ~/.vim/maps.vim
+" autocmd BufWritePost *.vim so ~/.vim/plugins.vim
+
+" Plugins (installation)"
+execute 'source ' . fnameescape(g:vi_config_path . 'config/plugins.vim')
+
+" Turn on again
+filetype plugin indent on
+
+set shell=/bin/zsh
+
+execute 'source ' . fnameescape(g:vi_config_path . 'config/settings.vim')
+
+set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+set foldnestmax=3
+
+" Los caracteres '.', '*', '[' y ']' tienen un significado especial en las búsquedas
+set magic
+
+" ¿Qué hace? TODO
+"set laststatus=2
+
+" Para que muestre información de líneas, columnas y porcentaje en la línea de estado TODO rulerformat
+set ruler
+"set rulerformat=%15(%c%)
+
+set report=0 " Report when N lines were changed
+
+set lazyredraw " To improve macros
+
+set history=600 " Command history size
+
+"set isk+=_,$,@,%,#,-,?,%,& " none of these should be word dividers, so make them not be TODO Joderá algo?
+
+set spell
+
+" Directories for swp files TODO make sure they exist or create them
+set backupdir=~/.cache/vim
+set directory=~/.cache/vim
+
+" Para el botón derecho
+set mousemodel=extend
+
+" Para que busque en otros sitios además de en el propio directorio
+" set tags=~/.vim.private/Tags/php.tags
+
+" Local scripts/helpfiles FIXME pathogen
+"helptags $HOME/.vim/doc
+
+" Colours TODO why?
+" set t_Co=256
+
+" MAPS
+execute 'source ' . fnameescape(g:vi_config_path . 'maps/index.vim')
+
+" PLUGINS (configuration)
+execute 'source ' . fnameescape(g:vi_config_path . 'config/plugins/index.vim')
+
+" CUSTOMIZATIONS
+execute 'source ' . fnameescape(g:vi_config_path . 'custom/index.vim')
+
+" Private configuration TODO
+source ~/dot.private/vim/vimrc.vim

@@ -1,0 +1,52 @@
+" GVIM
+
+if has("gui_running")
+
+	" winpos 240 36 " Initial position on screen
+
+	set lines=36 " Lines
+	set columns=120 " Columns
+	"set transparency=5 FIXME
+
+	set guioptions-=M " System menu is not sourced
+	set guioptions-=m " No menu
+	set guioptions-=T " No toolbar
+	set guioptions-=r " No scrollbar on the right
+	set guioptions-=R " No scrollbar on the right when split
+	set guioptions-=l " No scrollbar on the left
+	set guioptions-=l " No scrollbar on the left when split
+	set guioptions-=b " No scrollbar on the bottom
+	set guioptions=ci
+
+	" Custom themes
+	colo noijd
+
+	" TODO resolution? 96x96
+	" TODO based on display layout
+	" FIXME based on current display or, at least, current displays,
+	" not configuration, when some displays are missing
+
+	let height = str2nr(system("xdpyinfo | grep dimension | awk '{ print $2 }' | awk -Fx '{print $2}'"))
+
+	let width = str2nr(system("xdpyinfo | grep dimension | awk '{ print $2 }' | awk -Fx '{print $1}'"))
+
+	" if height > 1500
+	" 	set guifont=Monospace\ 14
+	" else
+		if width < 1300
+			set guifont=DejaVu\ Sans\ Mono\ 6
+		elseif width == 2640
+			set guifont=DejaVu\ Sans\ Mono\ 6
+		" elseif width >= 3840
+		" 	set guifont=DejaVu\ Sans\ Mono\ 21
+		else
+			set guifont=DejaVu\ Sans\ Mono\ 9
+			set guifont=Hack\ Nerd\ Font\ 9
+	    end
+	" endif
+
+endif
+
+" FIXME Gvim does not find NPM or Yarn without this:
+let g:coc_node_path = $HOMD . '/.nvm/versions/node/v11.15.0/bin/node'
+" FIXME installation through CocInstall doesn't show any result (success or error)

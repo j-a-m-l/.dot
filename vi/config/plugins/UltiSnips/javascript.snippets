@@ -1,0 +1,115 @@
+# TODO split Ember and Mocha
+
+# FIXME Overrides `honza-vim-snippets` to avoid the smmicolon
+snippet cl "console.log"
+console.log(${0})
+endsnippet
+
+snippet benchBefore ""
+const before = new Date()
+console.log('before${0}', \`${before.getUTCHours()}:${before.getUTCMinutes()}:${before.getUTCSeconds()}.${before.getUTCMilliseconds()}\`)
+endsnippet
+
+snippet benchAfter ""
+const after = new Date()
+console.log('after${0}', \`${after.getUTCHours()}:${after.getUTCMinutes()}:${after.getUTCSeconds()}.${after.getUTCMilliseconds()}\`)
+endsnippet
+
+#
+# Ember
+#
+
+snippet eis "Ember.inject.service()"
+Ember.inject.service(${1}),
+endsnippet
+
+# TODO smart context
+snippet ecf "Ember.computed (function)"
+Ember.computed('${1}', ${2}function() {
+  ${3}
+})${4:,}
+endsnippet
+
+# TODO smart context
+snippet eca "Ember.computed.alias()"
+Ember.computed.alias('${1}'),
+endsnippet
+
+# TODO smart context
+snippet ecro "Ember.computed.readOnly()"
+Ember.computed.readOnly('${1}'),
+endsnippet
+
+# TODO smart context
+snippet eco "Ember.computed (object)"
+Ember.computed('${1}', {
+  get(_key) {
+		${2}
+  },
+	set(_key, value) {
+		${3}
+	  return value
+	},
+})${4:,}
+endsnippet
+
+snippet eob "Ember.observer()"
+Ember.observer('${1}', ${2}function() {
+	${3}
+})${4:,}
+endsnippet
+
+snippet _sup "this._super()"
+this._super(${1:...arguments})
+endsnippet
+
+snippet g "this.get()"
+${3:this}.get('${1}', ${2})
+endsnippet
+
+snippet s "this.set()"
+${3:this}.set('${1}', ${2})
+endsnippet
+
+#
+# Mocha / Jest
+#
+
+snippet mdesc "Mocha describe"
+describe('${1}', () => {
+	${2}
+})
+endsnippet
+
+snippet mctx "Mocha context"
+context('${1}', () => {
+	${2}
+})
+endsnippet
+
+snippet mbe "Mocha beforeEach"
+beforeEach(() => {
+	${1}
+})
+endsnippet
+
+snippet mae "Mocha afterEach"
+afterEach(() => {
+	${1}
+})
+endsnippet
+
+# snippet mit "Mocha it"
+# it('${1}', function () {
+# 	${2}
+# })
+# endsnippet
+snippet mit "Jest it"
+it('${1}', () => {
+	${2}
+})
+endsnippet
+
+snippet mexp "Mocha expect"
+expect(${1}).to.${2}
+endsnippet

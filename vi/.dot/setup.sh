@@ -9,6 +9,8 @@ pkg_refresh
 #
 
 pkg_install vim
+# Required by `vim-hug-neovim-rpc`, `nvim-yarp` and `deoplete`
+pip3 install pynvim
 
 #
 # Gvim

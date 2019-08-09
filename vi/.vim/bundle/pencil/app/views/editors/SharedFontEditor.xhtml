@@ -1,0 +1,34 @@
+<hbox>
+    <style>
+        @boldButton span {
+            font-weight: bold;
+        }
+        @italicButton span {
+            font-style: italic;
+        }
+        @underlineButton span {
+            text-decoration: underline;
+        }
+        @pixelFontSize {
+            width: 4em;
+        }
+
+        .widget_ComboManager @buttonDisplay {
+            display: inline-block;
+        }
+        @fontContainer @button {
+            width: 10em;
+        }
+    </style>
+    <vbox>
+        <hbox anon-id="fontContainer">
+            <hbox class="ButtonGroup">
+                <button anon-id="formatPainterButton" mode="icon" class="AdoptedOrphan" title="Copy shape format"><i>format_paint</i></button>
+                <ui:ComboManager anon-id="fontCombo" title="Text font" />
+                <input anon-id="pixelFontSize" type="number" min="5" max="300" title="Text size" />
+                <button anon-id="boldButton" mode="icon" title="Bold"><i>format_bold</i></button>
+                <button anon-id="italicButton" mode="icon" title="Italic"><i>format_italic</i></button>
+            </hbox>
+        </hbox>
+    </vbox>
+</hbox>
