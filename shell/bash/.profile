@@ -21,15 +21,13 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# Node path
-export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
 
-# Qt SDK paths
-QTSDK_LOCATION=$HOME/QtSDK/Desktop/Qt/474/gcc/bin
-if [ -d "$QTSDK_LOCATION" ] ; then
-    PATH="$QTSDK_LOCATION:$PATH"
-fi
-QTSDK_LOCATION=$HOME/QtSDK/QtCreator/bin
-if [ -d "$QTSDK_LOCATION" ] ; then
-    PATH="$QTSDK_LOCATION:$PATH"
-fi
+# Previous code is the standard Ubuntu profile
+# Here the customizations starts
+
+# For starting new terminals in the working directory of the current one TODO
+# . '/etc/profile.d/vte.sh'

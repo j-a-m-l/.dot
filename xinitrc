@@ -1,1 +1,0 @@
-~/.dot/xmonad/xmonadmap.sh

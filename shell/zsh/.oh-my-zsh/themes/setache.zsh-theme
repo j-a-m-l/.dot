@@ -40,9 +40,10 @@ function virtualenv_info {
   fi
 }
 
-# TODO last command status code
+# TODO last command status code (change the » color?)
 
 USER_PROMPT_="%{$azul_clarito%}%n"
+# TODO @ with a darker tone
 HOST_PROMPT_="%{$azul_oscuro%}@%m"
 
 # TODO current folder name with different color

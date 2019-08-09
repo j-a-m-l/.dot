@@ -1,6 +1,10 @@
 # Cargo
-alias cgo='cargo run'
-alias cgor='cargo run'
-alias cgot='cargo test'
-alias cgotn='cargo test -- --nocapture'
-alias cgow='cargo watch'
+alias cg='cargo'
+alias cgr='cargo run'
+alias cgt='cargo test'
+# TODO ?
+alias cgtd='cargo test --doc'
+alias cgtn='cargo test -- --nocapture'
+# TODO clippy
+# TODO fmt
+alias cgw='cargo watch'

@@ -1,28 +1,26 @@
 #!/bin/sh
 
+# TODO
+export EDITOR=vim
+
 # TODO Each platform on its file
 
-# Load RVM into a shell session *as a function*
-source_it $HOME/.rvm/scripts/rvm
+#
+# Ruby
+#
 
-# Add RVM to PATH for scripting FIXME only first time
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# Add RVM to PATH for scripting
 export PATH=$PATH:$HOME/.rvm/bin
 
-# This loads NVM using its proper directory
-export NVM_DIR=$HOME/.nvm
-source_it $NVM_DIR/nvm.sh
+#
+# Node
+#
 
-autoload -U add-zsh-hook
-load-nvmrc() {
-  if [[ -f .nvmrc && -r .nvmrc ]]; then
-    nvm use
-  elif [[ $(nvm version) != $(nvm version default)  ]]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Add Node.js path, from NVM FIXME
 # export PATH=$PATH:$NVM_BIN
@@ -30,33 +28,87 @@ load-nvmrc
 # jsctags path FIXME
 # export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH
 
+#
 # Python
-export PYTHONSTARTUP=$HOME/.pythonrc.py
+#
+
+# export PYTHONSTARTUP=$HOME/.pythonrc.py
+
+# pip uses this directory too
+export PATH=$PATH:$HOME/.local/bin
+
+#
+# Haskell
+#
 
 # Haskell (Binaries installed using Cabal) TODO versions
-export PATH=$HOME/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.8.4/bin:$PATH
+# export PATH=$HOME/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.8.4/bin:$PATH
+
+#
+# Rust
+#
+
+# Add Cargo to PATH
+export PATH=$PATH:$HOME/.cargo/bin
+
+# Rust source code path (for Racer)
+export RUST_SRC_PATH="$HOME/.rust/rustc-1.6.0/src"
+
+#
+# fzf
+# 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+#
+# ripgrep
+#
+
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
+# To use console mode to prompt for passwords
+# export GPG_TTY=$(tty)
+
+#
+# Erlang
+#
+
+# if [ ! -d "$ERL_LIBS" ] ; then
+# 	ERL_LIBS=/usr/lib/erlang/lib
+# 	if [ -d "$ERL_LIBS" ] ; then
+# 		export ERL_LIBS
+# 	fi
+# fi
+
+#
+# QT
+#
 
 # Qt SDK paths TODO
-QTSDK_LOCATION=$HOME/QtSDK/Desktop/Qt/474/gcc/bin
-if [ -d "$QTSDK_LOCATION" ] ; then
-    PATH=$PATH:$QTSDK_LOCATION
-fi
-QTSDK_LOCATION=$HOME/QtSDK/QtCreator/bin
-if [ -d "$QTSDK_LOCATION" ] ; then
-    PATH=$PATH:$QTSDK_LOCATION
-fi
+# QTSDK_LOCATION=$HOME/QtSDK/Desktop/Qt/474/gcc/bin
+# if [ -d "$QTSDK_LOCATION" ] ; then
+#     PATH=$PATH:$QTSDK_LOCATION
+# fi
+# QTSDK_LOCATION=$HOME/QtSDK/QtCreator/bin
+# if [ -d "$QTSDK_LOCATION" ] ; then
+#     PATH=$PATH:$QTSDK_LOCATION
+# fi
 
 # Ant
-ANT_HOME=/opt/apache-ant
-if [ -d "$ANT_HOME" ] ; then
-	export ANT_HOME
-	export PATH=$PATH:$ANT_HOME/bin
-fi
+# ANT_HOME=/opt/apache-ant
+# if [ -d "$ANT_HOME" ] ; then
+# 	export ANT_HOME
+# 	export PATH=$PATH:$ANT_HOME/bin
+# fi
 
 # Android
-export ANDROID_HOME=/opt/adt/sdk/tools
-export ANDROID_PLATFORM_TOOLS=/opt/adt/sdk/platform-tools
-export PATH=$PATH:$ANDROID_HOME:$ANDROID_PLATFORM_TOOLS
-
-# Golang
-source_it $HOME/.gvm/scripts/gvm
+# export ANDROID_HOME=/opt/adt/sdk/tools
+# export ANDROID_PLATFORM_TOOLS=/opt/adt/sdk/platform-tools
+# if [ -d "$ANDROID_HOME" ] ; then
+# 	export PATH=$PATH:$ANDROID_HOME
+# fi
+# if [ -d "$ANDROID_PLATFORM_TOOLS" ] ; then
+# 	export PATH=$PATH:$ANDROID_PLATFORM_TOOLS
+# fi
+# Gradle
+# export PATH=$PATH:/opt/gradle/gradle-4.4.1/bin

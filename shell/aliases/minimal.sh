@@ -6,17 +6,22 @@ alias gy='__grepify__'
 alias insist='__insist__'
 alias retry='__insist__ !!'
 
+# less
+alias l='less'
 # Use less (no pun intended)
 alias ly='__lessify__'
 
 # ls
-alias l='ls'
-alias ll='ls -alF'
 alias la='ls -A'
 alias lg='ls -a | grep -i --color=auto'
+alias lh='ls -alFh'
+alias ll='ls -alF'
 
 # man
 alias m='man'
+
+# tree
+alias tred='tree --dirsfirst'
 
 # Vim
 alias v='vim'
