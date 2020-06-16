@@ -1,9 +1,19 @@
 #!/bin/sh
 
+# TODO Each platform on its file
+
+#
+# Essential
+#
+
 # TODO
 export EDITOR=vim
 
-# TODO Each platform on its file
+#
+# JS
+#
+
+[ -s "$DOT_HOME/js/.dot/env.sh" ] && \. "$DOT_HOME/js/.dot/env.sh"
 
 #
 # Ruby
@@ -13,20 +23,6 @@ export EDITOR=vim
 
 # Add RVM to PATH for scripting
 export PATH=$PATH:$HOME/.rvm/bin
-
-#
-# Node
-#
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Add Node.js path, from NVM FIXME
-# export PATH=$PATH:$NVM_BIN
-
-# jsctags path FIXME
-# export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH
 
 #
 # Python
