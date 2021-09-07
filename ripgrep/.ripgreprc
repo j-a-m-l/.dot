@@ -1,0 +1,4 @@
+# Case insensitive if the pattern is all lowercase; case sensitive otherwise
+--smart-case
+# Don not print lines longer than this limit in bytes. Instead the number of matches is displayed
+--max-columns=240
