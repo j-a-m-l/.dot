@@ -12,10 +12,11 @@ alias l='less'
 alias ly='__lessify__'
 
 # ls
+# -A (almost all) does not list `.` and `..`
 alias la='ls -A'
-alias lg='ls -a | grep -i --color=auto'
-alias lh='ls -alFh'
-alias ll='ls -alF'
+alias lg='ls -A | grep -i --color=auto'
+alias lh='ls -AlFh'
+alias ll='ls -AlF'
 
 # man
 alias m='man'
