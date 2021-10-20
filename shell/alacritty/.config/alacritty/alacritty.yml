@@ -76,5 +76,8 @@ schemes:
 colors: *breeze
 
 key_bindings:
-  # These alternative bindings use Shift, like when writing "+" or "-"
-  - { key: Add,      mods: Control|Shift,       action: IncreaseFontSize }
+  # To keep consistent behaviour:
+  #  * `0`: reset font size
+  #  * `-`: decrease font size
+  #  * `=`: increase font size
+  - { key: Equals,      mods: Control,       action: IncreaseFontSize }
