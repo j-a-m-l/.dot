@@ -1,5 +1,3 @@
-" FIXME :2R when opening vim
-
 let g:vi_config_path = $DOT_HOME . '/vi/'
 
 filetype off
@@ -65,13 +63,13 @@ set mousemodel=extend
 " set t_Co=256
 
 " MAPS
-execute 'source ' . fnameescape(g:vi_config_path . 'maps/index.vim')
+execute 'source ' . fnameescape(g:vi_config_path . 'maps/_index_.vim')
 
 " PLUGINS (configuration)
-execute 'source ' . fnameescape(g:vi_config_path . 'config/plugins/index.vim')
+execute 'source ' . fnameescape(g:vi_config_path . 'config/plugins/_index_.vim')
 
 " CUSTOMIZATIONS
-execute 'source ' . fnameescape(g:vi_config_path . 'custom/index.vim')
+execute 'source ' . fnameescape(g:vi_config_path . 'custom/_index_.vim')
 
 " Private configuration TODO
 source ~/dot.private/vim/vimrc.vim

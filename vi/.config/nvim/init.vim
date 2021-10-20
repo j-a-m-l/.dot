@@ -16,14 +16,17 @@ set shell=/bin/zsh
 
 execute 'source ' . fnameescape(g:vi_config_path . 'config/settings.vim')
 
-" PLUGINS (configuration)
-execute 'source ' . fnameescape(g:vi_config_path . 'config/plugins/index.vim')
-
 " MAPS
-execute 'source ' . fnameescape(g:vi_config_path . 'maps/index.vim')
+execute 'source ' . fnameescape(g:vi_config_path . 'maps/_index_.vim')
+
+" PLUGINS (configuration)
+execute 'source ' . fnameescape(g:vi_config_path . 'config/plugins/_index_.vim')
+
+" FileType
+execute 'source ' . fnameescape(g:vi_config_path . 'ftplugin/_index_.vim')
 
 " CUSTOMIZATIONS
-execute 'source ' . fnameescape(g:vi_config_path . 'custom/index.vim')
+execute 'source ' . fnameescape(g:vi_config_path . 'custom/_index_.vim')
 
 " Private configuration TODO
 source ~/dot.private/vim/vimrc.vim
