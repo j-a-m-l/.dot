@@ -13,14 +13,24 @@ alias dokku='bash $HOME/.dokku/contrib/dokku_client.sh'
 alias fore='foreman start'
 
 # git
-# alias g='git'
+alias g='git'
 
 # git + GitHub TODO only if hub is available
-alias g='hub'
+alias gh='hub'
+
+# git + GitLab (and GitHub if hub is available) TODO only if lab is available
+alias gl='lab'
+
+# TODO: better approach for auto-completions
+. /usr/share/bash-completion/completions/git
+__git_complete g _git
 
 # Make
 alias mk='make'
 alias mki='make install'
+
+# fd
+alias fd='fdfind'
 
 # Firefox
 alias fox='firefox'
@@ -28,6 +38,10 @@ alias foxp='firefox -P '
 
 # Open files like a boss. I really need it...
 alias o='__open__'
+
+# Fetch my public IP
+alias my_public_ip='curl --silent ifconfig.co'
+alias my_ip='my_public_ip'
 
 # netstat
 alias open_ports1='netstat -nap'
@@ -44,8 +58,14 @@ alias safely_remove='sudo udisks --detach'
 alias Shutdown='sudo shutdown -h -P now'
 alias Restart='sudo shutdown -r now'
 
+# xclip
+alias clipboard='xclip -selection c'
+
 # SimpleHttpServer replaced by simplehttpserver (`npm install simplehttpserver -g`)
 # alias simple_server='python -m SimpleHTTPServer'
+
+# TODO: <command> --help | less
+# alias helpize=
 
 __open__() {
 	nohup xdg-open $1 > /dev/null 2>&1 &
@@ -74,5 +94,6 @@ ALIASES_PATH="$DOT_HOME/shell/aliases"
 . "$ALIASES_PATH/python.sh"
 . "$ALIASES_PATH/haskell.sh"
 . "$ALIASES_PATH/one_liners.sh"
+. "$ALIASES_PATH/rg.sh"
 . "$ALIASES_PATH/tmux.sh"
 . "$ALIASES_PATH/vagrant.sh"
