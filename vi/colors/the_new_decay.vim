@@ -37,8 +37,9 @@ let s:colors = {
 	\    'grayNumber'         : '#7B7A72',
 	\    'greenFloat'         : '#35D598',
 	\    'greenNumber'    : '#059926',
-	\    'grayComment'    : '#ABAAA2',
-	\    'grayTodo'    : '#7B7A72',
+	\    'grayComment'    : '#9B9A92',
+	\    'grayDoc'    : '#8B8A82',
+	\    'grayTodo'    : '#6B6A62',
 		\    'orangeDoc'        : '#F6C179',
 	\    'orangeStorage'      : '#DF8129',
 	\    'orangeKeyword'      : '#CF5129',
@@ -134,9 +135,9 @@ call s:c( 'rustFuncCall', 'blueFunction', '', '', '', '')
 call s:c( 'rustShebang', 'Y', '', '', '', '')
 
 call s:c( 'rustCommentLine', 'grayComment', '', 'italic', '', '')
-call s:c( 'rustCommentLineDoc', 'XX', '', '', '', '')
-call s:c( 'rustCommentBlock', 'XX', '', '', '', '')
-call s:c( 'rustCommentBlockDoc', 'XX', '', '', '', '')
+call s:c( 'rustCommentLineDoc', 'grayDoc', '', '', '', '')
+call s:c( 'rustCommentBlock', 'grayComment', '', '', '', '')
+call s:c( 'rustCommentBlockDoc', 'grayDoc', '', '', '', '')
 call s:c( 'rustTodo', 'grayTodo', '', 'bold', '', '')
 
 call s:c( 'rustAssert', 'X', '', '', '', '')
