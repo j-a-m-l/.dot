@@ -3,8 +3,9 @@
 # TODO just one configuration: import or export from i3 config
 ws1="1:edit"
 ws0="0:communicate"
+ws2="2:console"
 
-MAX_WAIT=10
+MAX_WAIT=30
 
 # Taken from https://github.com/fhaun/config-misc/blob/master/i3-stuff/auto-start-for-i3
 run_it () {
@@ -14,7 +15,7 @@ run_it () {
 		if xdotool search --pid $LAST_PID; then
 			return 0
 		fi
-		sleep 1
+		sleep 0.1
 	done
 
 	# FIXME for console_layout
@@ -42,16 +43,28 @@ email_layout () {
 	run_it 'kmail'
 }
 
-boot_layout () {
-	email_layout
-	sleep 1
-	console_layout
-	sleep 1
-	# edit_layout
-	# sleep 1
+# Loads Telegram the daemon workspace
+# notification_layout () {
+#   i3-msg workspace $ws__
+#   # run_it '/opt/Telegram/Telegram'
+#   run_it "feh $HOME/HORARIO.png"
+# }
 
-	# Focus on communication workspace
-	i3-msg workspace $ws0
+boot_layout () {
+  # email_layout
+  # sleep 1
+  console_layout
+  sleep 0.5
+  edit_layout
+  sleep 0.5
+  # notification_layout
+  # sleep 0.5
+
+  # run_it "eog $HOME/HORARIO.png"
+  # sleep 0.5
+
+  # Focus on the editing workspace
+  i3-msg workspace $ws1
 }
 
 

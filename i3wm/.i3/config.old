@@ -1,5 +1,8 @@
 # vim:ft=i3
 
+# TODO Create a base configuration
+# sed -i 's/eDP1/DP1/' i3/base_config
+
 # NOTES:
 # Use always " instead of '
 
@@ -82,7 +85,7 @@ workspace $ws2 output $laptop_display
 workspace $ws3 output $old_display
 workspace $ws4 output $laptop_display
 workspace $ws5 output $twin_displays
-workspace $ws6 output $twin_displays
+workspace $ws6 output $laptop_display
 workspace $ws7 output $old_display
 workspace $ws8 output $twin_displays
 workspace $ws9 output $old_display
@@ -112,6 +115,9 @@ bindsym $mod+Escape kill
 
 # Use Kupfer as launcher
 bindsym $mod+d exec kupfer
+
+# vim-anywhere
+bindsym Control+Mod1+v exec ~/.vim-anywhere/bin/run
 
 # change focus
 bindsym $mod+h focus left
@@ -148,7 +154,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+p focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+#bindsym $mod+i focus child
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -183,9 +189,9 @@ bindsym $mod+Shift+d move workspace to output up
 bindsym $mod+Shift+f move workspace to output right
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Control+Mod1+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i^3? This will end your X session.' -b 'Yes' 'i3-msg exit'"
 # Shutdown
@@ -238,6 +244,7 @@ assign [class="Evince"] $ws5
 assign [class="Calibre"] $ws5
 assign [class="Anki"] $ws5
 assign [class="Gimp"] $ws6
+assign [class="Krita"] $ws6
 assign [class="Inkscape"] $ws6
 assign [class="Xournal"] $ws6
 assign [class="Amarok"] $ws7

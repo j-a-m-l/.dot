@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from argparse import ArgumentParser
 import os
 import re
@@ -44,7 +46,7 @@ def real_pid_for_window(window_id, parent_id):
     children_wids = dict(zip(sorted_windows, sorted_children))
 
     # TODO debug option
-    with open('/tmp/i3_py_shell', 'w') as log:
+    with open('/tmp/i3_shell_py', 'w') as log:
         if not len(children):
             log.write('CHILDREN: '+ str(children) +"\n")
 

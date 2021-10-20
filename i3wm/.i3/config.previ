@@ -1,0 +1,298 @@
+# vim:ft=i3
+
+# TODO Create a base configuration
+# sed -i 's/eDP1/DP1/' i3/base_config
+
+# NOTES:
+# Use always " instead of '
+
+# Use Super
+set $mod Mod4
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below. ISO 10646 = Unicode
+font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, if you need a lot of unicode glyphs or
+# right-to-left text rendering, you should instead use pango for rendering and
+# chose a FreeType font, such as:
+font pango:DejaVu Sans Mono 10
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+focus_follows_mouse yes
+
+# Default layout mode for new containers
+# workspace_layout TODO
+
+# Hide edge borders
+hide_edge_borders both
+
+# Border style for new windows
+new_window pixel 4
+
+# Hide window title
+#for_window [class=".*"] border pixel 0
+
+# Window decoration colors (HEX 6 chars)
+# Border: Two lines at the top of the window
+# Background: Color around child window
+# Text: Window title
+# New window indicator: indicates where a new windows will be placed
+
+# Current workspace and focused window
+client.focused #ff0000 #ff0000 #ffffff #ff0000
+
+# Not focused window (current or not workspace)
+client.focused_inactive #4488ff #4488ff #ffffff #2e9ef4
+
+# Neither current workspace nor window
+client.unfocused #888888 #888888 #ffffff #888888
+
+# Urgent window TODO
+client.urgent #ff0000 #ff0000 #ffffff #ff0000
+
+# TODO
+client.background #ffffff
+
+# Disable automatic back-and-forth when switching to the current workspace
+workspace_auto_back_and_forth no
+
+# Delay urgency hint reset on workspace change
+force_display_urgency_hint 500 ms
+
+set $ws1 "1:edit"
+set $ws2 "2:console"
+set $ws3 "3:web"
+set $ws4 "4:communicate"
+set $ws5 "5:read"
+set $ws6 "6:visual"
+set $ws7 "7:media"
+set $ws8 "8:net"
+set $ws9 "9:explore"
+set $ws0 "0:inbox"
+set $ws_ "-:limbo"
+set $ws__ "=:daemons"
+
+set $left_new_display DP-4.1
+set $center_new_display DP-4.2
+set $old_display DP-2
+set $laptop_display DP-3
+
+# TODO customizable
+workspace $ws1 output $center_new_display
+workspace $ws2 output $old_display
+workspace $ws3 output $left_new_display
+workspace $ws4 output $old_display
+workspace $ws5 output $left_new_display
+workspace $ws6 output $laptop_display
+workspace $ws7 output $old_display
+workspace $ws8 output $left_new_display
+workspace $ws9 output $left_new_display
+workspace $ws0 output $left_new_display
+workspace $ws_ output $old_display
+workspace $ws__ output $old_display
+
+# Sound volume buttons
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
+bindsym XF86AudioMute exec amixer -D pulse sset Master 0%
+
+# Brightness buttons (from http://i3wm.org/docs/user-contributed/lzap-config.html) FIXME hdp
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+
+# Lock touchpad TODO
+# bindsym XF86Touch exec ~/.i3/touchpad.sh
+
+# Start a terminal
+bindsym $mod+Return exec ~/.i3/shell.sh
+
+# Kill focused window
+bindsym $mod+Escape kill
+
+# Start dmenu (a program launcher)
+# bindsym $mod+d exec dmenu_run
+
+# Use Kupfer as launcher
+# bindsym $mod+d exec albert
+bindsym $mod+d exec synapse
+
+# vim-anywhere
+bindsym Control+Mod1+v exec ~/.vim-anywhere/bin/run
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Split in vertical orientation
+bindsym $mod+v split v
+# Split in horizontal orientation
+bindsym $mod+Shift+v split h
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+a layout tabbed
+bindsym $mod+s layout stacking
+bindsym $mod+g layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+p focus parent
+
+# focus the child container
+bindsym $mod+Shift+p focus child
+# bindsym $mod+i focus child
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws0
+
+# TODO pen workspace
+# bindsym $mod+0 workspace $ws0
+
+# Use `xev -event keyboard` to get code
+bindcode $mod+20 workspace $ws_
+bindcode $mod+21 workspace $ws__
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws0
+bindcode $mod+Shift+20 move container to workspace $ws_
+bindcode $mod+Shift+21 move container to workspace $ws__
+
+# Move workspace to display
+bindsym $mod+Shift+a move workspace to output left
+bindsym $mod+Shift+s move workspace to output down
+bindsym $mod+Shift+d move workspace to output up
+bindsym $mod+Shift+f move workspace to output right
+
+# reload the configuration file
+bindsym $mod+Shift+r reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Control+Mod1+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Control+Mod1+e exec "i3-nagbar -t warning -m 'Do you really want to exit i^3? This will end your X session.' -b 'Yes' 'i3-msg exit'"
+# Shutdown
+bindsym $mod+Control+Mod1+p exec "i3-nagbar -t warning -m 'Quit?' -b 'Yes' 'sudo shutdown -P now'"
+
+set $size 1
+
+# Resize window
+mode "resize" {
+
+	# TODO resize layout instead of window, like xmonad
+	# floating and tilling sizes
+    bindsym h resize grow width $size px or $size ppt
+    bindsym k resize grow height $size px or $size ppt
+    bindsym j resize grow height $size px or $size ppt
+    bindsym l resize grow width $size px or $size ppt
+    bindsym Shift+h resize shrink width $size px or $size ppt
+    bindsym Shift+k resize shrink height $size px or $size ppt
+    bindsym Shift+j resize shrink height $size px or $size ppt
+    bindsym Shift+l resize shrink width $size px or $size ppt
+
+    # Back to normal
+    bindsym r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+	#id TODO
+	status_command i3status --config ~/.i3/i3status.conf
+	mode hide
+	position bottom
+	workspace_buttons yes
+	binding_mode_indicator yes
+	font pango:DejaVu Sans Mono 11
+	# colors TODO
+
+	# Tray icons on primary output
+	tray_output primary
+}
+
+# TODO more customizable
+assign [class="(?i)g?vim$"] $ws1
+assign [class="Firefox"] $ws3
+assign [class="Vimperator"] $ws3
+assign [class="Chromium"] $ws3
+# TODO
+assign [class="Tor Browser"] $ws3
+assign [class="Pidgin"] $ws4
+assign [class="Semaphor"] $ws4
+# TODO
+assign [instance="discord"] $ws4
+assign [class="Evince"] $ws5
+assign [instance="ebook-viewer"] $ws5
+assign [class="Calibre"] $ws5
+assign [class="Anki"] $ws5
+assign [class="Mcomix"] $ws5
+# TODO
+assign [class="qcomicbook"] $ws5
+# TODO
+assign [class="Okular"] $ws5
+assign [class="Gimp"] $ws6
+assign [class="Krita"] $ws6
+assign [class="Inkscape"] $ws6
+assign [class="Xournal"] $ws6
+assign [class="Hoodle"] $ws6
+assign [class="Amarok"] $ws7
+assign [class="Clementine"] $ws7
+assign [class="vlc"] $ws7
+assign [class="smplayer"] $ws7
+assign [class="Pavucontrol"] $ws7
+assign [class="mpv"] $ws7
+# TODO
+assign [instance="gmusicbrowser"] $ws7
+assign [class="Quod Libet"] $ws7
+assign [class="Transmission"] $ws8
+assign [class="Vuze"] $ws8
+# TODO
+assign [class="jDownloader"] $ws8
+assign [class="Nautilus"] $ws9
+# TODO
+assign [class="Dolphin"] $ws9
+# TODO
+assign [class="FSearch"] $ws9
+assign [class="Kmail"] $ws0
+assign [class="Thunderbird"] $ws0
+assign [class="Telegram"] $ws__
+
+# Boot applications
+exec $HOME/.dot/i3/layouts.sh 'boot'

@@ -2,7 +2,10 @@
 
 # Original i3 thread: https://faq.i3wm.org/question/150/how-to-launch-a-terminal-from-here/?answer=152#post-id-152
  
-CMD='gnome-terminal --zoom=2.0'
+# TODO: use the avaialble applications
+CMD='alacritty'
+# CMD='gnome-terminal --zoom=2.0'
+# CMD='konsole'
 CWD=''
  
 # Short way of getting the PID
@@ -10,7 +13,7 @@ PID=$(xdotool getactivewindow getwindowpid)
 WID=$(xdotool getactivewindow)
 
 # Get the REAL id of the window
-REAL_PID=$(python $HOME/.i3/shell.py --wid $WID --pid $PID)
+REAL_PID=$(python3 $HOME/.i3/shell.py --wid $WID --pid $PID)
 
 echo $PID > /tmp/i3shell 
 echo $WID >> /tmp/i3shell 
