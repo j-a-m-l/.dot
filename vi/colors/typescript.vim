@@ -51,6 +51,7 @@ let s:colors = {
     \    'bluePrototype'    : '#0495BF',
     \    'blueSpecial'      : '#A2CBF9',
     \    'blueLabel'        : '#B2CBF9',
+    \    'blueInterpolation': '#429BF9',
     \    'brownConsole'     : '#D07455',
     \    'grayBracket'      : '#3B3A32',
     \    'grayPunc'         : '#ABAAA2',
@@ -118,7 +119,7 @@ call s:c( 'typescriptDocParam', 'Z', '', '', '', '')
 call s:c( 'typescriptStringS', 'blueString', '', '', '', '')
 call s:c( 'typescriptStringD', 'blueString', '', '', '', '')
 call s:c( 'typescriptStringB', 'blueString', '', '', '', '')
-call s:c( 'typescriptInterpolationDelimiter', 'Y', 'V', 'bold', '', '')
+call s:c( 'typescriptInterpolationDelimiter', 'blueInterpolation', '', 'bold', '', '')
 call s:c( 'typescriptRegexpString', 'Z', '', '', '', '')
 call s:c( 'typescriptGlobal', 'X', 'Y', '', '', '')
 call s:c( 'typescriptCharacter', 'Y', 'Z', '', '', '')
