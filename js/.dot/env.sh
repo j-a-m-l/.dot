@@ -18,6 +18,8 @@ NVM_DIR="$HOME/.nvm"
 
 # Yarn
 
+# NOTE: this should not be necessary at all, but it's the simplest way to force NVM to use always the default Node version
+nvm use --silent default
 export PATH="$(yarn global bin):$PATH"
 
 # jsctags path FIXME
