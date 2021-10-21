@@ -8,6 +8,8 @@
 " Notes: TypeScript oriented color theme
 
 let g:colors_name = "TodoScript"
+" TODO saffron style
+"
 " TODO red-typos ?
 " TODO todoscript ?
 " TODO darker comments

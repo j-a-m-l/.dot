@@ -1,4 +1,6 @@
-" MAPS
+"
+" Vim and Neovim
+"
 
 " Recommend by Learning the vi and Vim Editors
 map e ea

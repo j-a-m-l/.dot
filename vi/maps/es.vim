@@ -1,3 +1,7 @@
+"
+" Spanish keyboards
+"
+
 let mapleader = "ç"
 
 " Tabs

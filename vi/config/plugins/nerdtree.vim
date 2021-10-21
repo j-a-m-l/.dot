@@ -1,7 +1,7 @@
 let NERDChristmasTree=1
 let NERDTreeCaseSensitiveSort=0
 let NERDTreeChDirMode=2
-let NERDTreeWinSize=32 " 32 plus 2 windows of 80
+let NERDTreeWinSize=32 " 32 plus 2 windows of 80 on older monitors
 let NERDTreeArrows=1
 let NERDTreeIgnore=['\.svn$', '\.git$', '\.pyc$', '\.beam$']
 " FIXME

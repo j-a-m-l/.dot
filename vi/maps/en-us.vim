@@ -1,7 +1,12 @@
+"
+" English International keyboards
+"
+
 " Backward
 nnoremap ,; ,
 " Forward
 nnoremap , ;
+" To not use Shift to enter commands
 nnoremap ; :
 
 " Tabs
