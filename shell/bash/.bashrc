@@ -116,6 +116,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+#
+# Custom parts start here
+#
+
 # Change to a directory withot `cd` (ie:  `..` instead of `cd ..`)
 shopt -s autocd
 
