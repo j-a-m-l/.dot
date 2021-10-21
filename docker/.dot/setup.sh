@@ -15,9 +15,9 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo apt-key fingerprint 0EBFCD88
 
 # TODO try first with the current release before using the hardcoded one
-# NOTE `disco` has not release yet
+# NOTE `focal` has not release yet
 # docker_stable_release="$(lsb_release -cs)"
-docker_stable_release="cosmic"
+docker_stable_release="disco"
 pkg_source "deb [arch=amd64] https://download.docker.com/linux/ubuntu $docker_stable_release stable"
 
 #
@@ -57,6 +57,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 # https://docs.docker.com/compose/completion/
 # mkdir -p ~/.zsh/completion
 # curl -L https://raw.githubusercontent.com/docker/compose/1.21.2/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
+# Bash (sometimes /etc/bash_completion.d/ is used too)
+# sudo curl -L https://raw.githubusercontent.com/docker/compose/1.25.4/contrib/completion/bash/docker-compose -o /usr/local/etc/bash_completion.d/docker-compose
 
 # TODO autocompletion
 # fpath=(~/.zsh/completion $fpath)
