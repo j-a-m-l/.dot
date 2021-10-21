@@ -6,6 +6,7 @@ pkg_refresh
 
 #
 # Vim
+# TODO: optional
 #
 
 pkg_install vim
@@ -14,17 +15,22 @@ pip3 install pynvim
 
 #
 # Gvim
+# TODO: optional
 #
 
 pkg_install vim-gtk3
 
 #
 # Neovim
+# TODO: optional
 #
 
 # FIXME problems with ubunutu disco
 pkg_source ppa:neovim-ppa/stable
 pkg_install software-properties-common neovim
+
+# TODO: CoC extensions
+# vim -c 'CocInstall -sync coc-json coc-html|q'
 
 #
 # Configuration
