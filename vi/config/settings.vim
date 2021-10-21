@@ -88,3 +88,6 @@ colo noijd
 
 " TODO: if not exists, display error or something like that
 set grepprg=rg\ --vimgrep
+
+" The home directory for where Netrw bookmarks and history are saved
+let g:netrw_home = $XDG_CACHE_HOME . '/vi'
