@@ -85,3 +85,6 @@ set linebreak
 
 " My themes
 colo noijd
+
+" TODO: if not exists, display error or something like that
+set grepprg=rg\ --vimgrep
