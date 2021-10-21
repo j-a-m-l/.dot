@@ -4,8 +4,8 @@
 
 git filter-branch --env-filter '
 OLD_EMAIL="TODO@TODO"
-CORRECT_NAME="jaml"
-CORRECT_EMAIL="dev@jaml.pro"
+CORRECT_NAME="To Do"
+CORRECT_EMAIL="TODO@TODO"
 if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]
 then
     export GIT_COMMITTER_NAME="$CORRECT_NAME"
