@@ -24,8 +24,8 @@ alias m='man'
 # tree
 alias tred='tree --dirsfirst'
 
-# Vim
-alias v='vim'
+# Neovim
+alias v='nvim'
 
 
 # "Aliases are expanded when a function definition is read, not when the function is executed"
